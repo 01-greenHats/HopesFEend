@@ -4,6 +4,7 @@ import './styles.scss';
 import InNeedUsers from './components/inNeedUsers';
 // import Header from './components/header';
 import { Route, Switch } from 'react-router-dom';
+import MainPage from './components/mainPage';
 
 
 export default propsimport => {
@@ -11,8 +12,12 @@ export default propsimport => {
     <div id='main'>
       {/* <Header/> */}
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/inneedusers">
             <InNeedUsers/>
+        </Route>
+
+        <Route exact path="/">
+            <MainPage/>
         </Route>
         {/* <Route exact path="/productDetails/:id" component={ProductDtl} />
         <Route component={CartDetails} exact path="/cartDetails"/> */}
