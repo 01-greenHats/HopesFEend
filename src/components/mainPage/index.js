@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import { setPosts } from '../../store/posts'
-import { getPostsData } from '../../store/apiActions'
+import { getPostsData, addPost } from '../../store/apiActions'
 import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
@@ -121,6 +121,9 @@ const MainPage = props => {
     useEffect(async () => {
         let data = await getPostsData()
         props.setPosts(data)
+
+        let add_post=await addPost()
+        console.log({add_post});
     }, []);
     return (
         <>
