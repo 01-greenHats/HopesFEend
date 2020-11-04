@@ -2,6 +2,9 @@ import superagent from 'superagent';
 
 let usersUrl = 'https://gazahopes.herokuapp.com/api/v1/users';
 let postsUrl = 'https://gazahopes.herokuapp.com/api/v1/posts';
+let addPostUrl= 'https://gazahopes.herokuapp.com/api/v1/users/posts/add';
+// let addPostUrl='localhost:8000/api/v1/users/posts/add';
+
 // let productsApi = 'https://alhrthani-todos.herokuapp.com/api/v1/products';
 // action creator is a function that returns an object
 // return a function from my action creator
@@ -52,4 +55,22 @@ export const reduceStockQuantity = (body) => {
         // console.log('====Updated===',data.body);
         return body;
     });
+}
+
+
+
+
+export const addPost = () => {
+    let post =  {
+        userid: "hrthani",
+        title: "react heroku",
+        content: "new",
+        imageUrl: "image.jpg",
+        comments: []      
+    };
+
+    let auth= 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaHJ0aHFhbmkiLCJuYXRpb25hbE5vIjo5MDE1NjYxMjMsImlhdCI6MTYwNDUwNjM4MCwiZXhwIjoxNjA0NTEwODgwfQ.bIrzUTWUdfW6jbN0GTAAtjPS0DUlCAeushI0ntCKr_o';
+
+
+  
 }
