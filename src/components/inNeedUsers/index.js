@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import { setInNeedUsers } from '../../store/inNeedUser'
 import { reduceStockQuantity, getInNeedUsersData } from '../../store/apiActions'
 import { Link } from 'react-router-dom';
+import UserCard from '../userCard'
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -71,31 +72,38 @@ const InNeedUsers = props => {
         let data = await getInNeedUsersData()
         props.setInNeedUsers(data)
     }, []);
-    return (
-        <>
-            <div className={classes.root}>
-                <div style={{ display: 'flex' }}>
-                    {props.inNeedUsers.map((user, idx) => {
-                        // if (product.category.toLowerCase() == props.selectedCategory.toLowerCase()) {
-                            console.log('>>>>>>props.user>>>>>>>', user);
-                            // return (
-                            //     <div key={idx} style={{ border: '1px solid black', width: 'fit-content', padding: '10px', margin: '10px' }}>
-                                    
-                            //             <h3 id='productName'>{product.name}</h3>
-                            //             <img id='productImg' src={`${product.img}`} style={{ width: '15rem' }}></img>
-                            //             <p>in stok : <strong>{product.inStock}</strong></p>
-                            //             <p>price : <strong id='producPrice'>{product.price}</strong></p>
-                                    
-                            //             <Button onClick={() => { handleAddToCart(product) }} variant="contained" color="primary">Order</Button>
-                            //             <Link to={{pathname: "/productDetails/"+product._id ,state: product  }}>View Details</Link>
-                            //     </div>
-                            // )
-                        // }/
-                    })}
-                </div>
-            </div>
-        </>
+    return(
+        // <h1>Hi</h1>
+        <UserCard data={props.inNeedUsers}/>
     )
+    // return (
+    //     <>
+    //         <div className={classes.root}>
+    //             <div style={{ display: 'flex' }}>
+    //                 {props.inNeedUsers.map((user, idx) => {
+    //                     console.log('>>>>>>props.user>>>>>>>', user);
+    //                     return(
+    //                         <UserCard key={idx} user={user}/>
+    //                     )
+    //                     // if (product.category.toLowerCase() == props.selectedCategory.toLowerCase()) {
+    //                         // return (
+    //                         //     <div key={idx} style={{ border: '1px solid black', width: 'fit-content', padding: '10px', margin: '10px' }}>
+                                    
+    //                         //             <h3 id='productName'>{product.name}</h3>
+    //                         //             <img id='productImg' src={`${product.img}`} style={{ width: '15rem' }}></img>
+    //                         //             <p>in stok : <strong>{product.inStock}</strong></p>
+    //                         //             <p>price : <strong id='producPrice'>{product.price}</strong></p>
+                                    
+    //                         //             <Button onClick={() => { handleAddToCart(product) }} variant="contained" color="primary">Order</Button>
+    //                         //             <Link to={{pathname: "/productDetails/"+product._id ,state: product  }}>View Details</Link>
+    //                         //     </div>
+    //                         // )
+    //                     // }/
+    //                 })}
+    //             </div>
+    //         </div>
+    //     </>
+    // )
 }
 const mapStateToProps = state => (
     {
