@@ -1,9 +1,12 @@
 import { combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
 
-import inNeedUserSlice from './inNeedUser';
+import inNeedUsersSlice from './inNeedUser';
+import postsSlice from './posts';
+
 let reducers = combineReducers({ 
-    inNeedUsers: inNeedUserSlice, 
+    inNeedUsers: inNeedUsersSlice, 
+    posts:postsSlice
  
 });
 const store = configureStore({ reducer: reducers });

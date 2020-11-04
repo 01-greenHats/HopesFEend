@@ -1,12 +1,23 @@
 import superagent from 'superagent';
 
-let usersApi = 'https://gazahopes.herokuapp.com/api/v1/users ';
+let usersUrl = 'https://gazahopes.herokuapp.com/api/v1/users';
+let postsUrl = 'https://gazahopes.herokuapp.com/api/v1/posts';
 // let productsApi = 'https://alhrthani-todos.herokuapp.com/api/v1/products';
 // action creator is a function that returns an object
 // return a function from my action creator
 export const getInNeedUsersData = () => {
     // return a fucntion that will call superagent API
-     return superagent.get(usersApi).then(data=> {
+     return superagent.get(usersUrl).then(data=> {
+        // call my action after getting the API response.
+        console.log('====data===',data.body);
+        return data.body;
+        // dispatch(getAction(data.body));
+    });
+}
+
+export const getPostsData = () => {
+    // return a fucntion that will call superagent API
+     return superagent.get(postsUrl).then(data=> {
         // call my action after getting the API response.
         console.log('====data===',data.body);
         return data.body;
