@@ -1,10 +1,12 @@
 import React, {useEffect,useState} from 'react';
+import TextField from '@material-ui/core/TextField';
 import './userCard.scss'
 
 
 function UserCard(props){
 
-    const [nameFilter,setnameFilter] = useState('All');
+    const [nameFilter,setNameFilter] = useState('All');
+    const [nationalIdFilter,setNationalIdFilter] = useState('All');
 
     console.log('props : ',props);
 
@@ -18,16 +20,40 @@ function UserCard(props){
     }
 
     function filterData(data){
+        let result = [];
+        data.forEach(item =>{
+            // double filteration
+            if(nameFilter !== 'All' && nationalIdFilter !== 'All'){
 
+            }else if(nameFilter !== 'All' && item.name == nameFilter){
+
+            }else if(nationalIdFilter !== 'All' && item.nationalNo == nationalIdFilter){
+
+            }
+            if(nameFilter == 'All'){
+                result.push(item)
+            }else{
+                if(item.name == nameFilter){
+                    result.push(item)
+                }
+            }
+        });
+        return result.length == 0 ? data : result;
     }
     return(
         <>
-        <div className="filterSearchPanel"></div>
+        <div className="filterSearchPanel">
+            <fieldset>
+                <legend>Search</legend>
+            <TextField className='searchInput' onChange={(e)=>{setNameFilter(e.target.value)}} label="national Number" variant="outlined"/>
+            <TextField className='searchInput' onChange={(e)=>{setNameFilter(e.target.value)}} label="name" variant="outlined"/>
+            </fieldset>
+        </div>
                 <div className="userCardContainer">
         {
-            props.data.map(item =>{
+            filterData(props.data).map((item,idx) =>{
                 return(
-                    <div className="card">
+                    <div key={idx} className="card">
                     {/* <img src="/w3images/team2.jpg" alt="John" style={{width:'100%'}}/> */}
                 <div className='avotar'><h2>{getLogoText(item.name)}</h2></div>
                     <h1>{item.name}</h1>
