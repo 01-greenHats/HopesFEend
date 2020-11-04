@@ -75,22 +75,22 @@ const InNeedUsers = props => {
         <>
             <div className={classes.root}>
                 <div style={{ display: 'flex' }}>
-                    {props.inNeedUsers.map((product, idx) => {
-                        if (product.category.toLowerCase() == props.selectedCategory.toLowerCase()) {
-                            console.log('>>>>>>props.selectedCategory>>>>>>>', props.selectedCategory);
-                            return (
-                                <div key={idx} style={{ border: '1px solid black', width: 'fit-content', padding: '10px', margin: '10px' }}>
+                    {props.inNeedUsers.map((user, idx) => {
+                        // if (product.category.toLowerCase() == props.selectedCategory.toLowerCase()) {
+                            console.log('>>>>>>props.user>>>>>>>', user);
+                            // return (
+                            //     <div key={idx} style={{ border: '1px solid black', width: 'fit-content', padding: '10px', margin: '10px' }}>
                                     
-                                        <h3 id='productName'>{product.name}</h3>
-                                        <img id='productImg' src={`${product.img}`} style={{ width: '15rem' }}></img>
-                                        <p>in stok : <strong>{product.inStock}</strong></p>
-                                        <p>price : <strong id='producPrice'>{product.price}</strong></p>
+                            //             <h3 id='productName'>{product.name}</h3>
+                            //             <img id='productImg' src={`${product.img}`} style={{ width: '15rem' }}></img>
+                            //             <p>in stok : <strong>{product.inStock}</strong></p>
+                            //             <p>price : <strong id='producPrice'>{product.price}</strong></p>
                                     
-                                        <Button onClick={() => { handleAddToCart(product) }} variant="contained" color="primary">Order</Button>
-                                        <Link to={{pathname: "/productDetails/"+product._id ,state: product  }}>View Details</Link>
-                                </div>
-                            )
-                        }
+                            //             <Button onClick={() => { handleAddToCart(product) }} variant="contained" color="primary">Order</Button>
+                            //             <Link to={{pathname: "/productDetails/"+product._id ,state: product  }}>View Details</Link>
+                            //     </div>
+                            // )
+                        // }/
                     })}
                 </div>
             </div>
@@ -99,8 +99,8 @@ const InNeedUsers = props => {
 }
 const mapStateToProps = state => (
     {
-        inNeedUser: state.inNeedUser.inNeedUser,
+        inNeedUsers: state.inNeedUsers.inNeedUsers,
     }
 );
-const mapDispatchToProps = { setInNeedUser };
+const mapDispatchToProps = { setInNeedUsers };
 export default connect(mapStateToProps, mapDispatchToProps)(InNeedUsers);
