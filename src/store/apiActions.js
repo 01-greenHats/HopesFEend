@@ -6,7 +6,7 @@ let usersApi = 'https://gazahopes.herokuapp.com/api/v1/users ';
 // return a function from my action creator
 export const getInNeedUsersData = () => {
     // return a fucntion that will call superagent API
-     return superagent.get(catApi).then(data=> {
+     return superagent.get(usersApi).then(data=> {
         // call my action after getting the API response.
         console.log('====data===',data.body);
         return data.body;
