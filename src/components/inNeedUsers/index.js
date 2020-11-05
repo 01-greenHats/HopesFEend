@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import { setInNeedUsers } from '../../store/inNeedUser'
-import { reduceStockQuantity, getInNeedUsersData } from '../../store/apiActions'
+import { getInNeedUsersData } from '../../store/apiActions'
 import { Link } from 'react-router-dom';
 import UserCard from '../userCard'
 
