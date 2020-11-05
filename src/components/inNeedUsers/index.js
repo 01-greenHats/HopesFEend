@@ -10,6 +10,7 @@ import { getInNeedUsersData } from '../../store/apiActions'
 import { Link } from 'react-router-dom';
 import UserCard from '../userCard'
 
+
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
     const useStyles = makeStyles((theme) => ({
@@ -58,19 +59,14 @@ const InNeedUsers = props => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-    const handleAddToCart = async (product) => {
-        if (product.inStock > 0) {
-            props.addToCart(product);
-            await reduceStockQuantity(product)
-            props.updateInStock(product._id);
-        } else {
-            alert('No available Items left')
-        }
 
-    }
+    console.log('props in In need users>>',props);
+ 
     useEffect(async () => {
-        let data = await getInNeedUsersData()
-        props.setInNeedUsers(data)
+
+        let users = await getInNeedUsersData()
+        console.log('users>>',users);
+        props.setInNeedUsers(users.data)
     }, []);
     return(
         // <h1>Hi</h1>
