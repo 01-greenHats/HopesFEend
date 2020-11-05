@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import { setPosts } from '../../store/posts'
 import { getPostsData, addPost } from '../../store/apiActions'
 import { Link } from 'react-router-dom';
+import NewPostPanel from '../newPostPanel'
 
 const MainPage = props => {
     console.log('posts in main page>> ',props);
@@ -21,6 +22,7 @@ const MainPage = props => {
     }, []);
     return (
         <>
+        <NewPostPanel/>
             {/* <div className={classes.root}>
                 <div style={{ display: 'flex' }}>
                     {props.inNeedUsers.map((user, idx) => {

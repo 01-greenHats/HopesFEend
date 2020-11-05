@@ -15,7 +15,6 @@ function UserCard(props){
         str.split(' ').forEach(word => {
             result = result + word[0];
         });
-        console.log(result)
         return result;
     }
 
@@ -24,18 +23,13 @@ function UserCard(props){
         data.forEach(item =>{
             // double filteration
             if(nameFilter !== 'All' && nationalIdFilter !== 'All'){
-
-            }else if(nameFilter !== 'All' && item.name == nameFilter){
-
-            }else if(nationalIdFilter !== 'All' && item.nationalNo == nationalIdFilter){
-
-            }
-            if(nameFilter == 'All'){
-                result.push(item)
-            }else{
-                if(item.name == nameFilter){
+                if(item.name == nameFilter && item.nationalNo.toString() == nationalIdFilter){
                     result.push(item)
                 }
+            }else if(nameFilter !== 'All' && item.name == nameFilter){
+                result.push(item)
+            }else if(nationalIdFilter !== 'All' && item.nationalNo.toString() == nationalIdFilter){
+                result.push(item)
             }
         });
         return result.length == 0 ? data : result;
@@ -45,8 +39,8 @@ function UserCard(props){
         <div className="filterSearchPanel">
             <fieldset>
                 <legend>Search</legend>
-            <TextField className='searchInput' onChange={(e)=>{setNameFilter(e.target.value)}} label="national Number" variant="outlined"/>
-            <TextField className='searchInput' onChange={(e)=>{setNameFilter(e.target.value)}} label="name" variant="outlined"/>
+            <TextField className='searchInput' onChange={(e)=>{setNationalIdFilter(e.target.value)}} label="national Number" variant="outlined"/>
+            <TextField className='searchInput' onChange={(e)=>{setNameFilter(e.target.value)}} label="name" variant="outlined" style={{marginLeft: "10px"}}/>
             </fieldset>
         </div>
                 <div className="userCardContainer">
@@ -65,7 +59,7 @@ function UserCard(props){
                       <a href="#"><i className="fa fa-linkedin"></i></a>  
                       <a href="#"><i className="fa fa-facebook"></i></a> 
                     </div>
-                    <p><button>Contact</button></p>
+                    <p><button className="payButton">Contact</button></p>
                     </div>
 
                 );
