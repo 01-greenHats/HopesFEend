@@ -1,8 +1,16 @@
 import superagent from 'superagent';
+// import useAjax from '../hooks/useAjax.js';
+// const [axiosApiInstance] = useAjax();
+import axios from "axios";
+
 
 let usersUrl = 'https://gazahopes.herokuapp.com/api/v1/users';
 let postsUrl = 'https://gazahopes.herokuapp.com/api/v1/posts';
-let addPostUrl= 'https://gazahopes.herokuapp.com/api/v1/users/posts/add';
+let addPostUrl = 'https://gazahopes.herokuapp.com/api/v1/users/posts/add';
+let userSignupUrl='https://gazahopes.herokuapp.com/api/v1/users/signup';
+let addCommentUrl='https://gazahopes.herokuapp.com/api/v1/users/comments/add/';
+
+
 // let addPostUrl='localhost:8000/api/v1/users/posts/add';
 
 // let productsApi = 'https://alhrthani-todos.herokuapp.com/api/v1/products';
@@ -10,9 +18,9 @@ let addPostUrl= 'https://gazahopes.herokuapp.com/api/v1/users/posts/add';
 // return a function from my action creator
 export const getInNeedUsersData = () => {
     // return a fucntion that will call superagent API
-     return superagent.get(usersUrl).then(data=> {
+    return superagent.get(usersUrl).then(data => {
         // call my action after getting the API response.
-        console.log('====data===',data.body);
+        console.log('====data===', data.body);
         return data.body;
         // dispatch(getAction(data.body));
     });
@@ -20,57 +28,81 @@ export const getInNeedUsersData = () => {
 
 export const getPostsData = () => {
     // return a fucntion that will call superagent API
-     return superagent.get(postsUrl).then(data=> {
+    return superagent.get(postsUrl).then(data => {
         // call my action after getting the API response.
-        console.log('====data===',data.body);
+        console.log('====data===', data.body);
         return data.body;
         // dispatch(getAction(data.body));
     });
 }
 
-export const getRemoteProductData = () => {
-    // return a fucntion that will call superagent API
-    // console.log('==//==data==//=');
-    return superagent.get(productsApi).then(data=> {
-        // call my action after getting the API response.
-        return data.body;
-        // dispatch(getProductsAction(data.body));
-    });
-}
 
-export const reduceStockQuantity = (body) => {
-    let api =`${productsApi}/${body._id}`
-    // return a fucntion that will call superagent API
-    let myBody = {
-        name:body.name,
-        category:body.category,
-        inStock:body.inStock -1,
-        price:body.price
-    }
-    // body.inStock = body.inStock - 1;
-    return superagent.put(api)
-    .send(myBody)
-    .then(data=> {
-        // call my action after getting the API response.
-        // console.log('====Updated===',data.body);
-        return body;
-    });
+// export const addPost = () => {
+//     let post ={}
+//     axiosApiInstance(
+//        addPostUrl,
+//       'post',
+//       post
+//     ).then(( savePost ) => {
+//         console.log('saved post>> ', savePost)
+//       })
+//       .catch(console.error);
+//   };
+
+export const addPost = (post,token) => {    
+    let myHeaders={};
+    myHeaders['Authorization']=`Bearer ${token}`;
+    return axios({
+        url: addPostUrl,
+        method: 'post',
+        mode: 'cors',
+        cache: 'no-cache',
+        headers: myHeaders,
+        data: post
+    })
 }
 
 
-
-
-export const addPost = () => {
-    let post =  {
-        userid: "hrthani",
-        title: "react heroku",
-        content: "new",
-        imageUrl: "image.jpg",
-        comments: []      
-    };
-
-    let auth= 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaHJ0aHFhbmkiLCJuYXRpb25hbE5vIjo5MDE1NjYxMjMsImlhdCI6MTYwNDUwNjM4MCwiZXhwIjoxNjA0NTEwODgwfQ.bIrzUTWUdfW6jbN0GTAAtjPS0DUlCAeushI0ntCKr_o';
-
-
-  
+export const addComment = (comment,token,postId) => {
+    console.log('add comment called');  
+    addCommentUrl=addCommentUrl+postId;
+    console.log('addCommentUrl>>',addCommentUrl);
+    let myHeaders={};
+    myHeaders['Authorization']=`Bearer ${token}`;
+    return axios({
+        url: addCommentUrl,
+        method: 'post',
+        mode: 'cors',
+        cache: 'no-cache',
+        headers: myHeaders,
+        data: comment
+    })
 }
+
+export const inNeedUserSignup = (user) => {
+   
+    return axios({
+        url: userSignupUrl,
+        method: 'post',
+        mode: 'cors',
+        cache: 'no-cache',
+        headers: { 'Content-Type': 'application/json' },
+        data: user
+    })
+}
+
+
+
+
+// export const addPost = () => {
+//     let post =  {
+//         userid: "hrthani",
+//         title: "react heroku",
+//         content: "new",
+//         imageUrl: "image.jpg",
+//         comments: []      
+//     };
+
+//     let auth= 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaHJ0aHFhbmkiLCJuYXRpb25hbE5vIjo5MDE1NjYxMjMsImlhdCI6MTYwNDUwNjM4MCwiZXhwIjoxNjA0NTEwODgwfQ.bIrzUTWUdfW6jbN0GTAAtjPS0DUlCAeushI0ntCKr_o';
+
+// }
