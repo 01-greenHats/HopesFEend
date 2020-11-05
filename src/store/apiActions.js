@@ -1,7 +1,7 @@
 import superagent from 'superagent';
-// import useAjax from '../hooks/useAjax.js';
-// const [axiosApiInstance] = useAjax();
-import axios from "axios";
+import useAjax from '../hooks/useAjax.js';
+const [axiosApiInstance] = useAjax();
+// import axios from "axios";
 
 
 let usersUrl = 'https://gazahopes.herokuapp.com/api/v1/users';
@@ -16,51 +16,57 @@ let addCommentUrl='https://gazahopes.herokuapp.com/api/v1/users/comments/add/';
 // let productsApi = 'https://alhrthani-todos.herokuapp.com/api/v1/products';
 // action creator is a function that returns an object
 // return a function from my action creator
+//url, method, body,headers
+
 export const getInNeedUsersData = () => {
-    // return a fucntion that will call superagent API
-    return superagent.get(usersUrl).then(data => {
-        // call my action after getting the API response.
-        console.log('====data===', data.body);
-        return data.body;
-        // dispatch(getAction(data.body));
-    });
+    return axiosApiInstance(usersUrl)
 }
+
+// export const getInNeedUsersData = () => {
+//     // return a fucntion that will call superagent API
+//     return superagent.get(usersUrl).then(data => {
+//         // call my action after getting the API response.
+//         console.log('====data===', data.body);
+//         return data.body;
+//         // dispatch(getAction(data.body));
+//     });
+// }
 
 export const getPostsData = () => {
-    // return a fucntion that will call superagent API
-    return superagent.get(postsUrl).then(data => {
-        // call my action after getting the API response.
-        console.log('====data===', data.body);
-        return data.body;
-        // dispatch(getAction(data.body));
-    });
+    return axiosApiInstance(postsUrl)   
 }
 
+// export const getPostsData = () => {
+//     // return a fucntion that will call superagent API
+//     return superagent.get(postsUrl).then(data => {
+//         // call my action after getting the API response.
+//         console.log('====data===', data.body);
+//         return data.body;
+//         // dispatch(getAction(data.body));
+//     });
+// }
 
-// export const addPost = () => {
-//     let post ={}
-//     axiosApiInstance(
-//        addPostUrl,
-//       'post',
-//       post
-//     ).then(( savePost ) => {
-//         console.log('saved post>> ', savePost)
-//       })
-//       .catch(console.error);
-//   };
 
-export const addPost = (post,token) => {    
+export const addPost = (post,token) => {  
+    console.log('add post called');  
     let myHeaders={};
     myHeaders['Authorization']=`Bearer ${token}`;
-    return axios({
-        url: addPostUrl,
-        method: 'post',
-        mode: 'cors',
-        cache: 'no-cache',
-        headers: myHeaders,
-        data: post
-    })
+    return axiosApiInstance(addPostUrl,'post',post,myHeaders)    
+   
 }
+
+// export const addPost = (post,token) => {    
+//     let myHeaders={};
+//     myHeaders['Authorization']=`Bearer ${token}`;
+//     return axios({
+//         url: addPostUrl,
+//         method: 'post',
+//         mode: 'cors',
+//         cache: 'no-cache',
+//         headers: myHeaders,
+//         data: post
+//     })
+// }
 
 
 export const addComment = (comment,token,postId) => {
@@ -69,27 +75,41 @@ export const addComment = (comment,token,postId) => {
     console.log('addCommentUrl>>',addCommentUrl);
     let myHeaders={};
     myHeaders['Authorization']=`Bearer ${token}`;
-    return axios({
-        url: addCommentUrl,
-        method: 'post',
-        mode: 'cors',
-        cache: 'no-cache',
-        headers: myHeaders,
-        data: comment
-    })
+    return axiosApiInstance(addCommentUrl,'post',comment,myHeaders)     
 }
 
+// export const addComment = (comment,token,postId) => {
+//     console.log('add comment called');  
+//     addCommentUrl=addCommentUrl+postId;
+//     console.log('addCommentUrl>>',addCommentUrl);
+//     let myHeaders={};
+//     myHeaders['Authorization']=`Bearer ${token}`;
+//     return axios({
+//         url: addCommentUrl,
+//         method: 'post',
+//         mode: 'cors',
+//         cache: 'no-cache',
+//         headers: myHeaders,
+//         data: comment
+//     })
+// }
+
 export const inNeedUserSignup = (user) => {
-   
-    return axios({
-        url: userSignupUrl,
-        method: 'post',
-        mode: 'cors',
-        cache: 'no-cache',
-        headers: { 'Content-Type': 'application/json' },
-        data: user
-    })
+    return axiosApiInstance(userSignupUrl,'post',user); 
+     
 }
+
+// export const inNeedUserSignup = (user) => {
+   
+//     return axios({
+//         url: userSignupUrl,
+//         method: 'post',
+//         mode: 'cors',
+//         cache: 'no-cache',
+//         headers: { 'Content-Type': 'application/json' },
+//         data: user
+//     })
+// }
 
 
 
