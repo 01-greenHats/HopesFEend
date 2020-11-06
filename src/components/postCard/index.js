@@ -1,83 +1,49 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import { setPosts } from '../../store/posts'
-import { getPostsData, addPost } from '../../store/apiActions'
-import { Card, Image, Button, InputGroup, FormControl, Col } from 'react-bootstrap'
-// import FacebookProvider, { Like,Comments } from 'react-facebook';
-
-import { FormatAlignCenter } from '@material-ui/icons';
-
+import React from 'react';
 import './postCard.scss'
+import CommentIcon from '@material-ui/icons/Comment';
+import AddIcon from '@material-ui/icons/Add';
+import CommentCard from '../commentCard'
 
-const postCard = props => {
-    console.log('posts in main page>> ', props);
-
-    useEffect(async () => {
-        let data = await getPostsData()
-        props.setPosts(data)
-
-        let add_post = await addPost()
-        console.log({ add_post });
-    }, []);
-    return (
+function toggleControlePanel(e) {
+    if(document.getElementById('ControlPanel').style.display == 'none'){
+        document.getElementById('ControlPanel').style.display = 'block';
+        document.getElementById('inputPost').style.height = '50px';
+    }else{
+        console.log('HHHHH');
+        document.getElementById('ControlPanel').style.display = 'none';
+        document.getElementById('inputPost').style.height = '30px';
+    }
+}
+function PostCard(props){
+    return(
         <>
-            <h1>hii</h1>
-            {props.posts.map((post, idx) => {
-                // console.log("add post", post)
-                return (
-
-                    <Card className="text-center">
-                        <Card.Header><div className="name">
-                            <Col xs={6} md={4}>
-                                <Image src={post.imageUrl} roundedCircle />  </Col>
-                            <span>{post.userid}<br />{post.createdTime}</span>
-                        </div></Card.Header>
-                        <Card.Body>
-
-                            <Card.Text>
-                                <div id="content">
-                                    {post.content}
-                                </div>
-                            </Card.Text>
-                            <div>
-                                {/* // action increse no of likes  */}
-                                {/* <FacebookProvider appId="123456789">
-                                    <Like href="http://www.facebook.com" colorScheme="dark" showFaces share />
-                                </FacebookProvider>
-
-                                <FacebookProvider appId="123456789">
-                                    <Comments href="http://www.facebook.com" />
-                                </FacebookProvider> */}
-                            </div>
-
-                            {/* // action add a comment  */}
-                            <InputGroup className="mb-3">
-                                <FormControl
-                                    placeholder="Add a comment.."
-                                    aria-label="Recipient's username"
-                                    aria-describedby="basic-addon2"
-                                />
-                                <InputGroup.Append>
-                                    <Button variant="outline-secondary">Post</Button>
-                                </InputGroup.Append>
-                            </InputGroup>
-
-                        </Card.Body>
-
-                    </Card>
-                )
-
-            })}
+        <div className="newPostContainer" style={{border:"1px solid gray",marginTop:"40px"}}>
+        <div className="postHeader" style={{display:"flex",marginLeft:"15px"}}>
+        <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="Avatar" style={{width:"30px",borderRadius:"50%",padding:"5px 0px"}}/>
+        <p style={{fontSize:"75%",fontWeight:"bold",marginLeft:"3px"}}>Ahmad Shela</p>
+        </div>
+        <div className="postContent">
+            <h3 className="postTitle">this is just a title</h3>
+            <p className="postText">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+        </div>
+            <hr/>
+        <div className="commentsCountContainer">
+            <p>0 comments</p>
+            <button className="btnPostControle" style={{position:"relative"}} onClick={(e)=>{toggleControlePanel(e)}}><CommentIcon/></button>
+        </div>
+        <hr/>
+        <div className="postInputContainer">
+            <input placeholder="Add a comment..."></input>
+            <button className="btnPostControle" style={{position:"relative"}} onClick={(e)=>{toggleControlePanel(e)}}><AddIcon/></button>
+        </div>
+        <hr/>
+        <div className="commentsContainer">
+        <CommentCard/>
+        </div>
+        </div>
         </>
     )
+
+
 }
-
-
-const mapStateToProps = state => (
-    {
-        posts: state.posts.posts,
-    }
-);
-const mapDispatchToProps = { setPosts };
-export default connect(mapStateToProps, mapDispatchToProps)(postCard);
-// export default postCard;
+export default PostCard;

@@ -1,9 +1,94 @@
-.text-center{
-    width: 500px;
-    margin-left: auto;
-    margin-right: auto;
+.newPostContainer{
+    width: 40%;
 }
-.name{
-    text-align: left;
+.newPostPanelContainer{
+    display: flex;
+}
+.postInputContainer{
+    overflow: hidden;
+    display: inline;
+    width: 82%;
+}
+.postInput{
+    width: 95%;
+    height: 30px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin-top: 20px;
+    background-color: rgb(235, 235, 235);
+}
+.postInput:hover{
+    border: 1px solid black;
+}
+.btnPostControle{
+    width: 75px;
+    height: 35px;
+    margin: 5px;
+    border: none;
+    border-radius: 8%;
+
+}
+.postContent{
+    text-align: inherit;
+    padding: 20px;
+    line-height: 25px;
+}
+.commentsCountContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 10px;
+    p{
+    //     margin-right: 28px;
+        color: gray;
+    }
+    hr{
+        margin: 0 40px;
+    }
     
+}
+.newPostControlPanel{
+    hr{
+        margin: 0 40px;
+    }
+}
+.postInputContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 5px;
+    width: 98%;
+    input{
+        width: 100%;
+        border: none;
+        outline: none;
+    }
+}
+
+/**************************************/
+.cQhNcD {
+    position: relative;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    padding: 0px 40px 5px 10px;
+    background-color: rgb(245, 245, 245);
+    border-radius: 12px;
+    margin-left: 5px;
+}
+.grijEi {
+    cursor: pointer;
+    display: none;
+    background-color: transparent;
+    border: 0px;
+    outline: 0px;
+    position: absolute;
+    right: 7px;
+    top: 6px;
+}
+.BsZnH {
+    margin-top: 5px;
+}
+.eZMjmI {
+    margin-right: 5px;
+    display: inline-block;
 }

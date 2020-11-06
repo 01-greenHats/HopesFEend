@@ -9,6 +9,8 @@ import Button from '@material-ui/core/Button';
 import { setPosts } from '../../store/posts'
 import { getInNeedUsersData,getPostsData, addPost, inNeedUserSignup ,addComment} from '../../store/apiActions'
 import { Link } from 'react-router-dom';
+import NewPostPanel from '../newPostPanel'
+// import PostCard from '../postCard'
 
 import styled from 'styled-components';
 
@@ -52,8 +54,8 @@ const MainPage = props => {
             "content": "new",
             "imageUrl": "image.jpg",
         }
-        let add_post = await addPost(post,token);
-        console.log({ add_post });
+        // let add_post = await addPost(post,token);
+        // console.log({ add_post });
 
         // //Handle add comment
         // //this comment should come from comment input text
@@ -68,28 +70,8 @@ const MainPage = props => {
     }, []);
     return (
         <>
-        <h1>hello</h1>
-            {/* <div className={classes.root}>
-                <div style={{ display: 'flex' }}>
-                    {props.inNeedUsers.map((user, idx) => {
-                        // if (product.category.toLowerCase() == props.selectedCategory.toLowerCase()) {
-                            console.log('>>>>>>props.user>>>>>>>', user);
-                            // return (
-                            //     <div key={idx} style={{ border: '1px solid black', width: 'fit-content', padding: '10px', margin: '10px' }}>
-                                    
-                            //             <h3 id='productName'>{product.name}</h3>
-                            //             <img id='productImg' src={`${product.img}`} style={{ width: '15rem' }}></img>
-                            //             <p>in stok : <strong>{product.inStock}</strong></p>
-                            //             <p>price : <strong id='producPrice'>{product.price}</strong></p>
-                                    
-                            //             <Button onClick={() => { handleAddToCart(product) }} variant="contained" color="primary">Order</Button>
-                            //             <Link to={{pathname: "/productDetails/"+product._id ,state: product  }}>View Details</Link>
-                            //     </div>
-                            // )
-                        // }/
-                    })}
-                </div>
-            </div> */}
+        <NewPostPanel/>
+        <PostCard/>
         </>
     )
 
