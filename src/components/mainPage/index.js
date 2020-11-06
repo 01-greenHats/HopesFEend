@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import PostCard from '../postCard/index'
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -9,9 +10,14 @@ import { setPosts } from '../../store/posts'
 import { getInNeedUsersData,getPostsData, addPost, inNeedUserSignup ,addComment} from '../../store/apiActions'
 import { Link } from 'react-router-dom';
 import NewPostPanel from '../newPostPanel'
-import PostCard from '../postCard'
+// import PostCard from '../postCard'
+
+import styled from 'styled-components';
+
+
 
 const MainPage = props => {
+
     console.log('posts in main page>> ', props);
 
     useEffect(async () => {   
@@ -68,11 +74,14 @@ const MainPage = props => {
         <PostCard/>
         </>
     )
+
 }
+
+
 const mapStateToProps = state => (
-    {
-        posts: state.posts.posts,
-    }
+  {
+    posts: state.posts.posts,
+  }
 );
 const mapDispatchToProps = { setPosts };
 export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

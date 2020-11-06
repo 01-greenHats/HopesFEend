@@ -1,15 +1,17 @@
-import React, {useEffect,useState} from 'react';
-import TextField from '@material-ui/core/TextField';
+import React, { useEffect, useState } from 'react';
+import { TextField, Button, CardActionArea } from '@material-ui/core';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import Avatar from '@material-ui/core/Avatar';
+import Typography from '@material-ui/core/Typography';
+import { Card } from 'react-bootstrap'
 import './userCard.scss'
 
 
-function UserCard(props){
+function UserCard(props) {
 
-    const [nameFilter,setNameFilter] = useState('All');
-    const [nationalIdFilter,setNationalIdFilter] = useState('All');
-
-    console.log('props : ',props);
-
+    const [nameFilter, setNameFilter] = useState('All');
+    const [nationalIdFilter, setNationalIdFilter] = useState('All');
+    console.log('props : ', props);
     function getLogoText(str) {
         var result = '';
         str.split(' ').forEach(word => {
@@ -17,67 +19,88 @@ function UserCard(props){
         });
         return result;
     }
-
-    function filterData(data){
+    function filterData(data) {
         let result = [];
-        data.forEach(item =>{
+        data.forEach(item => {
             // double filteration
-            if(nameFilter !== 'All' && nationalIdFilter !== 'All'){
-                if(item.name == nameFilter && item.nationalNo.toString() == nationalIdFilter){
+            if (nameFilter !== 'All' && nationalIdFilter !== 'All') {
+                if (item.name == nameFilter && item.nationalNo.toString() == nationalIdFilter) {
                     result.push(item)
                 }
-            }else if(nameFilter !== 'All' && item.name == nameFilter){
+            } else if (nameFilter !== 'All' && item.name == nameFilter) {
                 result.push(item)
-            }else if(nationalIdFilter !== 'All' && item.nationalNo.toString() == nationalIdFilter){
+            } else if (nationalIdFilter !== 'All' && item.nationalNo.toString() == nationalIdFilter) {
                 result.push(item)
             }
         });
         return result.length == 0 ? data : result;
     }
-    return(
+    return (
         <>
-        <div className="filterSearchPanel">
-            <fieldset>
-                <legend>Search</legend>
-            <TextField className='searchInput' onChange={(e)=>{setNationalIdFilter(e.target.value)}} label="national Number" variant="outlined"/>
-            <TextField className='searchInput' onChange={(e)=>{setNameFilter(e.target.value)}} label="name" variant="outlined" style={{marginLeft: "10px"}}/>
-            </fieldset>
-        </div>
-                <div className="userCardContainer">
-        {
-            filterData(props.data).map((item,idx) =>{
-                return(
-                    <div key={idx} className="card">
-                    {/* <img src="/w3images/team2.jpg" alt="John" style={{width:'100%'}}/> */}
-                <div className='avotar'><h2>{getLogoText(item.name)}</h2></div>
-                    <h1>{item.name}</h1>
-                    <p className="title">CEO & Founder, Example</p>
-                    <p>Harvard University</p>
-                    <div style={{margin: '24px 0'}}>
-                      <a href="#"><i className="fa fa-dribbble"></i></a> 
-                      <a href="#"><i className="fa fa-twitter"></i></a>  
-                      <a href="#"><i className="fa fa-linkedin"></i></a>  
-                      <a href="#"><i className="fa fa-facebook"></i></a> 
-                    </div>
-                    <p><button className="payButton">Contact</button></p>
-                    </div>
+            <div className="filterSearchPanel">
 
-                );
-            })
-        }
-    </div>
+                <TextField id="standard-secondary" className="searchInput" onChange={(e) => { setNationalIdFilter(e.target.value) }} label="National Number" />
+                <TextField id="standard-secondary" className="searchInput" onChange={(e) => { setNameFilter(e.target.value) }} label="Name" />
+            </div>
+            <div className="userCardContainer">
+                {
+                    filterData(props.data).map((item, idx) => {
+                        return (
+                            <>
+                                <div className="background"></div>
+
+                                <div className="outer-div">
+                                    <div className="inner-div">
+                                        <div className="front">
+                                            <div className="front__bkg-photo"></div>
+                                            <div className="front__face-photo">
+                                                <div className="front_face-text">{getLogoText(item.name)}</div>
+                                            </div>
+                                            <div className="front__text">
+                                                <h3 className="front__text-header"> {item.name}</h3>
+
+
+                                                <p className="front__text-para"><LocationOnIcon className="front-icons" />Gaza</p>
+
+                                                <span className="front__text-hover">Details</span>
+                                            </div>
+                                        </div>
+                                        <div className="back">
+                                            <div className="social-media-wrapper">
+
+
+
+                                                <div className="card__details">
+                                                    <ul>
+                                                        <li>Date of Bith: {item.dob}</li>
+                                                        <li>Social Status: {item.socialStatus}</li>
+                                                        <li>Health Status: {item.healthStatus}</li>
+                                                        <li>Family Count: {item.familyCount}</li>
+                                                        <li>Income: {item.income} </li>
+                                                        <li>Expencsies: {item.expencsies}</li>
+                                                        <li>Email: {item.email}</li>
+                                                        <button className="viewMoreButton">view more </button>
+                                                    </ul>
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </>
+                        );
+                    })
+                }
+            </div>
         </>
     )
-
-
 }
 export default UserCard;
-
 // const mapStateToProps = state => (
 //     {        products: state.products.products,
 //         }
 // );
-
 // const mapDispatchToProps = { addToCart, setProducts, updateInStock };
-
 // export default connect(mapStateToProps, mapDispatchToProps)(ProductDtl);
