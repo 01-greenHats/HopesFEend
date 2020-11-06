@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { setPosts } from '../../store/posts'
 import { getPostsData, addPost } from '../../store/apiActions'
 import { Card, Image, Button, InputGroup, FormControl, Col } from 'react-bootstrap'
-import FacebookProvider, { Like,Comments } from 'react-facebook';
+// import FacebookProvider, { Like,Comments } from 'react-facebook';
 
 import { FormatAlignCenter } from '@material-ui/icons';
 
@@ -41,13 +41,13 @@ const postCard = props => {
                             </Card.Text>
                             <div>
                                 {/* // action increse no of likes  */}
-                                <FacebookProvider appId="123456789">
+                                {/* <FacebookProvider appId="123456789">
                                     <Like href="http://www.facebook.com" colorScheme="dark" showFaces share />
                                 </FacebookProvider>
 
                                 <FacebookProvider appId="123456789">
                                     <Comments href="http://www.facebook.com" />
-                                </FacebookProvider>
+                                </FacebookProvider> */}
                             </div>
 
                             {/* // action add a comment  */}
