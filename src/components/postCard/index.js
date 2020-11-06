@@ -1,8 +1,9 @@
-import React from 'react';
+import React,{ useEffect, useState }  from 'react';
 import './postCard.scss'
 import CommentIcon from '@material-ui/icons/Comment';
 import AddIcon from '@material-ui/icons/Add';
-import CommentCard from '../commentCard'
+import CommentCard from '../commentCard';
+import { getPostsData, addPost, addComment} from '../../store/apiActions'
 
 function toggleControlePanel(e) {
     if(document.getElementById('ControlPanel').style.display == 'none'){
@@ -14,7 +15,18 @@ function toggleControlePanel(e) {
         document.getElementById('inputPost').style.height = '30px';
     }
 }
+
+
 function PostCard(props){
+    console.log('This is the Post in the props : ',props.post)
+    // const [posts, setPosts] = useState([]);
+    // useEffect(async () => {   
+    
+    //     let posts = await getPostsData()
+    //     console.log('posts>>???????>>>>>>>>>>??????????>>',posts);
+    //     setPosts(posts.data.results);
+    // }, []);
+
     return(
         <>
         <div className="newPostContainer" style={{border:"1px solid gray",marginTop:"40px"}}>
