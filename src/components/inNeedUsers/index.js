@@ -6,9 +6,10 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import { setInNeedUsers } from '../../store/inNeedUser'
-import { getInNeedUsersData } from '../../store/apiActions'
+import { getInNeedUsersData,inNeedUserSignin } from '../../apiActions/users'
 import { Link } from 'react-router-dom';
 import UserCard from '../userCard'
+import Footer from '../footer/index'
 
 
 function TabPanel(props) {
@@ -66,11 +67,22 @@ const InNeedUsers = props => {
 
         let users = await getInNeedUsersData()
         console.log('users>>',users);
-        props.setInNeedUsers(users.data)
+        props.setInNeedUsers(users.data);
+
+        //signin testing
+        let userName='Ahmad Alhrthani50';
+        let password='12345';
+        let signInResult= await inNeedUserSignin(userName,password);
+        console.log('signInResult>>>',signInResult);
+
+
     }, []);
     return(
         // <h1>Hi</h1>
+        <>
         <UserCard data={props.inNeedUsers}/>
+        <Footer />
+        </>
     )
     // return (
     //     <>
