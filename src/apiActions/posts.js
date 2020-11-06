@@ -4,7 +4,7 @@ const [axiosApiInstance] = useAjax();
 // import axios from "axios";
 
 //**********posts URLs****************
-let getPostsUrl = 'https://gazahopes.herokuapp.com/api/v1/posts';
+let getPostsUrl = 'https://gazahopes.herokuapp.com/api/v1/getAllPosts';
 let addPostUrl = 'https://gazahopes.herokuapp.com/api/v1/users/posts/add';
 
 //router.delete('/api/v1/:model/posts/delete/:id', barerAuth, deleteAuth, handleDeleteposts)
