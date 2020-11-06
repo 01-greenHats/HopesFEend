@@ -5,7 +5,7 @@ import InNeedUsers from './components/inNeedUsers';
 // import Header from './components/header';
 import { Route, Switch } from 'react-router-dom';
 import MainPage from './components/mainPage';
-
+import SiginupUser from './components/signupUser';
 
 export default propsimport => {
   return (
@@ -16,6 +16,9 @@ export default propsimport => {
         </Route>
         <Route exact path="/">
             <MainPage/>
+        </Route>
+        <Route exact path="/siginupUser">
+          <SiginupUser/>
         </Route>
         <Route>404 Page Not Found!</Route>
       </Switch>
