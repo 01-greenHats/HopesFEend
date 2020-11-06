@@ -5,10 +5,15 @@ $standard: 10px;
 $card-height: 450px;
 $card-width: 300px;
 
+
+.background{
+  margin-bottom: 30px;
+}
 .userCardContainer{
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 
@@ -21,10 +26,11 @@ $card-width: 300px;
 
 .outer-div,
 .inner-div {
-  height: $card-height;
-  max-width: $card-width;
-  margin: 0 auto;
-  position: relative;
+      /* height: 450px; */
+      max-width: 300px;
+      /* margin: 4px auto; */
+      margin-left: 9px;
+      position: relative;
 }
 
 .outer-div {
