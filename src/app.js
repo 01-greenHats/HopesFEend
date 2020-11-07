@@ -6,6 +6,8 @@ import InNeedUsers from './components/inNeedUsers';
 import { Route, Switch } from 'react-router-dom';
 import MainPage from './components/mainPage';
 import SiginupUser from './components/signupUser';
+import Login from './components/loginUser';
+import DonorRegisteration from './components/donorForms'
 
 export default propsimport => {
   return (
@@ -19,6 +21,12 @@ export default propsimport => {
         </Route>
         <Route exact path="/siginupUser">
           <SiginupUser/>
+        </Route>
+        <Route exact path="/loginUser">
+          <Login/>
+        </Route>
+        <Route exact path="/login-siginup-donor">
+          <DonorRegisteration/>
         </Route>
         <Route>404 Page Not Found!</Route>
       </Switch>

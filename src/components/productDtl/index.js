@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import { addToCart } from '../../store/cart';
 import { setProducts, updateInStock } from '../../store/products'
-import { reduceStockQuantity, getRemoteProductData } from '../../store/apiActions'
+// import { reduceStockQuantity, getRemoteProductData } from '../../store/apiActions'
 
 
 
