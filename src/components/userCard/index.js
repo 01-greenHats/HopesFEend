@@ -79,7 +79,7 @@ function UserCard(props) {
                                                         <li>Income: {item.income} </li>
                                                         <li>Expencsies: {item.expencsies}</li>
                                                         <li>Email: {item.email}</li>
-                                                        <button className="viewMoreButton">view more </button>
+                                                        <button  className="viewMoreButton">view Payments history </button>
                                                     </ul>
                                                    
                                                 </div>
