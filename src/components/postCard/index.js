@@ -1,36 +1,40 @@
 import React,{ useEffect, useState }  from 'react';
+import { connect } from 'react-redux';
 import './postCard.scss'
 import CommentIcon from '@material-ui/icons/Comment';
 import AddIcon from '@material-ui/icons/Add';
 import CommentCard from '../commentCard';
+import { addComment } from '../../apiActions/posts';
 // import { getPostsData, addPost, addComment} from '../../store/apiActions'
 
-function toggleControlePanel(e) {
-    if(document.getElementById('ControlPanel').style.display == 'none'){
-        document.getElementById('ControlPanel').style.display = 'block';
-        document.getElementById('inputPost').style.height = '50px';
+function toggleControlePanel(e,id) {
+    if(document.getElementById(id).style.display == 'none'){
+        document.getElementById(id).style.display = 'block';
+        // document.getElementById('inputPost').style.height = '50px';
     }else{
         console.log('HHHHH');
-        document.getElementById('ControlPanel').style.display = 'none';
-        document.getElementById('inputPost').style.height = '30px';
+        document.getElementById(id).style.display = 'none';
+        // document.getElementById('inputPost').style.height = '30px';
     }
 }
 
-function handleAddComment(e) {
-    
-}
 
 
 function PostCard(props){
+    const [comments ,setComments] = useState(props.post.comments)
+
+    async function handleAddComment(e,postId) {
+        e.preventDefault();
+        let comment = e.target.commentContent.value
+        console.log('commentContent : ',comment)
+        let add_commetn = await addComment(postId,comment, props.token);
+        console.log('add_commetn ==> : ',add_commetn.data.comments);
+        setComments(add_commetn.data.comments);
+        e.target.commentContent.value = "";
+    }
+    
     console.log('This is the Post in the props : ',props.post)
     let img = props.post.author.img || "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png";
-    // const [posts, setPosts] = useState([]);
-    // useEffect(async () => {   
-    
-    //     let posts = await getPostsData()
-    //     console.log('posts>>???????>>>>>>>>>>??????????>>',posts);
-    //     setPosts(posts.data.results);
-    // }, []);
 
     return(
         <>
@@ -47,17 +51,19 @@ function PostCard(props){
             <hr/>
         <div className="commentsCountContainer">
             <p>{props.post.comments.length} comments</p>
-            <button className="btnPostControle" style={{position:"relative"}} onClick={(e)=>{toggleControlePanel(e)}}><CommentIcon/></button>
+            <button className="btnPostControle" style={{position:"relative"}} onClick={(e)=>{toggleControlePanel(e,props.post._id)}}><CommentIcon/></button>
         </div>
         <hr/>
         <div className="postInputContainer">
-            <input placeholder="Add a comment..."></input>
-            <button className="btnPostControle" style={{position:"relative"}} onClick={(e)=>{handleAddComment(e)}}><AddIcon/></button>
+            <form onSubmit={(e)=>{handleAddComment(e,props.post._id)}}>
+            <input name="commentContent" placeholder="Add a comment..."></input>
+            <button type="submit" className="btnPostControle" style={{position:"relative"}}><AddIcon/></button>
+            </form>
         </div>
         <hr/>
-        <div className="commentsContainer">
+        <div id={props.post._id} style={{display:"none"}} className="commentsContainer">
             {
-                props.post.comments.map((comment,idx)=>{
+                comments.map((comment,idx)=>{
                     return <CommentCard key={idx} comment={comment}/>
                 })
             }
@@ -68,4 +74,12 @@ function PostCard(props){
 
 
 }
-export default PostCard;
+
+const mapStateToProps = state => (
+    {
+        token: state.token.token,
+    }
+);
+export default connect(mapStateToProps)(PostCard);
+
+// export default PostCard;
