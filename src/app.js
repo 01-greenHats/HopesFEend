@@ -24,13 +24,13 @@ export default propsimport => {
         <Route exact path="/">
             <MainPage/>
         </Route>
-        <Route exact path="/siginupUser">
+        <Route exact path="/signupUser">
           <SiginupUser/>
         </Route>
         <Route exact path="/loginUser">
           <Login/>
         </Route>
-        <Route exact path="/login-siginup-donor">
+        <Route exact path="/login-signup-donor">
           <DonorRegisteration/>
         </Route>
         <Route>404 Page Not Found!</Route>
