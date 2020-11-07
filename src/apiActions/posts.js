@@ -4,7 +4,7 @@ const [axiosApiInstance] = useAjax();
 // import axios from "axios";
 
 //**********posts URLs****************
-let getPostsUrl = 'https://gazahopes.herokuapp.com/api/v1/posts';
+let getPostsUrl = 'https://gazahopes.herokuapp.com/api/v1/getAllPosts';
 let addPostUrl = 'https://gazahopes.herokuapp.com/api/v1/users/posts/add';
 
 //router.delete('/api/v1/:model/posts/delete/:id', barerAuth, deleteAuth, handleDeleteposts)
@@ -58,13 +58,14 @@ export const addComment = (postId, comment, token) => {
     console.log('postId>>>>',postId);
     console.log('comment>>>>',comment);
     console.log('token>>>>',token);
-
+    let commentBody = { content : comment}
 
     addCommentUrl=addCommentUrl+postId;
     console.log('addCommentUrl>>',addCommentUrl);
     let myHeaders={};
     myHeaders['Authorization']=`Bearer ${token}`;
-    return axiosApiInstance(addCommentUrl,'post',comment,myHeaders)     
+    return axiosApiInstance(addCommentUrl,'post',commentBody,myHeaders)     
+    // return axiosApiInstance(addCommentUrl,'post',comment,myHeaders)     
 }
 
 export const deleteComment = (postId,commentId,token) => {

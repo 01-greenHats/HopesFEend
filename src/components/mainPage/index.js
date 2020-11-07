@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import React, {useState, useEffect} from 'react';
+import {connect} from 'react-redux';
 import PostCard from '../postCard/index'
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
@@ -16,7 +16,6 @@ import NewPostPanel from '../newPostPanel'
 // import PostCard from '../postCard'
 
 import styled from 'styled-components';
-
 
 
 const MainPage = props => {
@@ -39,10 +38,20 @@ const MainPage = props => {
     
     
     }, []);
+
+    console.log('-------------------->', props.posts);
     return (
         <>
-        <NewPostPanel/>
-        <PostCard/>
+            <NewPostPanel/>
+            <div>{
+                props.posts.map((post, idex) => {
+                    return(
+                        <PostCard key={idex} post={post}/>
+                    );
+                })
+            }
+            </div>
+            
         </>
     )
 
