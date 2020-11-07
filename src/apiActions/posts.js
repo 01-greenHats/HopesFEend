@@ -58,13 +58,14 @@ export const addComment = (postId, comment, token) => {
     console.log('postId>>>>',postId);
     console.log('comment>>>>',comment);
     console.log('token>>>>',token);
-
+    let commentBody = { content : comment}
 
     addCommentUrl=addCommentUrl+postId;
     console.log('addCommentUrl>>',addCommentUrl);
     let myHeaders={};
     myHeaders['Authorization']=`Bearer ${token}`;
-    return axiosApiInstance(addCommentUrl,'post',comment,myHeaders)     
+    return axiosApiInstance(addCommentUrl,'post',commentBody,myHeaders)     
+    // return axiosApiInstance(addCommentUrl,'post',comment,myHeaders)     
 }
 
 export const deleteComment = (postId,commentId,token) => {
