@@ -18,9 +18,14 @@ export default propsimport => {
         <Route exact path="/in_need_users">
             <InNeedUsers/>
         </Route>
-        <Route exact path="/user_payments">
-            <UserPayments/>
+
+
+
+
+        <Route exact path="/user_payments/:id" component={UserPayments}>
         </Route>
+
+
         <Route exact path="/">
             <MainPage/>
         </Route>
