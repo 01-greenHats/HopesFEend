@@ -10,7 +10,7 @@ let addUserPaymentUrl='https://gazahopes.herokuapp.com/api/v1/payments/'
 //router.get('/api/v1/payments/:userId', handleGetPaymentsForOneUser);
 let getUserPaymentsUrl='https://gazahopes.herokuapp.com/api/v1/payments/'
 
-let createNewPaymentUrl='https://gazahopes.herokuapp.com/pay/'
+let createNewPaymentUrl='https://gazahopes.herokuapp.com/api/v1/pay/'
 
 
 //**********Actions****************
