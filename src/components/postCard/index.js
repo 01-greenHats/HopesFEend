@@ -5,6 +5,7 @@ import CommentIcon from '@material-ui/icons/Comment';
 import AddIcon from '@material-ui/icons/Add';
 import CommentCard from '../commentCard';
 import { addComment } from '../../apiActions/posts';
+import PostImage from '../postImage'
 // import { getPostsData, addPost, addComment} from '../../store/apiActions'
 
 function toggleControlePanel(e,id) {
@@ -47,6 +48,7 @@ function PostCard(props){
         <div className="postContent">
             {/* <h3 className="postTitle">this is just a title</h3> */}
             <p className="postText">{props.post.content}</p>
+            <PostImage images={props.post.imageUrl}/>
         </div>
             <hr/>
         <div className="commentsCountContainer">
