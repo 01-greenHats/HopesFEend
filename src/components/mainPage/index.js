@@ -10,8 +10,7 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import {setPosts} from '../../store/posts';
 import {setToken} from '../../store/token';
-import { checkValidToken } from '../../store/auth';
-import {If, Then, Else} from '../if'
+import { checkIsLogedIn } from '../../store/auth'
 
 import {
     getPosts,
@@ -32,33 +31,20 @@ import styled from 'styled-components';
 
 const MainPage = props => {
 
-    console.log('posts in main page>> ', props);
+    // console.log('posts in main page>> ', props);
     // props.setToken('receivedToken');
-    console.log('token in main page>> ', props.token);
+    // console.log('token in main page>> ', props.token);
 
 
     useEffect(async () => {
-        console.log('inside use effect');
-
         let posts = await getPosts()
-        console.log('posts>>', posts);
         props.setPosts(posts.data)
-
-
+        props.checkIsLogedIn()
     }, []);
 
-    const cookieToken = cookie.load('auth');
-    console.log('--->componentDidMount',cookieToken);
-    const token = cookieToken || null;
-    props.checkValidToken({token});
-    console.log('-------------------->', props.posts);
     return (
         <>
             <div>
-                {/* <If condition={
-                    props.loggedIn
-                }>
-                    <Then> */}
                         <NewPostPanel/>
                         <div>{
                             props.posts.map((post, idex) => {
@@ -67,28 +53,24 @@ const MainPage = props => {
                                         post={post}/>
                                 );
                             })
-                        } </div>
-                    {/* </Then>
-                    <Else>
-                    <Redirect to="/signupUser"/>
-                    </Else>
-                </If> */}
-                {
-                // if(){
-
-                // }
-
-            } </div>
+                        } 
+                        </div>
+             </div>
         </>
     )
 
 }
 
 
-const mapStateToProps = state => ({posts: state.posts.posts, token: state.token.token, loggedIn: state.auth.loggedIn});
+const mapStateToProps = state => (
+    {
+    posts: state.posts.posts, 
+    token: state.token.token, 
+    loggedIn: state.auth.loggedIn
+});
 const mapDispatchToProps = {
     setPosts,
     setToken,
-    checkValidToken
+    checkIsLogedIn
 };
 export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

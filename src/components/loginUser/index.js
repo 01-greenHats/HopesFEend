@@ -1,75 +1,66 @@
 import React from 'react';
-// import { AuthContext } from './context.js';
-// import Show from '../auth/show';
+import { connect } from 'react-redux';
+import { Redirect,useHistory  } from "react-router-dom";
+import { setLoginState } from '../../store/auth';
+import { Form, Col, Button, Card } from 'react-bootstrap';
+import { inNeedUserSignin } from '../../apiActions/users';
+import './login.scss';
 
-import './login.scss'
-import { Form , Col, Button,Card} from 'react-bootstrap';
 
-import {inNeedUserSignin} from '../../apiActions/users';
 
-class Login extends React.Component {
+const Login = props => {
+    const history = useHistory()
 
-    
-
-    // static contextType = AuthContext;
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            username: '',
-            password: ''
-        }
-        
-    }
-
-    handleChange = e => {
-        this.setState({ [e.target.name]: e.target.value });
-    }
-
-    handleSubmit = async e => {
+    const handleSubmit = async (e)=>{
         e.preventDefault();
-        console.log(this.state)
-        console.log("in handleSubmit")
-        let loginResult=await inNeedUserSignin(this.state.username, this.state.password);
+        console.log(`${e.target.username.value} : ${e.target.password.value}`);
+        let loginResult=await inNeedUserSignin(e.target.username.value, e.target.password.value);
+        if(loginResult.status == 200){
+            console.log(loginResult.data)
+            props.setLoginState({
+                token:loginResult.data.token.token,
+                loggedUser:loginResult.data.token.loggedUser,
+                loggedIn:true
+            });
+            history.push("/");
+        }
         console.log('loginResult : ',loginResult);
+        // e.preventDefault();
+        // let signupResult=await inNeedUserSignup(user);
+        // console.log('signupResult : ',signupResult);
+        // if(signupResult.status == 200){
+        //     props.setLoginState({token:signupResult.data,user:user,loggedIn:true})
+        // }
+        // e.target.reset();
     }
 
-    render() {
-        // console.log("this.context.loggedIn >> ", this.context.loggedIn)
-
-
-
-        return (
-            <>
-                {/* <Show condition={this.context.loggedIn}> */}
-                    {/* <Button id ="logout" variant="primary" onClick={this.context.logout}>Logout</Button> */}
-                {/* </Show> */}
-                {/* <Show condition={!this.context.loggedIn}> */}
+    return (
+        <>
                     <Card id="cardsiginupForm">
                     
-                        <Form onSubmit={this.handleSubmit} id="siginupForm">
-                        <fieldset> <h5>Already Registered? login here</h5>
-                            <Form.Group controlId="formBasicEmail">
-                                <Form.Label>Username</Form.Label>
-                                <Form.Control name="username" onChange={this.handleChange} placeholder="Username" />
-                            </Form.Group>
-                            <Form.Group controlId="formBasicPassword">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control placeholder="Password" name="password" type="password" onChange={this.handleChange} />
-                            </Form.Group>
-                            <Button variant="primary" type="submit">Login</Button>
-                            </fieldset>
-                        </Form>
-                       
-                    </Card>
-                {/* </Show> */}
-            </>
-        )
-
-    }
-
-
+                    <Form onSubmit={(e)=>{handleSubmit(e)}} id="siginupForm">
+                    <fieldset> <h5>Already Registered? login here</h5>
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label>Username</Form.Label>
+                            <Form.Control name="username" placeholder="Username" />
+                        </Form.Group>
+                        <Form.Group controlId="formBasicPassword">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control placeholder="Password" name="password" type="password" />
+                        </Form.Group>
+                        <Button variant="primary" type="submit">Log In</Button>
+                        </fieldset>
+                    </Form>
+                   
+                </Card>
+        </>
+    )
 }
 
-
-export default Login;
+const mapStateToProps = state => (
+    {
+        // inNeedUsers: state.inNeedUsers.inNeedUsers,
+    }
+);
+const mapDispatchToProps = { setLoginState };
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -6,54 +6,67 @@ const auth = createSlice({
     initialState : {    
         loggedIn: false,
         user: {},
+        token:''
     },
     reducers: {
-        // setInNeedUsers(state, action) {
-        //     // console.log("in add state!! ");
-        //     state.inNeedUsers = action.payload.results || action.payload.result
-        // },
-        checkValidToken(state, action) {
-            /**
-             * action.payload.token
-             */
-            try {
-                console.log('Token',action.payload.token);
-                let user = jwt.verify(action.payload.token, 'donttellanyoneRoqaia');
-                console.log('all good');
-                // setLoginState(true, action.payload.token, user);
-                setLoginState(
-                    {
-                    token:action.payload.token,
-                    user:user,
-                    loggedIn:true
-                }
-                );
-              }
-              catch (e) {
-                setLoginState({token:null,user:{},loggedIn:false});
-                // setLoginState(false, null, {});
-                console.log('Token Validation Error', e);
-              }
-        },
+        /**
+         * action = {
+         * action.payload.loggedIn
+         * action.payload.token
+         * action.payload.user
+         * }
+         */
         setLoginState(state, action){
-            /**
-             * action = {
-             * action.payload.loggedIn
-             * action.payload.token
-             * action.payload.user
-             * }
-             */
+            console.log('****************setLoginState()***************************')
             console.log('action : ',action)
             cookie.save('auth', action.payload.token,{ maxAge: 86400 });
-            // setState({ token, loggedIn, user });
             state.loggedIn = action.payload.loggedIn
-            state.user = action.payload.user
+            state.user = action.payload.user || jwt.verify(action.payload.token, 'secret');
+            state.token = action.payload.token;
+
         },
+        /**
+         * to check update the loedIn state if the user ha
+         */
+        checkIsLogedIn(state, action){
+            const cookieToken = cookie.load('auth');
+            const token = cookieToken || null;
+            console.log(' checkIsLogedIn token : ', token)
+            if(token){
+                let user = jwt.verify(token, 'secret');
+                if(user){
+                    state.loggedIn = true
+                    state.user = user 
+                    state.token = token
+                    cookie.save('auth', token,{ maxAge: 86400 });
+                    console.log('all good',state.loggedIn);
+                }
+            }else{
+                state.loggedIn = false;
+                state.user = {};
+                console.log('all good',state.loggedIn);
+            }
+        },
+        // checkValidToken(state, action) {
+        //     /**
+        //      * action.payload.token
+        //      */
+        //     try {
+        //         console.log('Token',action.payload.token);
+        //         let user = jwt.verify(action.payload.token, 'secret');
+        //         state.loggedIn = true
+        //         state.user = user
+        //         cookie.save('auth', action.payload.token,{ maxAge: 86400 });
+        //         console.log('all good',state.loggedIn);
+        //       }
+        //       catch (e) {
+        //         setLoginState({token:null,user:{},loggedIn:false});
+        //         console.log('Token Validation Error', e);
+        //       }
+        // },
         logout(state, action) {
-            // console.log("in add state!! ");
             state.loggedIn = false
             state.user = {}
-            // this.setLoginState(false, null, {});
         }
       
 
@@ -61,6 +74,6 @@ const auth = createSlice({
 });
 
 
-export const { checkValidToken,setLoginState,logout } = auth.actions;
+export const { checkValidToken,setLoginState,logout,checkIsLogedIn } = auth.actions;
 
 export default auth.reducer;
