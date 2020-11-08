@@ -129,9 +129,9 @@ class CustomPaginationActionsTable extends React.Component {
 
     componentDidMount() {
         const getPaymentsFromApi = async () => {
-            let userId=this.props.match.params.id;  
-            console.log('user id>>> ',userId);  
-
+            let userId = this.props.match.params.id;
+            console.log('state>>> ', this.props.history.location.state);
+            let user=this.props.history.location.state;
 
             // let userId = '5MNSBA6FP2QF4';
             let userData = await getUserPayments(userId);
@@ -196,7 +196,14 @@ class CustomPaginationActionsTable extends React.Component {
                         </TableFooter>
                     </Table>
                 </div>
+                <form id="donateform" action="https://gazahopes.herokuapp.com/pay" method="POST">
+                    <input type="hidden" name="userId" value={this.props.history.location.state._id} />
+                    <input type="hidden" name="email" value={this.props.history.location.state.email} />
+                    <input name="amount" />
+                    <button type="submit">Donate</button>
+                </form>
             </Paper>
+
         );
     }
 }
