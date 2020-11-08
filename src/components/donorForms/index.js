@@ -26,7 +26,7 @@ class DonorRegisteration extends React.Component {
     }
 
     handleChange = e => {
-        console.log("target.value", e.target.value)
+      
         this.setState({ [e.target.name]: e.target.value });
     }
 
@@ -100,7 +100,7 @@ class DonorRegisteration extends React.Component {
                             </div>
                             <div className="overlay-panel overlay-right">
                                 <h1 className="donor-header-dark-card">Hello!</h1>
-                                <p>Enter your personal details and start with us</p>
+                                <p>Enter your personal details and start with us as a Donor</p>
                                 <button className="donor-button ghost"  id="signUp"  onClick={this.toggleClass}>Sign Up</button>
                             </div>
                         </div>

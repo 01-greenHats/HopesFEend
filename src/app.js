@@ -7,6 +7,7 @@ import { Route, Switch } from 'react-router-dom';
 import MainPage from './components/mainPage';
 import SiginupUser from './components/signupUser';
 import Login from './components/loginUser';
+import UserForm from './components/userForms';
 import DonorRegisteration from './components/donorForms'
 import UserPayments from './components/userPaymsDtl';
 
@@ -29,6 +30,9 @@ export default propsimport => {
         </Route>
         <Route exact path="/loginUser">
           <Login/>
+        </Route>
+        <Route exact path="/userForm">
+          <UserForm/>
         </Route>
         <Route exact path="/login-signup-donor">
           <DonorRegisteration/>
