@@ -1,10 +1,13 @@
-import React from 'react';
+import React,{useEffect} from 'react';
+import { Redirect,useHistory  } from "react-router-dom";
 import './newPostPanel.scss'
 import CameraAltIcon from '@material-ui/icons/CameraAlt';
 import PostAddIcon from '@material-ui/icons/PostAdd';
 import CancelIcon from '@material-ui/icons/Cancel';
 import { addPost } from '../../apiActions/posts';
 import { connect } from 'react-redux';
+import {addNewPostToStore} from '../../store/posts';
+// import { checkIsLogedIn } from '../../store/auth'
 
 
 
@@ -22,26 +25,37 @@ function toggleControlePanel(e) {
 
 
 function NewPostPanel(props) {
-    console.log('props in new post pannel>>',props);
+    const history = useHistory()
+    // console.log('props in new post pannel>>',props);
 
 
     async function submitPost() {
-        // //this token must come from cookie
-        //let token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWhtYWQgU2hlbGEiLCJuYXRpb25hbE5vIjo5MDE1NjYxMjMxLCJpYXQiOjE2MDQ1Njg0NDQsImV4cCI6MTYwNDU3Mjk0NH0.bxyOJAardYGftY2LHbJyGHoh9yMwof17Yx95xulPLwo"
-        //this post must come from add post form
-        let post = {
-            "userid": "testttt",
-            "title": "post using hooks",
-            "content": document.getElementById('inputPost').value,
-            "imageUrl": "image.jpg",
+        // console.log('First = props.loggedIn : ',props.loggedIn)
+        if(!props.loggedIn){
+            history.push("/loginUser");
+            return;
         }
-        console.log('NyPost : ', post)
-        console.log('token : ', props.token)
-    
-    
+        console.log('user in post props : ',props.user)
+
+        let post = {
+            content: document.getElementById('inputPost').value,
+            imageUrl: [],
+        }
+        // console.log('NyPost : ', post)
+        // console.log('token : ', props.token)
+        console.log('Token in new post panel : ',props.token)
         let add_post = await addPost(post, props.token);
-        console.log({ add_post });
+        console.log({ add_post }); 
+        
+        if(add_post.status == 200){
+            props.addNewPostToStore(add_post.data)
+        }
     }
+
+    useEffect(async () => {
+        // props.checkIsLogedIn()
+        // console.log('First = props.loggedIn after use Effect : ',props.loggedIn)
+    }, []);
 
     return (
         <>
@@ -70,7 +84,14 @@ function NewPostPanel(props) {
 const mapStateToProps = state => (
     {
         posts: state.posts.posts,
-        token: state.token.token,
+        token: state.auth.token,
+        loggedIn: state.auth.loggedIn,
+        user: state.auth.user
     }
 );
-export default connect(mapStateToProps)(NewPostPanel);
+
+const mapDispatchToProps = {
+    addNewPostToStore
+    // checkIsLogedIn
+};
+export default connect(mapStateToProps, mapDispatchToProps)(NewPostPanel);

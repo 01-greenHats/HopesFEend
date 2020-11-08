@@ -1,11 +1,13 @@
 import React,{ useEffect, useState }  from 'react';
 import { connect } from 'react-redux';
+import { Redirect,useHistory  } from "react-router-dom";
 import './postCard.scss'
 import CommentIcon from '@material-ui/icons/Comment';
 import AddIcon from '@material-ui/icons/Add';
 import CommentCard from '../commentCard';
 import { addComment } from '../../apiActions/posts';
-import PostImage from '../postImage'
+import PostImage from '../postImage';
+import { checkIsLogedIn } from '../../store/auth'
 // import { getPostsData, addPost, addComment} from '../../store/apiActions'
 
 function toggleControlePanel(e,id) {
@@ -13,7 +15,7 @@ function toggleControlePanel(e,id) {
         document.getElementById(id).style.display = 'block';
         // document.getElementById('inputPost').style.height = '50px';
     }else{
-        console.log('HHHHH');
+        // console.log('HHHHH');
         document.getElementById(id).style.display = 'none';
         // document.getElementById('inputPost').style.height = '30px';
     }
@@ -23,18 +25,27 @@ function toggleControlePanel(e,id) {
 
 function PostCard(props){
     const [comments ,setComments] = useState(props.post.comments)
+    const history = useHistory()
+
+    // useEffect(async () => {
+    //     props.checkIsLogedIn()
+    // }, []);
 
     async function handleAddComment(e,postId) {
         e.preventDefault();
+        if(!props.loggedIn){
+            history.push("/loginUser");
+            return;
+        }
         let comment = e.target.commentContent.value
-        console.log('commentContent : ',comment)
+        // console.log('commentContent : ',comment)
         let add_commetn = await addComment(postId,comment, props.token);
-        console.log('add_commetn ==> : ',add_commetn.data.comments);
+        // console.log('add_commetn ==> : ',add_commetn.data.comments);
         setComments(add_commetn.data.comments);
         e.target.commentContent.value = "";
     }
     
-    console.log('This is the Post in the props : ',props.post)
+    // console.log('This is the Post in the props : ',props.post)
     let img = props.post.author.img || "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png";
 
     return(
@@ -80,8 +91,11 @@ function PostCard(props){
 const mapStateToProps = state => (
     {
         token: state.token.token,
+        loggedIn: state.auth.loggedIn
     }
 );
-export default connect(mapStateToProps)(PostCard);
+const mapDispatchToProps = {checkIsLogedIn};
+export default connect(mapStateToProps, mapDispatchToProps)(PostCard);
+// export default connect(mapStateToProps)(PostCard);
 
 // export default PostCard;
