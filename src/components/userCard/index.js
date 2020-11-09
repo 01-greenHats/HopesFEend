@@ -71,8 +71,18 @@ function UserCard(props) {
         <>
             <div className="filterSearchPanel">
 
-                <TextField id="standard-secondary" className="searchInput" onChange={(e) => { setNationalIdFilter(e.target.value) }} label="National Number" />
-                <TextField id="standard-secondary" className="searchInput" onChange={(e) => { setNameFilter(e.target.value) }} label="Name" />
+                {/* <TextField id="standard-secondary" className="searchInput" onChange={(e) => { setNationalIdFilter(e.target.value) }} label="National Number" />
+                <TextField id="standard-secondary" className="searchInput" onChange={(e) => { setNameFilter(e.target.value) }} label="Name" /> */}
+                <form className="serchForm">
+
+                    <label className="searchLabel">
+                        <input id="standard-secondary" className="searchInput" placeholder="National Number" onChange={(e) => { setNationalIdFilter(e.target.value) }} label="National Number" />
+                    </label>
+                    <label>
+                        <input id="standard-secondary" className="searchInput" placeholder="Name" onChange={(e) => { setNameFilter(e.target.value) }} label="Name" />
+                    </label>
+
+                </form>
             </div>
             <div className="userCardContainer">
                 {
@@ -121,7 +131,7 @@ function UserCard(props) {
                                                         }} className="viewMoreButton">Donate</button> */}
 
 
-                                                        
+
 
 
 

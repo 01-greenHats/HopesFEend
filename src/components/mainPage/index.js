@@ -1,16 +1,17 @@
-import React, {useState, useEffect} from 'react';
-import {connect} from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import { Redirect } from "react-router-dom";
 import cookie from 'react-cookies';
 import PostCard from '../postCard/index'
 import PropTypes from 'prop-types';
-import {makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import {setPosts} from '../../store/posts';
-import {setToken} from '../../store/token';
-import { checkIsLogedIn } from '../../store/auth'
+import { setPosts } from '../../store/posts';
+import { setToken } from '../../store/token';
+import { checkIsLogedIn } from '../../store/auth';
+import './main.scss';
 
 import {
     getPosts,
@@ -21,8 +22,8 @@ import {
     deleteComment,
     editComment
 } from '../../apiActions/posts';
-import {inNeedUserSignup} from '../../apiActions/users'
-import {Link} from 'react-router-dom';
+import { inNeedUserSignup } from '../../apiActions/users'
+import { Link } from 'react-router-dom';
 import NewPostPanel from '../newPostPanel'
 // import PostCard from '../postCard'
 
@@ -44,18 +45,18 @@ const MainPage = props => {
 
     return (
         <>
-            <div>
-                        <NewPostPanel/>
-                        <div>{
-                            props.posts.map((post, idex) => {
-                                return (
-                                    <PostCard key={idex}
-                                        post={post}/>
-                                );
-                            })
-                        } 
-                        </div>
-             </div>
+            <div >
+                <NewPostPanel />
+                <div className= "post">{
+                    props.posts.map((post, idex) => {
+                        return (
+                            <PostCard key={idex}
+                                post={post} />
+                        );
+                    })
+                }
+                </div>
+            </div>
         </>
     )
 
@@ -64,10 +65,10 @@ const MainPage = props => {
 
 const mapStateToProps = state => (
     {
-    posts: state.posts.posts, 
-    token: state.token.token, 
-    loggedIn: state.auth.loggedIn
-});
+        posts: state.posts.posts,
+        token: state.token.token,
+        loggedIn: state.auth.loggedIn
+    });
 const mapDispatchToProps = {
     setPosts,
     setToken,

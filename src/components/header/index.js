@@ -11,13 +11,14 @@ export default function Header() {
       <img src={Logo} class='img' href='/'></img>
         <ul>
           <li class='active'><a href='/'>Home</a></li>
-          <li><a href='/in_need_users'>Donate</a></li>
-          <li><a href='/personal_profile'>Profile</a></li>
-          <li><a href='/userForm'>LogIn</a></li>
-          <li><a href='/userForm'>SignUp</a></li>
-          <li><a href='/about-us'>About us</a></li>
+          <li class='active'><a href='/in_need_users'>Donate</a></li>
+          <li class='active'><a href='/personal_profile'>Profile</a></li>
+          <li class='active'><a href='/userForm'>LogIn</a></li>
+          <li class='active'><a href='/userForm'>SignUp</a></li>
+          <li class='active'><a href='/about-us'>About us</a></li>
         </ul>
       </div>
     </header>
+    
   );
 }
