@@ -23,6 +23,11 @@ let deleteCommentUrl='https://gazahopes.herokuapp.com/api/users/comments/delete/
 //router.patch('/api/v1/:model/comments/edit/:id/:commentId', barerAuth, deleteAuth, handleEditSComment);
 let editCommentUrl='https://gazahopes.herokuapp.com/api/users/comments/edit/';
 
+
+let getPostsByAuthorIdUrl='https://gazahopes.herokuapp.com/api/users/getAllPostsByAuthor';
+
+
+users/getAllPostsByAuthor 
 //**********posts Actions****************
 export const getPosts = () => {
     console.log('get posts called');  
@@ -84,6 +89,17 @@ export const editComment = (postId,commentId,token) => {
     let myHeaders={};
     myHeaders['Authorization']=`Bearer ${token}`;
     return axiosApiInstance(editCommentUrl,'put','',myHeaders)     
+}
+
+
+
+export const getPostsByAuthorId = (token) => {
+    console.log('getPostsByAuthorUrl called');  
+    // getPostsByAuthorIdUrl=getPostsByAuthorIdUrl+""+postId+"/"+commentId;
+    console.log('editCommentUrl>>',getPostsByAuthorIdUrl);
+    let myHeaders={};
+    myHeaders['Authorization']=`Bearer ${token}`;
+    return axiosApiInstance(getPostsByAuthorIdUrl,'get','',myHeaders)     
 }
 
 
