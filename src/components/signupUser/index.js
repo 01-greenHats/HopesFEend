@@ -28,10 +28,11 @@ const Signup = props => {
         let signupResult=await inNeedUserSignup(user);
         console.log('signupResult : ',signupResult);
         if(signupResult.status == 200){
+            console.log('Sign up response : ',signupResult.data)
             // props.setLoginState({token:signupResult.data,user:user,loggedIn:true})
             props.setLoginState({
                 token:signupResult.data.token,
-                addedUser:signupResult.data.loggedUser,
+                user:signupResult.data.addedUser,
                 loggedIn:true
             });
             history.push("/");

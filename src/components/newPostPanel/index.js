@@ -30,7 +30,7 @@ function NewPostPanel(props) {
 
 
     async function submitPost() {
-        // console.log('First = props.loggedIn : ',props.loggedIn)
+        console.log('user who added the post : ',props.user)
         if(!props.loggedIn){
             history.push("/loginUser");
             return;
@@ -45,9 +45,10 @@ function NewPostPanel(props) {
         // console.log('token : ', props.token)
         console.log('Token in new post panel : ',props.token)
         let add_post = await addPost(post, props.token);
-        console.log({ add_post }); 
-        
         if(add_post.status == 200){
+            let id = add_post.data.author;
+            add_post.data.author = props.user
+            console.log('Added Post : ',add_post.data ); 
             props.addNewPostToStore(add_post.data)
         }
     }
