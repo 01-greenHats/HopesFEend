@@ -66,6 +66,7 @@ class DonorRegisteration extends React.Component {
             <>
 
                 <div className= {this.state.active ? 'right-panel-active': null} id="container">
+
                     <div className="form-container sign-up-container">
                         <form className="donor-form" onSubmit={this.handleSubmitSignup}>
                             <h1 className="donor-header-light-card">Create Account</h1>
@@ -79,6 +80,7 @@ class DonorRegisteration extends React.Component {
                             <button className="donor-button">Sign Up</button>
                         </form>
                     </div>
+
                     <div className="form-container sign-in-container">
                         <form className="donor-form"  onSubmit={this.handleSubmitLogin}>
                             <h1 className="donor-header-light-card">Sign in</h1>
@@ -91,18 +93,23 @@ class DonorRegisteration extends React.Component {
                             <button className="donor-button">Sign In</button>
                         </form>
                     </div>
+
                     <div className="overlay-container">
+
                         <div className="overlay">
                             <div className="overlay-panel overlay-left">
+                                
                                 <h1 className="donor-header-dark-card">Welcome Back!</h1>
                                 <p className="donor-form-para">To keep connected with us please login with your personal info</p>
                                 <button className="donor-button ghost"  id="signIn"  onClick={this.toggleClass}>Sign In</button>
                             </div>
+
                             <div className="overlay-panel overlay-right">
                                 <h1 className="donor-header-dark-card">Hello!</h1>
                                 <p  className="donor-form-para">Enter your personal details and start with us as a Donor</p>
                                 <button className="donor-button ghost"  id="signUp"  onClick={this.toggleClass}>Sign Up</button>
                             </div>
+
                         </div>
                     </div>
                 </div>

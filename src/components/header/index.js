@@ -11,16 +11,11 @@ export default function Header() {
       <img src={Logo} class='img' href='/'></img>
         <ul>
           <li class='active'><a href='/'>Home</a></li>
-          <li><a href='/in_need_users'>People</a></li>
-          <li><a href='#'>Donate</a></li>
-
-         
-          <li><a href='/about-us'>About us</a></li>
-
+          <li><a href='/in_need_users'>Donate</a></li>
           <li><a href='/personal_profile'>Profile</a></li>
-
           <li><a href='/loginUser'>LogIn</a></li>
           <li><a href='/signupUser'>SignUp</a></li>
+          <li><a href='/about-us'>About us</a></li>
         </ul>
       </div>
     </header>
