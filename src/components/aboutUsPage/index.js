@@ -19,12 +19,12 @@ export default function About() {
         <>
             <Slider />
             <div class="about-section">
-          
+
                 <h1 class="about">ABOUT HOPES</h1>
                 <Typical
-                className="about-para"
+                    className="about-para"
                     steps={['Together', 1000, 'Together We Can Make a Difference', 700]}
-                    
+
                     loop={Infinity}
                     wrapper="p"
                 />
@@ -34,61 +34,223 @@ export default function About() {
 
             <h1 class="about" style={{ textAlign: "center" }}>Our Team</h1>
             <div class="row-about">
-                <div class="column">
-                    <div class="about-card">
-                        <img src={Ahmad1} alt="Jane" style={{ width: "100%" }} />
-                        <div class="about-card-container">
-                            <h2 class="team-names">Ahmad Alhrthani </h2>
-                            <p class="about-card-title">placeholder</p>
-                            <p class="about-card-para" >add short bio here lorem ipsum ipsum lorem.</p>
-                            <p>ahmad@example.com</p>
-                            <p><button class="about-card-button">Contact</button></p>
+            <div class="wrapper">
+                <div class="container">
+                    <div class="top-shela"></div>
+                    <div class="bottom">
+                        <div class="left">
+                            
+                                <h2>Ahmad Shela</h2>
+                                <p>Software Developer</p>
+                            
                         </div>
                     </div>
                 </div>
-
-                <div class="column">
-
-
-                    <div class="about-card">
-                        <img src={Roqaia} alt="Mike" style={{ width: "100%" }} />
-                        <div class="about-card-container">
-                            <h2 class="team-names">Roukia Salahi</h2>
-                            <p class="about-card-title">placeholder</p>
-                            <p class="about-card-para">add short bio here lorem ipsum ipsum lorem.</p>
-                            <p>roqaia@example.com</p>
-                            <p><button class="about-card-button">Contact</button></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="column">
-                    <div class="about-card">
-                        <img src={Ahmad2} alt="John" style={{ width: "100%" }} />
-                        <div class="about-card-container">
-                            <h2 class="team-names">Ahmad Shela</h2>
-                            <p class="about-card-title">placeholder</p>
-                            <p class="about-card-para">add short bio here lorem ipsum ipsum lorem.</p>
-                            <p>ahmad@example.com</p>
-                            <p><button class="about-card-button">Contact</button></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="column">
-                    <div class="about-card">
-                        <img src={Hisham} alt="John" style={{ width: "100%" }} />
-                        <div class="about-card-container">
-                            <h2 class="team-names">Hisham AlNaji</h2>
-                            <p class="about-card-title">placeholder</p>
-                            <p class="about-card-para">add short bio here lorem ipsum ipsum lorem.</p>
-                            <p>hisham@example.com</p>
-                            <p><button class="about-card-button">Contact</button></p>
-                        </div>
+                <div class="inside">
+                    <div class="icon"><i class="material-icons">info</i></div>
+                    <div class="contents">
+                        <table>
+                            <tr>
+                                <th>Width</th>
+                                <th>Height</th>
+                            </tr>
+                            <tr>
+                                <td>3000mm</td>
+                                <td>4000mm</td>
+                            </tr>
+                            <tr>
+                                <th>Something</th>
+                                <th>Something</th>
+                            </tr>
+                            <tr>
+                                <td>200mm</td>
+                                <td>200mm</td>
+                            </tr>
+                            <tr>
+                                <th>Something</th>
+                                <th>Something</th>
+                            </tr>
+                            <tr>
+                                <td>200mm</td>
+                                <td>200mm</td>
+                            </tr>
+                            <tr>
+                                <th>Something</th>
+                                <th>Something</th>
+                            </tr>
+                            <tr>
+                                <td>200mm</td>
+                                <td>200mm</td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
 
+
+            <div class="wrapper">
+                <div class="container">
+                    <div class="top-herthani"></div>
+                    <div class="bottom">
+                        <div class="left">
+                            
+                                <h2>Ahmad Herthani</h2>
+                                <p>Software Developer</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="inside">
+                    <div class="icon"><i class="material-icons">info</i></div>
+                    <div class="contents">
+                        <table>
+                            <tr>
+                                <th>Width</th>
+                                <th>Height</th>
+                            </tr>
+                            <tr>
+                                <td>3000mm</td>
+                                <td>4000mm</td>
+                            </tr>
+                            <tr>
+                                <th>Something</th>
+                                <th>Something</th>
+                            </tr>
+                            <tr>
+                                <td>200mm</td>
+                                <td>200mm</td>
+                            </tr>
+                            <tr>
+                                <th>Something</th>
+                                <th>Something</th>
+                            </tr>
+                            <tr>
+                                <td>200mm</td>
+                                <td>200mm</td>
+                            </tr>
+                            <tr>
+                                <th>Something</th>
+                                <th>Something</th>
+                            </tr>
+                            <tr>
+                                <td>200mm</td>
+                                <td>200mm</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="wrapper">
+                <div class="container">
+                    <div class="top-roqaia"></div>
+                    <div class="bottom">
+                        <div class="left">
+                            
+                                <h2>Roqaia Salahi</h2>
+                                <p>Software Developer</p>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="inside">
+                    <div class="icon"><i class="material-icons">info</i></div>
+                    <div class="contents">
+                        <table>
+                            <tr>
+                                <th>Width</th>
+                                <th>Height</th>
+                            </tr>
+                            <tr>
+                                <td>3000mm</td>
+                                <td>4000mm</td>
+                            </tr>
+                            <tr>
+                                <th>Something</th>
+                                <th>Something</th>
+                            </tr>
+                            <tr>
+                                <td>200mm</td>
+                                <td>200mm</td>
+                            </tr>
+                            <tr>
+                                <th>Something</th>
+                                <th>Something</th>
+                            </tr>
+                            <tr>
+                                <td>200mm</td>
+                                <td>200mm</td>
+                            </tr>
+                            <tr>
+                                <th>Something</th>
+                                <th>Something</th>
+                            </tr>
+                            <tr>
+                                <td>200mm</td>
+                                <td>200mm</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="wrapper">
+                <div class="container">
+                    <div class="top-hisham"></div>
+                    <div class="bottom">
+                        <div class="left">
+                            <h2>Hisham AlNaji</h2>
+                                <p>Software Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="inside">
+                    <div class="icon"><i class="material-icons">info</i></div>
+                    <div class="contents">
+                        <table>
+                            <tr>
+                                <th>Width</th>
+                                <th>Height</th>
+                            </tr>
+                            <tr>
+                                <td>3000mm</td>
+                                <td>4000mm</td>
+                            </tr>
+                            <tr>
+                                <th>Something</th>
+                                <th>Something</th>
+                            </tr>
+                            <tr>
+                                <td>200mm</td>
+                                <td>200mm</td>
+                            </tr>
+                            <tr>
+                                <th>Something</th>
+                                <th>Something</th>
+                            </tr>
+                            <tr>
+                                <td>200mm</td>
+                                <td>200mm</td>
+                            </tr>
+                            <tr>
+                                <th>Something</th>
+                                <th>Something</th>
+                            </tr>
+                            <tr>
+                                <td>200mm</td>
+                                <td>200mm</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+
+            
 
 
 
