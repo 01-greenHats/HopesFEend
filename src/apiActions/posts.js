@@ -24,10 +24,9 @@ let deleteCommentUrl='https://gazahopes.herokuapp.com/api/users/comments/delete/
 let editCommentUrl='https://gazahopes.herokuapp.com/api/users/comments/edit/';
 
 
-let getPostsByAuthorIdUrl='https://gazahopes.herokuapp.com/api/users/getAllPostsByAuthor';
+let getPostsByAuthorIdUrl='https://gazahopes.herokuapp.com/api/v1/users/getAllPostsByAuthor';
 
 
-// users/getAllPostsByAuthor 
 //**********posts Actions****************
 export const getPosts = () => {
     console.log('get posts called');  

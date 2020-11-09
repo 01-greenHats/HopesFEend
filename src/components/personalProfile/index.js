@@ -1,15 +1,29 @@
 import React from 'react';
 import './personalProfile.scss'
-
-import CameraAltIcon from '@material-ui/icons/CameraAlt';
-import PostAddIcon from '@material-ui/icons/PostAdd';
-import CancelIcon from '@material-ui/icons/Cancel';
-import { addPost } from '../../apiActions/posts';
+import PostCard from '../postCard/index'
 import { connect } from 'react-redux';
+import { checkIsLogedIn } from '../../store/auth'
+import { getPostsByAuthorId } from '../../apiActions/posts';
+
+import { useState, useEffect } from 'react';
+import NewPostPanel from '../newPostPanel'
 
 
 
-export default function personalProfile() {
+
+function PersonalProfile(props) {
+
+  const [ posts , setPosts ] = useState([]);
+  console.log('props>>>>>>>>>>', props.token);
+  useEffect(async () => {
+    
+    // console.log(await getPostsByAuthorId(token));
+    let myPosts = await getPostsByAuthorId(props.token);
+    myPosts=myPosts.data.results;
+    console.log('fetch result>>', myPosts);
+    setPosts(myPosts)
+    console.log("hello posts >>>>>>>> " , posts);
+  }, []);
 
   return (
     <>
@@ -36,6 +50,18 @@ export default function personalProfile() {
               <div class="description text-center">
                 <p></p>
               </div>
+              <div>
+                <NewPostPanel />
+                <div>{
+                  posts.map((post, idex) => {
+                    return (
+                      <PostCard key={idex}
+                        post={post} />
+                    );
+                  })
+                }
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -43,3 +69,16 @@ export default function personalProfile() {
     </>
   );
 }
+
+const mapStateToProps = state => (
+  {
+      token: state.token.token,
+      loggedIn: state.auth.loggedIn
+  }
+);
+
+const mapDispatchToProps = {checkIsLogedIn};
+export default connect(mapStateToProps, mapDispatchToProps)(PersonalProfile);
+// export default connect(mapStateToProps)(PostCard);
+
+// export default PostCard;

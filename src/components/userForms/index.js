@@ -1,17 +1,13 @@
 import React from 'react';
-// import { AuthContext } from './context.js';
-// import Show from '../auth/show';
+
 
 import './login.scss'
-import { Form, Col, Button, Card } from 'react-bootstrap';
+import Typical from 'react-typical'
 
 import { inNeedUserSignin } from '../../apiActions/users';
+import { inNeedUserSignup } from '../../apiActions/users';
 
 class userResgisteration extends React.Component {
-
-
-
-    // static contextType = AuthContext;
 
     constructor(props) {
         super(props);
@@ -39,16 +35,15 @@ class userResgisteration extends React.Component {
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value });
     }
-
-    handleSubmitSignup = async e => {
+    handleSubmitLogin = async e => {
         e.preventDefault();
         console.log(this.state)
         console.log("in handleSubmit")
-        let loginResult = await inNeedUserSignin(this.state.username, this.state.password);
+        let loginResult = await inNeedUserSignin(this.state.usernameLogin, this.state.passwordLogin);
         console.log('loginResult : ', loginResult);
     }
 
-    handleSubmitLogin = async e => {
+    handleSubmitSignup = async e => {
         e.preventDefault();
         let user = {
             'name': this.state.name,
@@ -84,59 +79,70 @@ class userResgisteration extends React.Component {
 
                 <div className={this.state.active ? 'right-panel-active' : null} id="user-container">
                     <div className="form-container user-sign-up-container">
-                        <form className="user-form" onSubmit={this.handleSubmitSignup}>
-                            {/* <h1 className="user-header-light-card">Create Account</h1> */}
 
+                        <form className="user-form" onSubmit={this.handleSubmitSignup}>
 
                             <input className="user-input-form" name="familyCount" onChange={this.handleChange} type="text" placeholder="Family Count" />
                             <input className="user-input-form" name="socialStatus" onChange={this.handleChange} type="text" placeholder="Social Status" />
                             <input className="user-input-form" name="healthStatus" onChange={this.handleChange} type="text" placeholder="Health Status" />
-
+                            <input className="user-input-form" name="healthDesc" onChange={this.handleChange} type="text" placeholder="Health Description" />
                             <input className="user-input-form" name="income" onChange={this.handleChange} type="number" placeholder="Income" />
                             <input className="user-input-form" name="expencsies" onChange={this.handleChange} type="number" placeholder="Expencsies" />
 
-                            <button className="user-button">Sign Up</button>
-                           
-                                <button className="user-button user-ghost" id="signIn" onClick={this.toggleClass}>Sign In</button>
+                            <div>
+                                <button className="user-button">Sign Up</button>
+                                <button className="user-button ghost" id="signIn" onClick={this.toggleClass}> Sign In</button>
+                            </div>
+
+
                         </form>
                     </div>
+
                     <div className="user-form-container user-sign-in-container">
                         <form className="user-form" onSubmit={this.handleSubmitLogin}>
-                            <h1 className="user-header-light-card">Sign in</h1>
 
+                            <h1 className="user-header-card">Sign in</h1>
+                            <input className="user-input-form" name="usernameLogin" onChange={this.handleChange} type="text" placeholder="Name" />
+                            <input className="user-input-form" name="passwordLogin" onChange={this.handleChange} type="password" placeholder="Password" />
+                            <button className="user-button">Sign In  </button>
 
-                            <input className="user-input-form" name="username" onChange={this.handleChange} type="text" placeholder="Name" />
-                            <input className="user-input-form" name="password" onChange={this.handleChange} type="password" placeholder="Password" />
-                            <button className="user-button">Sign In</button>
-                            <button className="user-button user-ghost" id="signUp" onClick={this.toggleClass}>Sign Up</button>
                         </form>
+
                     </div>
+
+
                     <div className="overlay-container">
                         <div className="overlay">
                             <div className="overlay-panel overlay-left">
-                                {/* <h1 className="user-header-dark-card">Welcome Back!</h1> */}
-                                {/* <p className="user-form-para">To keep connected with us please login with your personal info</p> */}
-                         
-                                <h1 className="user-header-light-card">Create Account</h1>
+
+                            <form className="user-form" onSubmit={this.handleSubmitSignup}>
+
+
+                                <h1 className="user-header-card">Create Account</h1>
+                                <p className="user-form-para">To keep connected with us please sign up with your personal info</p>
+
                                 <input className="user-input-form" name="name" onChange={this.handleChange} type="text" placeholder="Name" />
                                 <input className="user-input-form" name="email" onChange={this.handleChange} type="email" placeholder="Email" />
                                 <input className="user-input-form" name="password" onChange={this.handleChange} type="password" placeholder="Password" />
 
                                 <input className="user-input-form" name="nationalNo" onChange={this.handleChange} type="number" placeholder="National No" />
-                                <input className="user-input-form" name="payPal" onChange={this.handleChange} type="email" placeholder="payPal Account" />
+                                <input className="user-input-form" name="payPal" onChange={this.handleChange} type="email" placeholder="PayPal Account" />
                                 <input className="user-input-form" name="dob" onChange={this.handleChange} type="text" placeholder="Date of Birth" />
-
-
-
-                                {/* <button className="user-button ghost" id="signIn" onClick={this.toggleClass}>Sign In</button> */}
+                                </form>
                             </div>
+
                             <div className="overlay-panel overlay-right">
+                                <h1 className="user-header-dark-card">Not Joined Yet!</h1>
+                                <Typical
+                                    className="user-form-para"
+                                    steps={['Click here', 1000, 'Click here to enter your personal details and start with us', 700]}
+
+                                    loop={Infinity}
+                                    wrapper="p"
+                                />
                                 <button className="user-button user-ghost" id="signUp" onClick={this.toggleClass}>Sign Up</button>
-                               
-                                <h1 className="user-header-dark-card">Hello!</h1>
-                                <p className="user-form-para">Enter your personal details and start with us as a Donor</p>
-                                {/* <button className="user-button ghost"  id="signUp"  onClick={this.toggleClass}>Sign Up</button> */}
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -145,3 +151,4 @@ class userResgisteration extends React.Component {
     }
 }
 export default userResgisteration;
+

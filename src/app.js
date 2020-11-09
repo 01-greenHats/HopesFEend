@@ -48,6 +48,7 @@ export default propsimport => {
         </Route>
         <Route exact path="/personal_profile">
           <PersonalProfile />
+          <Loader />
         </Route>
         <Route exact path="/about-us">
           <About />

@@ -125,6 +125,7 @@ class CustomPaginationActionsTable extends React.Component {
         page: 0,
         rowsPerPage: 5,
         payments: [],
+        totalPayments:0,
     };
 
     componentDidMount() {
@@ -136,9 +137,12 @@ class CustomPaginationActionsTable extends React.Component {
             // let userId = '5MNSBA6FP2QF4';
             let userData = await getUserPayments(userId);
             userData = userData.data.results;
+            let totalPayms=0;
             let paymentsRows = userData.map(element => {
+                totalPayms+= Number(element.amount);
                 return createData(element.amount, element.currency, element.date)
             });
+            this.setState({totalPayments:totalPayms});
             this.setState({ rows: paymentsRows })
 
         }
@@ -155,10 +159,11 @@ class CustomPaginationActionsTable extends React.Component {
 
     render() {
         const { classes } = this.props;
-        const { rows, rowsPerPage, page } = this.state;
+        const { totalPayments,rows, rowsPerPage, page } = this.state;
         const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
         return (
             <Paper className={classes.root}>
+                <h3>Total Payments: {totalPayments}</h3>
                 <div className={classes.tableWrapper}>
                     <Table className={classes.table}>
                         <TableBody>
