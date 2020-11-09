@@ -1,97 +1,102 @@
 import React from 'react';
-
-
+import { connect } from 'react-redux';
+import { useHistory  } from "react-router-dom";
 import './login.scss'
 import Typical from 'react-typical'
-
-import { inNeedUserSignin } from '../../apiActions/users';
+import { setLoginState } from '../../store/auth';
 import { inNeedUserSignup } from '../../apiActions/users';
+import { inNeedUserSignin } from '../../apiActions/users';
 
-class userResgisteration extends React.Component {
+const userResgisteration = props => {
+    const history = useHistory()
+var active = false;
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: '',
-            password: '',
-            nationalNo: 0,
-            email: '',
-            payPal: '',
-            dob: '',
-            familyCount: 0,
-            socialStatus: '',
-            healthStatus: '',
-            healthDesc: '',
-            income: 0,
-            expencsies: 0,
-
-            usernameLogin: '',
-            passwordLogin: '',
-            active: false,
+    const toggleClass = ()=>{
+        if(active){
+            active = false
+            document.getElementById('user-container').className = ''
+        }else{
+            active = true
+            document.getElementById('user-container').className = 'right-panel-active'
         }
-
     }
-
-    handleChange = e => {
-        this.setState({ [e.target.name]: e.target.value });
-    }
-    handleSubmitLogin = async e => {
+    const handleSubmitLogin = async (e) => {
         e.preventDefault();
-        console.log(this.state)
         console.log("in handleSubmit")
-        let loginResult = await inNeedUserSignin(this.state.usernameLogin, this.state.passwordLogin);
+        let loginResult = await inNeedUserSignin(e.target.usernameLogin.value, e.target.passwordLogin.value);
+        if(loginResult.status == 200){
+            props.setLoginState({
+                token:loginResult.data.token.token,
+                loggedUser:loginResult.data.token.loggedUser,
+                loggedIn:true
+            });
+            history.push("/");
+        }
         console.log('loginResult : ', loginResult);
     }
 
-    handleSubmitSignup = async e => {
+    const handleSubmitSignup = async (e) => {
         e.preventDefault();
-        let user = {
-            'name': this.state.name,
-            'dob': this.state.dob,
-            'email': this.state.email,
-            'expencsies': Number(this.state.expencsies),
-            'familyCount': Number(this.state.familyCount),
-            'healthDesc': this.state.healthDesc,
-            'healthStatus': this.state.healthStatus,
-            'income': Number(this.state.income),
-            'payPal': this.state.payPal,
-            'nationalNo': Number(this.state.nationalNo),
-            'password': this.state.password,
-            'socialStatus': this.state.socialStatus,
-        }
-        console.log("userrrrrrs", user)
+        let name= document.getElementById("name").value;
+        let dob= document.getElementById("dob").value;
+        let email= document.getElementById("email").value;
+        let expencsies= Number(document.getElementById("expencsies").value);
+        let familyCount= Number(document.getElementById("familyCount").value);
+        let healthDesc= document.getElementById("healthDesc").value;
+        let healthStatus= document.getElementById("healthStatus").value;
+        let income= Number(document.getElementById("income").value);
+        let payPal= document.getElementById("payPal").value;
+        let nationalNo= Number(document.getElementById("nationalNo").value);
+        let password= document.getElementById("password").value;
+        let socialStatus= document.getElementById("socialStatus").value;
 
-        let signupResult = await inNeedUserSignup(user);
-        console.log('signupResult : ', signupResult);
+            let user = {
+                'name': name,
+                'dob': dob,
+                'email': email,
+                'expencsies':expencsies,
+                'familyCount': familyCount,
+                'healthDesc': healthDesc,
+                'healthStatus': healthStatus,
+                'income': income,
+                'payPal': payPal,
+                'nationalNo': nationalNo,
+                'password': password,
+                'socialStatus': socialStatus,
+            }
+            console.log("userrrrrrs", user)
+    
+            let signupResult = await inNeedUserSignup(user);
+            if(signupResult.status == 200){
+                console.log('Sign up response : ',signupResult.data);
+                props.setLoginState({
+                    token:signupResult.data.token,
+                    user:signupResult.data.addedUser,
+                    loggedIn:true
+                });
+                history.push("/");
+            }
+            console.log('signupResult : ', signupResult);
     }
-    toggleClass = () => {
-        console.log("inideeee")
-        const currentState = this.state.active;
-        console.log("before", this.state.active)
-        this.setState({ active: !currentState });
-        console.log("after", this.state.active)
-    };
-
-    render() {
 
         return (
             <>
 
-                <div className={this.state.active ? 'right-panel-active' : null} id="user-container">
+                <div className='' id="user-container">
                     <div className="form-container user-sign-up-container">
 
-                        <form className="user-form" onSubmit={this.handleSubmitSignup}>
+                        <form className="user-form" onSubmit={(e)=>{handleSubmitSignup(e)}}>
 
-                            <input className="user-input-form" name="familyCount" onChange={this.handleChange} type="text" placeholder="Family Count" />
-                            <input className="user-input-form" name="socialStatus" onChange={this.handleChange} type="text" placeholder="Social Status" />
-                            <input className="user-input-form" name="healthStatus" onChange={this.handleChange} type="text" placeholder="Health Status" />
-                            <input className="user-input-form" name="healthDesc" onChange={this.handleChange} type="text" placeholder="Health Description" />
-                            <input className="user-input-form" name="income" onChange={this.handleChange} type="number" placeholder="Income" />
-                            <input className="user-input-form" name="expencsies" onChange={this.handleChange} type="number" placeholder="Expencsies" />
+                            <input id="familyCount" className="user-input-form" name="familyCount" type="text" placeholder="Family Count" />
+                            <input id="socialStatus" className="user-input-form" name="socialStatus" type="text" placeholder="Social Status" />
+                            <input id="healthStatus" className="user-input-form" name="healthStatus" type="text" placeholder="Health Status" />
+                            <input id="healthDesc" className="user-input-form" name="healthDesc" type="text" placeholder="Health Description" />
+                            <input id="income" className="user-input-form" name="income" type="number" placeholder="Income" />
+                            <input id="expencsies" className="user-input-form" name="expencsies" type="number" placeholder="Expencsies" />
 
                             <div>
-                                <button className="user-button">Sign Up</button>
-                                <button className="user-button ghost" id="signIn" onClick={this.toggleClass}> Sign In</button>
+                                <button type='submit' className="user-button">Sign Up</button>
+                                <button type='button' className="user-button ghost" id="signIn" onClick={(e)=>{toggleClass(e)}}> Sign In</button>
                             </div>
 
 
@@ -99,13 +104,13 @@ class userResgisteration extends React.Component {
                     </div>
 
                     <div className="user-form-container user-sign-in-container">
-                        <form className="user-form" onSubmit={this.handleSubmitLogin}>
+                        <form className="user-form" onSubmit={(e)=>{handleSubmitLogin(e)}}>
 
                             <h1 className="user-header-card">Sign in</h1>
-                            <input className="user-input-form" name="usernameLogin" onChange={this.handleChange} type="text" placeholder="Name" />
-                            <input className="user-input-form" name="passwordLogin" onChange={this.handleChange} type="password" placeholder="Password" />
-                            <button className="user-button">Sign In  </button>
+                            <input className="user-input-form" name="usernameLogin" type="text" placeholder="Name" />
+                            <input className="user-input-form" name="passwordLogin" type="password" placeholder="Password" />
 
+                            <button type='submit' className="user-button">Sign In  </button>
                         </form>
 
                     </div>
@@ -115,19 +120,19 @@ class userResgisteration extends React.Component {
                         <div className="overlay">
                             <div className="overlay-panel overlay-left">
 
-                            <form className="user-form" onSubmit={this.handleSubmitSignup}>
+                            <form className="user-form" onSubmit={(e)=>{handleSubmitSignup(e)}}>
 
 
                                 <h1 className="user-header-card">Create Account</h1>
                                 <p className="user-form-para">To keep connected with us please sign up with your personal info</p>
 
-                                <input className="user-input-form" name="name" onChange={this.handleChange} type="text" placeholder="Name" />
-                                <input className="user-input-form" name="email" onChange={this.handleChange} type="email" placeholder="Email" />
-                                <input className="user-input-form" name="password" onChange={this.handleChange} type="password" placeholder="Password" />
+                                <input id="name" className="user-input-form" name="name" type="text" placeholder="Name" />
+                                <input id="email" className="user-input-form" name="email" type="email" placeholder="Email" />
+                                <input id="password" className="user-input-form" name="password" type="password" placeholder="Password" />
 
-                                <input className="user-input-form" name="nationalNo" onChange={this.handleChange} type="number" placeholder="National No" />
-                                <input className="user-input-form" name="payPal" onChange={this.handleChange} type="email" placeholder="PayPal Account" />
-                                <input className="user-input-form" name="dob" onChange={this.handleChange} type="text" placeholder="Date of Birth" />
+                                <input id="nationalNo" className="user-input-form" name="nationalNo" type="number" placeholder="National No" />
+                                <input id="payPal" className="user-input-form" name="payPal" type="email" placeholder="PayPal Account" />
+                                <input id="dob" className="user-input-form" name="dob" type="text" placeholder="Date of Birth" />
                                 </form>
                             </div>
 
@@ -140,15 +145,20 @@ class userResgisteration extends React.Component {
                                     loop={Infinity}
                                     wrapper="p"
                                 />
-                                <button className="user-button user-ghost" id="signUp" onClick={this.toggleClass}>Sign Up</button>
+                                <button className="user-button user-ghost" id="signUp" onClick={(e)=>{toggleClass(e)}}>Sign Up</button>
                             </div>
 
                         </div>
                     </div>
                 </div>
             </>
-        )
-    }
+        );
 }
-export default userResgisteration;
+const mapStateToProps = state => (
+    {
+        // inNeedUsers: state.inNeedUsers.inNeedUsers,
+    }
+);
+const mapDispatchToProps = { setLoginState };
+export default connect(mapStateToProps, mapDispatchToProps)(userResgisteration);
 

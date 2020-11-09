@@ -7,8 +7,8 @@ import Header from './components/header';
 import Footer from './components/footer';
 import { Route, Switch } from 'react-router-dom';
 import MainPage from './components/mainPage';
-import SiginupUser from './components/signupUser';
-import Login from './components/loginUser';
+// import SiginupUser from './components/signupUser';
+// import Login from './components/loginUser';
 import UserForm from './components/userForms';
 import DonorRegisteration from './components/donorForms'
 import UserPayments from './components/userPaymsDtl';
@@ -32,13 +32,6 @@ export default propsimport => {
           <MainPage />
           <Loader />
         </Route>
-        <Route exact path="/signupUser">
-          <SiginupUser />
-        </Route>
-        <Route exact path="/loginUser">
-          <Login />
-        </Route>
-
         <Route exact path="/userForm">
           <UserForm/>
         </Route>

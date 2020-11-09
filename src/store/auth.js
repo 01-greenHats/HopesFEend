@@ -29,7 +29,7 @@ const auth = createSlice({
          * to check update the loedIn state if the user ha
          */
         checkIsLogedIn(state, action){
-            const cookieToken = cookie.load('auth');
+            const cookieToken = `${cookie.load('auth')}`;
             const token = cookieToken || null;
             console.log(' checkIsLogedIn token : ', token)
             if(token){
