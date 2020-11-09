@@ -38,9 +38,9 @@ function PostCard(props){
             return;
         }
         let comment = e.target.commentContent.value
-        // console.log('commentContent : ',comment)
+        console.log(`postID : ${postId} // content : ${comment} // token : ${props.token}`)
         let add_commetn = await addComment(postId,comment, props.token);
-        // console.log('add_commetn ==> : ',add_commetn.data.comments);
+        console.log('add_commetn ==> : ',add_commetn);
         setComments(add_commetn.data.comments);
         e.target.commentContent.value = "";
     }
@@ -90,7 +90,7 @@ function PostCard(props){
 
 const mapStateToProps = state => (
     {
-        token: state.token.token,
+        token: state.auth.token,
         loggedIn: state.auth.loggedIn
     }
 );
