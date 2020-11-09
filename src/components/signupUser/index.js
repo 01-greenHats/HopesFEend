@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from "react-router-dom";
+import { Redirect,useHistory  } from "react-router-dom";
 import { setLoginState } from '../../store/auth';
 import { Form, Col, Button, Card } from 'react-bootstrap';
 import { inNeedUserSignup } from '../../apiActions/users';
@@ -8,7 +8,7 @@ import { inNeedUserSignup } from '../../apiActions/users';
 
 
 const Signup = props => {
-    
+    const history = useHistory()
     const handleSubmit = async (e)=>{
         e.preventDefault();
         let user = {
@@ -28,7 +28,13 @@ const Signup = props => {
         let signupResult=await inNeedUserSignup(user);
         console.log('signupResult : ',signupResult);
         if(signupResult.status == 200){
-            props.setLoginState({token:signupResult.data,user:user,loggedIn:true})
+            // props.setLoginState({token:signupResult.data,user:user,loggedIn:true})
+            props.setLoginState({
+                token:signupResult.data.token,
+                addedUser:signupResult.data.loggedUser,
+                loggedIn:true
+            });
+            history.push("/");
         }
         e.target.reset();
     }
@@ -110,7 +116,7 @@ const Signup = props => {
                                
                             </Form.Group>
                         </Form.Row>
-                        <Button variant="primary" type="submit"><Link to="/">Sign up</Link></Button>
+                        <Button variant="primary" type="submit">Sign up</Button>
                     </fieldset>
                 </form>
             </Card>

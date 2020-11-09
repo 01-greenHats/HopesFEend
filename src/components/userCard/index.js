@@ -94,7 +94,8 @@ function UserCard(props) {
 
                                                 <p className="front__text-para"><LocationOnIcon className="front-icons" />Gaza</p>
 
-                                                <span className="front__text-hover">Details</span>
+
+                                                <span className="front__text-hover">Total Payments 0 $</span>
                                             </div>
                                         </div>
                                         <div className="back">
@@ -111,19 +112,16 @@ function UserCard(props) {
                                                         <li>Income: {item.income} </li>
                                                         <li>Expencsies: {item.expencsies}</li>
                                                         <li>Email: {item.email}</li>
-                                                        <button className="viewMoreButton"><Link to={{ pathname: "/user_payments/" + item._id, state: item }}>View Payments history</Link> </button>
+                                                        <button className="viewMoreButton"><Link to={{ pathname: "/user_payments/" + item._id, state: item }}>Donate for this person</Link> </button>
+                                                        {/* <button className="viewMoreButton"><Link to={{ pathname: "/user_payments/" + item._id, state: item }}>View Payments history</Link> </button> */}
+
                                                         {/* <button onClick={() => {
                                                             //setCurrentUser({item},handleDonate())
                                                             handleDonate(item);
                                                         }} className="viewMoreButton">Donate</button> */}
 
 
-                                                        <form id="donateform" action="https://gazahopes.herokuapp.com/pay" method="POST">
-                                                            <input type="hidden" name="userId" value={item._id} />
-                                                            <input type="hidden" name="email" value={item.email} />
-                                                            <input name="amount" />
-                                                            <button type="submit">Donate</button>
-                                                        </form>
+                                                        
 
 
 
