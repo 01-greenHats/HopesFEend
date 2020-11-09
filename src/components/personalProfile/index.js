@@ -30,6 +30,8 @@ function NewPostPanel(props) {
   }
 }
 
+
+
 export default function personalProfile() {
 
   return (
