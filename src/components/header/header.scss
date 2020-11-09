@@ -70,8 +70,8 @@ body {
   margin-right: -4px;
 }
 #cssmenu > ul > li.active > a,
-#cssmenu > ul > li:hover > a,
-#cssmenu > ul > li > a:hover {
+#cssmenu > ul > li:active > a,
+#cssmenu > ul > li > a:active {
   color: #ffffff;
 }
 #cssmenu > ul > li > a:after {

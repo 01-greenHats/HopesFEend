@@ -24,6 +24,7 @@ export default propsimport => {
       <Switch>
         <Route exact path="/in_need_users">
           <InNeedUsers />
+          <Loader />
         </Route>
         <Route exact path="/user_payments/:id" component={UserPayments}>
         </Route>
