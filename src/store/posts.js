@@ -14,7 +14,7 @@ const postsSlice = createSlice({
             state.posts.push(action.payload)
             // state.posts = action.payload.result || action.payload.results;
             // console.log(' state.posts : ',state.posts)
-        },
+        }
        
     }
 });
