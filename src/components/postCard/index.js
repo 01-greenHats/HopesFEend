@@ -34,6 +34,7 @@ function PostCard(props){
     async function handleAddComment(e,postId) {
         e.preventDefault();
         if(!props.loggedIn){
+            // props.checkIsLogedIn()
             history.push("/loginUser");
             return;
         }
