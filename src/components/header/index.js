@@ -15,6 +15,7 @@ export default function Header() {
           <li><a href='/personal_profile'>Profile</a></li>
           <li><a href='/loginUser'>LogIn</a></li>
           <li><a href='/signupUser'>SignUp</a></li>
+          <li><a href='/about-us'>About us</a></li>
         </ul>
       </div>
     </header>
