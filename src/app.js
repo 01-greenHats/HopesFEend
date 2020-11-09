@@ -16,6 +16,7 @@ import Loader from './components/loader';
 
 import About from './components/aboutUsPage';
 
+// import Test from './'
 
 export default propsimport => {
   return (
@@ -44,6 +45,14 @@ export default propsimport => {
         <Route exact path="/about-us">
           <About />
         </Route>
+
+        <Route exact path="/about-us">
+          <About />
+        </Route>
+
+        {/* <Route exact path="/test">
+          <Test />
+        </Route> */}
        
         <Route>404 Page Not Found!</Route>
       </Switch>
