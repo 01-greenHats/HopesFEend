@@ -1,95 +1,92 @@
-
-// sign up and login forms for donors
-
 import React from 'react';
-// import Show from './show';
-// import { AuthContext } from './context';
+import { connect } from 'react-redux';
+import { Redirect,useHistory  } from "react-router-dom";
+import { setLoginState } from '../../store/auth';
 import './login.scss'
 
 import { donorSignup, donorSignin } from '../../apiActions/donors';
 
-class DonorRegisteration extends React.Component {
-
-    constructor(props) {
-        super(props);
-      
-        this.state = {
-            signupName: '',
-            signupPassword: '',
-            signupEmail: '',
-            username: '',
-            password: '',
-            active: false,
-
+const DonorRegisteration = props => {
+    const history = useHistory()
+    var active = false;
+    const toggleClass = ()=>{
+        if(active){
+            active = false
+            document.getElementById('container').className = ''
+        }else{
+            active = true
+            document.getElementById('container').className = 'right-panel-active'
         }
-
     }
 
-    handleChange = e => {
-      
-        this.setState({ [e.target.name]: e.target.value });
-    }
-
-    handleSubmitSignup = async e => {
+    const handleSubmitSignup = async e => {
         e.preventDefault();
         let donor = {
-            'name': this.state.signupName,
-            'email': this.state.signupEmail,
-            'password': this.state.signupPassword,
+            'name': e.target.signupName.value,
+            'email': e.target.signupEmail.value,
+            'password': e.target.signupPassword.value,
 
         }
         console.log("donor object from form ", donor)
 
         let signupResult = await donorSignup(donor);
-        console.log('signupResult donor  : ', signupResult);
+        if(signupResult.status == 200){
+            console.log('signupResult donor  : ', signupResult);
+            props.setLoginState({
+                token:signupResult.data.token,
+                user:signupResult.data.addedUser,
+                loggedIn:true
+            });
+            history.push("/");
+        }
     }
 
 
-    handleSubmitLogin = async e => {
+    const handleSubmitLogin = async e => {
         e.preventDefault();
-        console.log(this.state)
+        // console.log(this.state)
         console.log("in handleSubmit login ")
-        let loginResult = await donorSignin(this.state.username, this.state.password);
+        let loginResult = await donorSignin(e.target.username.value, e.target.password.value);
+        if(loginResult.status == 200){
+            props.setLoginState({
+                token:loginResult.data.token.token,
+                user:loginResult.data.addedUser,
+                loggedIn:true
+            });
+            history.push("/");
+        }
         console.log('loginResult donor : ', loginResult);
     }
 
-    toggleClass = () => {
-        console.log("inideeee")
-        const currentState = this.state.active;
-        console.log("before", this.state.active)
-        this.setState({ active: !currentState });
-        console.log("after", this.state.active)
-    };
-    render() {
 
         return (
             <>
 
-                <div className= {this.state.active ? 'right-panel-active': null} id="container">
+                <div className= {active ? 'right-panel-active': null} id="container">
 
                     <div className="form-container sign-up-container">
-                        <form className="donor-form" onSubmit={this.handleSubmitSignup}>
+                        <form className="donor-form" onSubmit={(e)=>{handleSubmitSignup(e)}}>
                             <h1 className="donor-header-light-card">Create Account</h1>
                             <div className="social-container">
                                 <a href="#" className="social a-donor"><i class="fab fa-google-plus-g"></i></a>
                             </div>
                             <span className="span-donor">or use your email for registration</span>
-                            <input className="donor-input-form" name="signupName"  onChange={this.handleChange} type="text" placeholder="Name" />
-                            <input className="donor-input-form" name="signupEmail" onChange={this.handleChange} type="email" placeholder="Email" />
-                            <input className="donor-input-form" name="signupPassword" onChange={this.handleChange} type="password" placeholder="Password" />
+                            <input className="donor-input-form" name="signupName"  type="text" placeholder="Name" />
+                            <input className="donor-input-form" name="signupEmail" type="email" placeholder="Email" />
+                            <input className="donor-input-form" name="signupPassword" type="password" placeholder="Password" />
                             <button className="donor-button">Sign Up</button>
                         </form>
                     </div>
 
                     <div className="form-container sign-in-container">
-                        <form className="donor-form"  onSubmit={this.handleSubmitLogin}>
+                        <form className="donor-form"  onSubmit={(e)=>{handleSubmitLogin(e)}}>
                             <h1 className="donor-header-light-card">Sign in</h1>
                             <div className="social-container">
                                 <a href="#" className="social a-donor"><i className="fab fa-google-plus-g"></i></a>
                             </div>
                             <span className="span-donor">or use your account</span>
-                            <input className="donor-input-form" name="username" onChange={this.handleChange} type="text" placeholder="Name" />
-                            <input className="donor-input-form" name="password"  onChange={this.handleChange} type="password" placeholder="Password" />
+                            <input className="donor-input-form" name="username" type="text" placeholder="Name" />
+                            <input className="donor-input-form" name="password"  type="password" placeholder="Password" />
                             <button className="donor-button">Sign In</button>
                         </form>
                     </div>
@@ -101,13 +98,13 @@ class DonorRegisteration extends React.Component {
                                 
                                 <h1 className="donor-header-dark-card">Welcome Back!</h1>
                                 <p className="donor-form-para">To keep connected with us please login with your personal info</p>
-                                <button className="donor-button ghost"  id="signIn"  onClick={this.toggleClass}>Sign In</button>
+                                <button className="donor-button ghost"  id="signIn"  onClick={()=>{toggleClass()}}>Sign In</button>
                             </div>
 
                             <div className="overlay-panel overlay-right">
                                 <h1 className="donor-header-dark-card">Hello!</h1>
                                 <p  className="donor-form-para">Enter your personal details and start with us as a Donor</p>
-                                <button className="donor-button ghost"  id="signUp"  onClick={this.toggleClass}>Sign Up</button>
+                                <button className="donor-button ghost"  id="signUp"  onClick={()=>{toggleClass()}}>Sign Up</button>
                             </div>
 
                         </div>
@@ -116,7 +113,12 @@ class DonorRegisteration extends React.Component {
 
             </>
         )
-    }
 }
 
-export default DonorRegisteration;
+const mapStateToProps = state => (
+    {
+        // inNeedUsers: state.inNeedUsers.inNeedUsers,
+    }
+);
+const mapDispatchToProps = { setLoginState };
+export default connect(mapStateToProps, mapDispatchToProps)(DonorRegisteration);
