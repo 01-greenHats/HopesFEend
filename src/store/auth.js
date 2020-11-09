@@ -29,10 +29,10 @@ const auth = createSlice({
          * to check update the loedIn state if the user ha
          */
         checkIsLogedIn(state, action){
-            const cookieToken = `${cookie.load('auth')}`;
-            const token = cookieToken || null;
-            console.log(' checkIsLogedIn token : ', token)
-            if(token){
+            const token = `${cookie.load('auth')}`;
+            // var token = cookieToken || 'Ahmad';
+            console.log(' checkIsLogedIn token : ',  `${cookie.load('auth')}`)
+            if(token !== 'undefined'){
                 let user = jwt.verify(token, 'secret');
                 if(user){
                     state.loggedIn = true
