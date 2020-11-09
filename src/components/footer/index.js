@@ -13,7 +13,7 @@ function Footer(props) {
         <>
             <footer className="section bg-footer">
                 <div className="container">
-                    <div className="row">
+                    <div className="row-footer">
                         <div className="col-lg-3">
                             <div className="">
                                 <h6 className="footer-heading text-uppercase text-white">Information</h6>

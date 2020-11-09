@@ -4,14 +4,17 @@ import './styles.scss';
 import InNeedUsers from './components/inNeedUsers';
 import PersonalProfile from './components/personalProfile';
 import Header from './components/header';
+import Footer from './components/footer';
 import { Route, Switch } from 'react-router-dom';
 import MainPage from './components/mainPage';
 import SiginupUser from './components/signupUser';
 import Login from './components/loginUser';
+import UserForm from './components/userForms';
 import DonorRegisteration from './components/donorForms'
 import UserPayments from './components/userPaymsDtl';
 import Loader from './components/loader';
 
+import About from './components/aboutUsPage';
 
 
 export default propsimport => {
@@ -34,14 +37,24 @@ export default propsimport => {
         <Route exact path="/loginUser">
           <Login />
         </Route>
+
+        <Route exact path="/userForm">
+          <UserForm/>
+        </Route>
+        
         <Route exact path="/login-signup-donor">
           <DonorRegisteration />
         </Route>
         <Route exact path="/personal_profile">
           <PersonalProfile />
         </Route>
+        <Route exact path="/about-us">
+          <About />
+        </Route>
+       
         <Route>404 Page Not Found!</Route>
       </Switch>
+      <Footer />
     </div>
 
   )

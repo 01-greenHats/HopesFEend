@@ -84,7 +84,7 @@ const InNeedUsers = props => {
     return(
         <>
         <UserCard data={props.inNeedUsers}/>
-        <Footer />
+        {/* <Footer /> */}
         </>
     )
 }
