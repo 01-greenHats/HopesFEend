@@ -4,13 +4,18 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import { Card } from 'react-bootstrap'
-import './userCard.scss'
+import './userCard.scss';
+import { Link } from 'react-router-dom';
+import { createNewPayment } from '../../apiActions/payments';
+
 
 
 function UserCard(props) {
 
     const [nameFilter, setNameFilter] = useState('All');
     const [nationalIdFilter, setNationalIdFilter] = useState('All');
+    const [currentUser, setCurrentUser] = useState('');
+
     console.log('props : ', props);
     function getLogoText(str) {
         var result = '';
@@ -19,6 +24,33 @@ function UserCard(props) {
         });
         return result;
     }
+    function handleDonate(user) {
+        console.log('handleDonate called');
+        // console.log('currentUser>> ',currentUser);
+        // createNewPayment();
+        console.log('123>>>', user.name);
+        let paymentData = {};
+        paymentData.email = user.email;
+        paymentData._id = user._id;
+        paymentData.amoount = 50;
+        console.log('payment data>>', paymentData);
+        let paymentProcessResult = createNewPayment(paymentData);
+        console.log('paymentProcessResult>>', paymentProcessResult);
+
+
+    }
+
+    useEffect(() => {
+        // Update the document title using the browser API
+    });
+
+
+
+    // function handleDonate1() {
+    //     console.log('handleDonate1 called');
+    //     // createNewPayment();
+    // }
+
     function filterData(data) {
         let result = [];
         data.forEach(item => {
@@ -79,9 +111,25 @@ function UserCard(props) {
                                                         <li>Income: {item.income} </li>
                                                         <li>Expencsies: {item.expencsies}</li>
                                                         <li>Email: {item.email}</li>
-                                                        <button  className="viewMoreButton">view Payments history </button>
+                                                        <button className="viewMoreButton"><Link to={{ pathname: "/user_payments/" + item._id, state: item }}>View Payments history</Link> </button>
+                                                        {/* <button onClick={() => {
+                                                            //setCurrentUser({item},handleDonate())
+                                                            handleDonate(item);
+                                                        }} className="viewMoreButton">Donate</button> */}
+
+
+                                                        <form id="donateform" action="https://gazahopes.herokuapp.com/pay" method="POST">
+                                                            <input type="hidden" name="userId" value={item._id} />
+                                                            <input type="hidden" name="email" value={item.email} />
+                                                            <input name="amount" />
+                                                            <button type="submit">Donate</button>
+                                                        </form>
+
+
+
+
                                                     </ul>
-                                                   
+
                                                 </div>
                                             </div>
                                         </div>
@@ -99,8 +147,8 @@ function UserCard(props) {
 }
 export default UserCard;
 // const mapStateToProps = state => (
-//     {        products: state.products.products,
+//     {products: state.products.products,
 //         }
 // );
-// const mapDispatchToProps = { addToCart, setProducts, updateInStock };
+// const mapDispatchToProps = {addToCart, setProducts, updateInStock};
 // export default connect(mapStateToProps, mapDispatchToProps)(ProductDtl);

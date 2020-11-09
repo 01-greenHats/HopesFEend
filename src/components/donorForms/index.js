@@ -95,12 +95,12 @@ class DonorRegisteration extends React.Component {
                         <div className="overlay">
                             <div className="overlay-panel overlay-left">
                                 <h1 className="donor-header-dark-card">Welcome Back!</h1>
-                                <p>To keep connected with us please login with your personal info</p>
+                                <p className="donor-form-para">To keep connected with us please login with your personal info</p>
                                 <button className="donor-button ghost"  id="signIn"  onClick={this.toggleClass}>Sign In</button>
                             </div>
                             <div className="overlay-panel overlay-right">
                                 <h1 className="donor-header-dark-card">Hello!</h1>
-                                <p>Enter your personal details and start with us as a Donor</p>
+                                <p  className="donor-form-para">Enter your personal details and start with us as a Donor</p>
                                 <button className="donor-button ghost"  id="signUp"  onClick={this.toggleClass}>Sign Up</button>
                             </div>
                         </div>

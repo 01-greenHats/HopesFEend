@@ -31,7 +31,7 @@ class userResgisteration extends React.Component {
 
             usernameLogin: '',
             passwordLogin: '',
-            activeForm: false,
+            active: false,
         }
 
     }
@@ -69,236 +69,79 @@ class userResgisteration extends React.Component {
         let signupResult = await inNeedUserSignup(user);
         console.log('signupResult : ', signupResult);
     }
-
     toggleClass = () => {
         console.log("inideeee")
-        const currentState = this.state.activeForm;
-        console.log("before", this.state.activeForm)
-        this.setState({ activeForm: !currentState });
-        console.log("after", this.state.activeForm)
+        const currentState = this.state.active;
+        console.log("before", this.state.active)
+        this.setState({ active: !currentState });
+        console.log("after", this.state.active)
     };
 
     render() {
-        // console.log("this.context.loggedIn >> ", this.context.loggedIn)
-
-
 
         return (
             <>
 
+                <div className={this.state.active ? 'right-panel-active' : null} id="user-container">
+                    <div className="form-container user-sign-up-container">
+                        <form className="user-form" onSubmit={this.handleSubmitSignup}>
+                            {/* <h1 className="user-header-light-card">Create Account</h1> */}
 
-                <div class="main-box">
-                    <div class="slider-cont">
-                        <div class="signup-slider">
-                            <div class="img-txt">
-                                <div class="img-layer"></div>
-                                {/* <h1>The hardest part of starting up is starting out for you.</h1> */}
-                                {/* <img src="https://static.pexels.com/photos/33972/pexels-photo.jpg" /> */}
+
+                            <input className="user-input-form" name="familyCount" onChange={this.handleChange} type="text" placeholder="Family Count" />
+                            <input className="user-input-form" name="socialStatus" onChange={this.handleChange} type="text" placeholder="Social Status" />
+                            <input className="user-input-form" name="healthStatus" onChange={this.handleChange} type="text" placeholder="Health Status" />
+
+                            <input className="user-input-form" name="income" onChange={this.handleChange} type="number" placeholder="Income" />
+                            <input className="user-input-form" name="expencsies" onChange={this.handleChange} type="number" placeholder="Expencsies" />
+
+                            <button className="user-button">Sign Up</button>
+                           
+                                <button className="user-button user-ghost" id="signIn" onClick={this.toggleClass}>Sign In</button>
+                        </form>
+                    </div>
+                    <div className="user-form-container user-sign-in-container">
+                        <form className="user-form" onSubmit={this.handleSubmitLogin}>
+                            <h1 className="user-header-light-card">Sign in</h1>
+
+
+                            <input className="user-input-form" name="username" onChange={this.handleChange} type="text" placeholder="Name" />
+                            <input className="user-input-form" name="password" onChange={this.handleChange} type="password" placeholder="Password" />
+                            <button className="user-button">Sign In</button>
+                            <button className="user-button user-ghost" id="signUp" onClick={this.toggleClass}>Sign Up</button>
+                        </form>
+                    </div>
+                    <div className="overlay-container">
+                        <div className="overlay">
+                            <div className="overlay-panel overlay-left">
+                                {/* <h1 className="user-header-dark-card">Welcome Back!</h1> */}
+                                {/* <p className="user-form-para">To keep connected with us please login with your personal info</p> */}
+                         
+                                <h1 className="user-header-light-card">Create Account</h1>
+                                <input className="user-input-form" name="name" onChange={this.handleChange} type="text" placeholder="Name" />
+                                <input className="user-input-form" name="email" onChange={this.handleChange} type="email" placeholder="Email" />
+                                <input className="user-input-form" name="password" onChange={this.handleChange} type="password" placeholder="Password" />
+
+                                <input className="user-input-form" name="nationalNo" onChange={this.handleChange} type="number" placeholder="National No" />
+                                <input className="user-input-form" name="payPal" onChange={this.handleChange} type="email" placeholder="payPal Account" />
+                                <input className="user-input-form" name="dob" onChange={this.handleChange} type="text" placeholder="Date of Birth" />
+
+
+
+                                {/* <button className="user-button ghost" id="signIn" onClick={this.toggleClass}>Sign In</button> */}
                             </div>
-                            <div class="img-txt">
-                                <div class="img-layer"></div>
-                                {/* <h1>We understand you and your business, We have the right solutions for you.</h1> */}
-                                {/* <img src="https://static.pexels.com/photos/257897/pexels-photo-257897.jpeg" /> */}
-                            </div>
-                            <div class="img-txt">
-                                <div class="img-layer"></div>
-                                <h1>Join US Now!</h1>
-                                {/* <img src="https://static.pexels.com/photos/317383/pexels-photo-317383.jpeg" /> */}
+                            <div className="overlay-panel overlay-right">
+                                <button className="user-button user-ghost" id="signUp" onClick={this.toggleClass}>Sign Up</button>
+                               
+                                <h1 className="user-header-dark-card">Hello!</h1>
+                                <p className="user-form-para">Enter your personal details and start with us as a Donor</p>
+                                {/* <button className="user-button ghost"  id="signUp"  onClick={this.toggleClass}>Sign Up</button> */}
                             </div>
                         </div>
                     </div>
-                    <div class="form-cont">
-                        <div class="top-buttons">
-                            <button onClick={this.toggleClass} className={this.state.activeForm ? 'top-active-button' : null} class="to-signup top-active-button"> Sign Up </button>
-                            <button onClick={this.toggleClass} className={this.state.activeForm ? 'top-active-button' : null} class="to-signin">Sign In</button>
-                        </div>
-                        <div class="form form-signup">
-                            <form action="#">
-                                <lable>Name</lable>
-                                <input type="text"
-                                    placeholder="Your username" />
-
-
-                                <lable>Email</lable>
-                                <input type="email"
-                                    placeholder="Your email" />
-
-                                <lable>PASSWORD</lable>
-                                <input type="password"
-                                    placeholder="Your password" />
-
-                                <lable>National No.</lable>
-                                <input type="password"
-                                    placeholder="Your password" />
-
-
-                                <lable>PASSWORD</lable>
-                                <input type="password"
-                                    placeholder="Your password" />
-
-
-
-                                <lable>PASSWORD</lable>
-                                <input type="password"
-                                    placeholder="Your password" />
-
-
-
-                                <lable>PASSWORD</lable>
-                                <input type="password"
-                                    placeholder="Your password" />
-
-
-
-                                <lable>PASSWORD</lable>
-                                <input type="password"
-                                    placeholder="Your password" />
-
-
-
-                                <lable>PASSWORD</lable>
-                                <input type="password"
-                                    placeholder="Your password" />
-
-
-                                <p class="terms">
-                                    <input type="checkbox" /> I agree all statments in
-                                                 <a href="#" class="lined-link">terms of service</a>
-                                </p>
-                                <input type="submit"
-                                    class="form-btn"
-                                    value="Sign Up" />
-                                <br /><br />
-                                <a href="#" class="lined-link to-signin-link">I'm already member</a>
-                            </form>
-                        </div>
-
-                        <div class="form form-signin">
-                            <form action="#">
-                                <lable>E-MAIL</lable>
-                                <input type="email"
-                                    placeholder="Your e-mail" />
-                                <lable>PASSWORD</lable>
-                                <input type="password"
-                                    placeholder="Your password" />
-                                <input type="submit"
-                                    class="form-btn"
-                                    value="Sign In" />
-                                <br /><br />
-                                <a href="#" class="lined-link to-signup-link">Create new account</a>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="clear-fix"></div>
                 </div>
-
-
-                {/* ////////////////////////////////////////////////////////////////////
-
-//// activa it  */}
-
-                <div class="main-box">
-                    <div class="slider-cont">
-                        <div class="signup-slider">
-                            <div class="img-txt">
-                                <div class="img-layer"></div>
-                                {/* <h1>The hardest part of starting up is starting out for you.</h1> */}
-                                {/* <img src="https://static.pexels.com/photos/33972/pexels-photo.jpg" /> */}
-                            </div>
-                            <div class="img-txt">
-                                <div class="img-layer"></div>
-                                {/* <h1>We understand you and your business, We have the right solutions for you.</h1> */}
-                                {/* <img src="https://static.pexels.com/photos/257897/pexels-photo-257897.jpeg" /> */}
-                            </div>
-                            <div class="img-txt">
-                                <div class="img-layer"></div>
-                                <h1>Join US Now!</h1>
-                                {/* <img src="https://static.pexels.com/photos/317383/pexels-photo-317383.jpeg" /> */}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-cont">
-                        <div class="top-buttons">
-                            <button onClick={this.toggleClass} className={this.state.activeForm ? 'top-active-button' : null} class="to-signup top-active-button"> Sign Up </button>
-                            <button onClick={this.toggleClass} className={this.state.activeForm ? 'top-active-button' : null} class="to-signin">Sign In</button>
-                        </div>
-                        <div class="form form-signup">
-                            <form action="#">
-                                <lable>Name</lable>
-                                <input type="text"
-                                    placeholder="Your username" />
-
-                                <lable>Email</lable>
-                                <input type="email"
-                                    placeholder="Your email" />
-
-
-                                <lable>PASSWORD</lable>
-                                <input type="password"
-                                    placeholder="Your password" />
-
-
-                                <p class="terms">
-                                    <input type="checkbox" /> I agree all statments in
-                                                 <a href="#" class="lined-link">terms of service</a>
-                                </p>
-                                <input type="submit"
-                                    class="form-btn"
-                                    value="Sign Up" />
-                                <br /><br />
-                                <a href="#" class="lined-link to-signin-link">I'm already member</a>
-                            </form>
-                        </div>
-
-                        <div class="form form-signin">
-                            <form action="#">
-                                <lable>E-MAIL</lable>
-                                <input type="email"
-                                    placeholder="Your e-mail" />
-                                <lable>PASSWORD</lable>
-                                <input type="password"
-                                    placeholder="Your password" />
-                                <input type="submit"
-                                    class="form-btn"
-                                    value="Sign In" />
-                                <br /><br />
-                                <a href="#" class="lined-link to-signup-link">Create new account</a>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="clear-fix"></div>
-                </div>
-
-
-                {/* <Show condition={this.context.loggedIn}> */}
-                {/* <Button id ="logout" variant="primary" onClick={this.context.logout}>Logout</Button> */}
-                {/* </Show> */}
-                {/* <Show condition={!this.context.loggedIn}> */}
-                <Card id="cardsiginupForm">
-
-                    <Form onSubmit={this.handleSubmit} id="siginupForm">
-                        <fieldset> <h5>Already Registered? login here</h5>
-                            <Form.Group controlId="formBasicEmail">
-                                <Form.Label>Username</Form.Label>
-                                <Form.Control name="username" onChange={this.handleChange} placeholder="Username" />
-                            </Form.Group>
-                            <Form.Group controlId="formBasicPassword">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control placeholder="Password" name="password" type="password" onChange={this.handleChange} />
-                            </Form.Group>
-                            <Button variant="primary" type="submit">Login</Button>
-                        </fieldset>
-                    </Form>
-
-                </Card>
-                {/* </Show> */}
             </>
         )
-
     }
-
-
 }
-
-
 export default userResgisteration;
