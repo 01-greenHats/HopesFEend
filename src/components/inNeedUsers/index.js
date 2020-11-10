@@ -73,12 +73,6 @@ const InNeedUsers = props => {
         console.log('users>>',users);
         props.setInNeedUsers(users.data);
 
-        //signin testing
-        let userName='Ahmad Alhrthani50';
-        let password='12345';
-        let signInResult= await inNeedUserSignin(userName,password);
-        console.log('signInResult>>>',signInResult);
-
 
     }, []);
     return(

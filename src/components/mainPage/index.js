@@ -67,7 +67,7 @@ const MainPage = props => {
 const mapStateToProps = state => (
     {
         posts: state.posts.posts,
-        token: state.token.token,
+        token: state.auth.token,
         loggedIn: state.auth.loggedIn
     });
 const mapDispatchToProps = {
