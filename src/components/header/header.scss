@@ -69,7 +69,7 @@ body {
   margin-left: 10px;
   border: 1px solid $white;
   border-radius: 20px;
-  padding: 3px 0;
+  padding: 12px 0;
 }
 
 .donate:hover li{
@@ -77,8 +77,8 @@ body {
 }
 
 .donate:hover {
-  font-weight: bold;
-  border: 2px solid $green;
+  // font-weight: bold;
+  border: 1px solid $green;
 }
 
 #check,

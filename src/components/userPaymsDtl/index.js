@@ -16,6 +16,7 @@ import LastPageIcon from '@material-ui/icons/LastPage';
 import { connect } from 'react-redux';
 import { getUserPayments } from '../../apiActions/payments'
 import { setUserPayments } from '../../store/payments'
+import { If,Then,Else} from '../if'
 
 const actionsStyles = theme => ({
     root: {
@@ -162,7 +163,9 @@ class CustomPaginationActionsTable extends React.Component {
         const { totalPayments,rows, rowsPerPage, page } = this.state;
         const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
         return (
-            <Paper className={classes.root}>
+            <If condition={this.state.payments.length > 0}>
+                <Then>
+                <Paper className={classes.root}>
                 <h3>Total Payments: {totalPayments}</h3>
                 <div className={classes.tableWrapper}>
                     <Table className={classes.table}>
@@ -209,6 +212,14 @@ class CustomPaginationActionsTable extends React.Component {
                     <button type="submit">Donate</button>
                 </form>
             </Paper>
+                </Then>
+                <Else>
+                    <h1>No payments yet</h1>
+                    <h2>Donate for him now !!</h2>
+                </Else>
+
+            </If>
+            
 
         );
     }

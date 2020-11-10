@@ -6,7 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import { setDonorFavList } from '../../store/donorFavList'
-import { getDonorFavList } from '../../apiActions/donors'
+import { getDonorFavList } from '../../apiActions/donors';
+import { checkIsLogedIn } from '../../store/auth';
 import { Link } from 'react-router-dom';
 import UserCardFav from '../userCard-fav'
 
@@ -69,7 +70,7 @@ const DonorFavList = props => {
     console.log('props in In DonorFavList>>',props);
  
     useEffect(async () => {
-
+        props.checkIsLogedIn()
         let favUsers = await getDonorFavList(props.token)
         console.log('fav list users>>',favUsers.data.results[0].favUsers);
         props.setDonorFavList(favUsers.data.results[0].favUsers);
@@ -87,8 +88,9 @@ const mapStateToProps = state => (
     {
         donorFavList: state.donorFavList.donorFavList,
         token: state.auth.token,
+        loggedIn: state.auth.loggedIn
 
     }
 );
-const mapDispatchToProps = { setDonorFavList };
+const mapDispatchToProps = { setDonorFavList,checkIsLogedIn };
 export default connect(mapStateToProps, mapDispatchToProps)(DonorFavList);
