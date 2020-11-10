@@ -35,7 +35,7 @@ function PostCard(props) {
         e.preventDefault();
         if(!props.loggedIn){
             // props.checkIsLogedIn()
-            history.push("/loginUser");
+            history.push("/userForm");
             return;
         }
         let comment = e.target.commentContent.value
