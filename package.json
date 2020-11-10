@@ -4,17 +4,22 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "scripts": {
-    "start": "CHOKIDAR_USEPOLLING=1 react-scripts start"
+    "start": "CHOKIDAR_USEPOLLING=1 react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "build": "react-scripts build"
   },
   "keywords": [],
   "author": "Rawan Nujoom <rawan.nujoom@gmail.com>",
   "license": "ISC",
+  "homepage": "https://01-greenhats.github.io/HopesFEnd",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@reduxjs/toolkit": "^1.4.0",
     "axios": "^0.21.0",
     "base-64": "^1.0.0",
+    "gh-pages": "^3.1.0",
     "jsonwebtoken": "^8.5.1",
     "node-sass": "^4.14.1",
     "react": "^17.0.1",
