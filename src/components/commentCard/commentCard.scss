@@ -1,9 +1,48 @@
-.commentCard {
-    div {
-        line-height: 0;
-        margin-left: 10px;
-    }
+
+
+.box_result {
+    margin-top: 24px;
 }
-.commentText {
-    background-color: gray;
+.avatar_comment {
+    display: block;
 }
+
+.avatar_comment img {
+    height: 48px;
+    width: 48px;
+}
+
+.box_result .result_comment {
+    display: block;
+    overflow: hidden;
+    padding: 0;
+}
+
+.box_result .result_comment h4 {
+    font-weight: 600;
+    white-space: nowrap;
+    color: #365899;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.358;
+    margin: 0;
+}
+
+.box_result .result_comment p {
+    margin: 4px 0;
+    text-align: justify;
+}
+
+
+
+
+// .commentCard {
+//     div {
+//         line-height: 0;
+//         margin-left: 10px;
+//     }
+// }
+// .commentText {
+//     background-color: gray;
+// }
