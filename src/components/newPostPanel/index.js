@@ -7,6 +7,7 @@ import CancelIcon from '@material-ui/icons/Cancel';
 import { addPost } from '../../apiActions/posts';
 import { connect } from 'react-redux';
 import { addNewPostToStore } from '../../store/posts';
+import CloseIcon from '@material-ui/icons/Close';
 // import { checkIsLogedIn } from '../../store/auth'
 
 
@@ -87,7 +88,7 @@ function NewPostPanel(props) {
             <div class="row-post">
                 <div className="avatar_comment col-md-1">
                     <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="Avatar" style={{ width:  "52px;", borderRadius: "50%", padding: "10px" }} />
-                    <span><button value="1" className="cancel-btn-addPost" onClick={(e) => { toggleControlePanel(e) }}>X</button></span>
+                    <span><button value="1" className="cancel-btn-addPost" onClick={(e) => { toggleControlePanel(e) }}><CloseIcon /></button></span>
                 </div>
                 <div class="box_comment col-md-11">
                     <div className="postInputContainer">

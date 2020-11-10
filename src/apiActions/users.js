@@ -41,7 +41,7 @@ export const updateUser = (updatedUser,userId) => {
     updateUserlUrl=updateUserlUrl+""+userId;
     // let myHeaders={};
     // myHeaders['Authorization']=`Bearer ${token}`;
-    return axiosApiInstance(updateUserlUrl,'patch',updatedUser);      
+    return axiosApiInstance(updateUserlUrl,'put',updatedUser);      
 }
 
 

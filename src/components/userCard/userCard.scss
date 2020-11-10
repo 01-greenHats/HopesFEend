@@ -1,12 +1,14 @@
 $blue: #0B3142;
 $white: #F0EDEE;
 $red: #49111C;
-$greem: #0F5257;
+$green: #0F5257;
 $standard: 10px;
 $card-height: 450px;
 $card-width: 300px;
 
-
+button{
+  outline: none;
+}
 .background{
   margin-bottom: 30px;
 }
@@ -61,13 +63,14 @@ $card-width: 300px;
   }
 
   &:hover .front__face-photo,
+  &:hover .front__face-photo_Edited,
   &:hover .front__footer {
     opacity: 0;
   }
 }
 
 .front,
-.back {
+.backFace {
   position: relative;
   top: 0;
   left: 0;
@@ -76,7 +79,7 @@ $card-width: 300px;
 
 .front {
   cursor: pointer;
-  height: 100%;
+  height: 120%;
   background: $white;
   backface-visibility: hidden;
   border-radius: 5px;
@@ -106,6 +109,38 @@ $card-width: 300px;
 }
 
 .front__face-photo {
+  position: relative;
+    top: -60px;
+    height: 120px;
+    width: 125px;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 0.5px solid #f6f6f6;
+    background-color: #49111C;
+    background-size: contain;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.8, -0.4, 0.2, 1.7);
+    z-index: 3;
+    color: #F0EDEE;
+  // position: relative;
+  // top: -60px;
+  // height: 120px;
+  // width: 120px;
+  // margin: 0 auto;
+  // border-radius: 50%;
+  // border: 5px solid $white;
+  // background-color: #0f5257;
+  // background-size: contain;
+  // backface-visibility: hidden;
+  // overflow: hidden;
+  // transition: all 0.6s cubic-bezier(0.8, -0.4, 0.2, 1.7);
+  // z-index: 3;
+  // color: $white;
+  
+}
+.front__face-photo_Edited {
   position: relative;
     top: -60px;
     height: 120px;
@@ -187,23 +222,23 @@ $card-width: 300px;
     text-transform: uppercase;
     letter-spacing: .4px;
 
-    border: 2px solid $greem;
+    border: 2px solid $green;
     padding: 8px 15px;
     border-radius: 30px;
 
-    background: $greem;
+    background: $green;
     color: $white;
   }
 }
 
-.back {
+.backFace {
   transform: rotateY(180deg);
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: $greem;
+  background-color: #0F5257;
   border-radius: 5px;
   display: flex;
   flex-direction: row;
@@ -270,14 +305,15 @@ $card-width: 300px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: .4px;
-    border: 2px solid;
+    border: 1px solid $red;
     padding: 8px 15px;
     border-radius: 30px;
     background:$white;
-    color: $blue;
+    color: #000;
 }
 .viewMoreButton:hover{
-  background-color:#f0edeed6;
+  background-color:$red;
+  color: #FFF;
   cursor: pointer;
 }
 
@@ -340,97 +376,5 @@ $color-white: #FFF;
 
   &:focus {
     box-shadow:  inset 1px 1px 2px $color-shadow, inset -1px -1px 2px $color-white;
-  }
-}
-
-// -----------------------------
-
-.serchForm {
-  width: 400px;
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-  justify-content: center;
-}
-.serchForm div, .serchForm label, .serchForm input, .serchForm textarea {
-  width: 100%;
-}
-
-.field:nth-of-type(2) {
-  margin: 16px 0;
-}
-
-.label, .input, textarea {
-  padding: 8px;
-}
-
-.label, [placeholder] {
-  color: #555;
-}
-
-.label i {
-  margin: 0 10px 0 0;
-}
-
-.field:focus-within label {
-  color: #000;
-  letter-spacing: 2px;
-}
-
-.input, textarea {
-  background: rgba(255, 255, 255, 0.5);
-  border: none;
-  border-radius: 4px;
-  box-shadow: 0 8px 6px -6px #555;
-}
-.input:focus, textarea:focus {
-  background: white;
-  box-shadow: none;
-}
-
-textarea {
-  resize: none;
-}
-textarea::-webkit-scrollbar {
-  width: 0;
-}
-
-.viewMoreButton {
-  background: #2f4ad0;
-  margin: 16px 0 50px 0;
-  padding: 8px 16px;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  box-shadow: 0 8px 6px -6px #555;
-}
-.viewMoreButton:hover {
-  letter-spacing: 2px;
-  box-shadow: none;
-}
-
-.social-media {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-}
-:not(.social-media) {
-  font-size: 14px;
-}
-.social-media span {
-  font-size: 16px;
-}
-.social-media span .fas {
-  margin: 0 0 0 10px;
-}
-.social-media a {
-  color: #000;
-  font-size: 20px;
-}
-
-@media (max-width: 425px) {
-  form {
-    width: 100%;
   }
 }

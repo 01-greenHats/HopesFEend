@@ -68,7 +68,7 @@ const DonorRegisteration = props => {
                         <form className="donor-form" onSubmit={(e)=>{handleSubmitSignup(e)}}>
                             <h1 className="donor-header-light-card">Create Account</h1>
                             <div className="social-container">
-                                <a href="#" className="social a-donor"><i class="fab fa-google-plus-g"></i></a>
+                                <a href="#" className="social a-donor"><i className="fab fa-google-plus-g"></i></a>
                             </div>
                             <span className="span-donor">or use your email for registration</span>
                             <input className="donor-input-form" name="signupName"  type="text" placeholder="Name" />
