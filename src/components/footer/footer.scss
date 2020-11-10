@@ -3,6 +3,8 @@ $white: #F0EDEE;
 $red: #49111C;
 $pink:#F9DBBD;
 
+
+
 *, ::after, ::before {
     box-sizing: border-box;
 }
@@ -16,7 +18,7 @@ $pink:#F9DBBD;
 }
 .footer-heading {
     letter-spacing: 2px;
-    font-size: 20px;
+    font-size: 24px;
     margin-bottom: .5rem;
     font-weight: 500;
     line-height: 1.2;
@@ -29,7 +31,7 @@ $pink:#F9DBBD;
 .footer-link a {
     color:$white;
     line-height: 40px;
-    font-size: 14px;
+    font-size: 18px;
     transition: all 0.5s;
     text-decoration: none;
 }
@@ -143,7 +145,7 @@ $pink:#F9DBBD;
         -ms-flex: 0 0 25%;
         flex: 0 0 25%;
         max-width: 25%;
-        margin-left: 85px;
+        margin-left: 62px;
     }
 }
 @media (min-width: 992px){
