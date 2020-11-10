@@ -119,10 +119,6 @@ function UserCardFav(props) {
 
 const mapStateToProps = state => (
     {
-<<<<<<< HEAD
-=======
-        posts: state.posts.posts,
->>>>>>> 7b4688ec98b9b8fdedf04c2f2eaaa31a458fe54f
         token: state.auth.token,
         loggedIn: state.auth.loggedIn
     });
