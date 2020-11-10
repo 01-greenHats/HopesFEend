@@ -1,12 +1,14 @@
 $blue: #0B3142;
 $white: #F0EDEE;
 $red: #49111C;
-$greem: #0F5257;
+$green: #0F5257;
 $standard: 10px;
 $card-height: 450px;
 $card-width: 300px;
 
-
+button{
+  outline: none;
+}
 .background{
   margin-bottom: 30px;
 }
@@ -61,13 +63,14 @@ $card-width: 300px;
   }
 
   &:hover .front__face-photo,
+  &:hover .front__face-photo_Edited,
   &:hover .front__footer {
     opacity: 0;
   }
 }
 
 .front,
-.back {
+.backFace {
   position: relative;
   top: 0;
   left: 0;
@@ -106,6 +109,38 @@ $card-width: 300px;
 }
 
 .front__face-photo {
+  position: relative;
+    top: -60px;
+    height: 120px;
+    width: 125px;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 0.5px solid #f6f6f6;
+    background-color: #49111C;
+    background-size: contain;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.8, -0.4, 0.2, 1.7);
+    z-index: 3;
+    color: #F0EDEE;
+  // position: relative;
+  // top: -60px;
+  // height: 120px;
+  // width: 120px;
+  // margin: 0 auto;
+  // border-radius: 50%;
+  // border: 5px solid $white;
+  // background-color: #0f5257;
+  // background-size: contain;
+  // backface-visibility: hidden;
+  // overflow: hidden;
+  // transition: all 0.6s cubic-bezier(0.8, -0.4, 0.2, 1.7);
+  // z-index: 3;
+  // color: $white;
+  
+}
+.front__face-photo_Edited {
   position: relative;
     top: -60px;
     height: 120px;
@@ -187,23 +222,23 @@ $card-width: 300px;
     text-transform: uppercase;
     letter-spacing: .4px;
 
-    border: 2px solid $greem;
+    border: 2px solid $green;
     padding: 8px 15px;
     border-radius: 30px;
 
-    background: $greem;
+    background: $green;
     color: $white;
   }
 }
 
-.back {
+.backFace {
   transform: rotateY(180deg);
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: $greem;
+  background-color: #0F5257;
   border-radius: 5px;
   display: flex;
   flex-direction: row;
@@ -270,14 +305,15 @@ $card-width: 300px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: .4px;
-    border: 2px solid;
+    border: 1px solid $red;
     padding: 8px 15px;
     border-radius: 30px;
     background:$white;
-    color: $blue;
+    color: #000;
 }
 .viewMoreButton:hover{
-  background-color:#f0edeed6;
+  background-color:$red;
+  color: #FFF;
   cursor: pointer;
 }
 

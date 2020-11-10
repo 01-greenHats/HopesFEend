@@ -204,6 +204,7 @@ class CustomPaginationActionsTable extends React.Component {
                 <form id="donateform" action="https://gazahopes.herokuapp.com/pay" method="POST">
                     <input type="hidden" name="userId" value={this.props.history.location.state._id} />
                     <input type="hidden" name="email" value={this.props.history.location.state.email} />
+                    <input type="hidden" name="userName" value={this.props.history.location.state.name} />
                     <input name="amount" />
                     <button type="submit">Donate</button>
                 </form>
