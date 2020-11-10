@@ -17,6 +17,7 @@ import Loader from './components/loader';
 import About from './components/aboutUsPage';
 
 
+
 export default propsimport => {
   return (
     <div id='main'>
@@ -45,6 +46,12 @@ export default propsimport => {
         <Route exact path="/about-us">
           <About />
         </Route>
+
+        <Route exact path="/about-us">
+          <About />
+        </Route>
+
+        
        
         <Route>404 Page Not Found!</Route>
       </Switch>
