@@ -34,22 +34,22 @@ function PersonalProfile(props) {
     console.log('props in personal profile : >>>>>>>>>>', props);
   }, []);
 
-  async function handleUpdateUser(e){
+  async function handleUpdateUser(e) {
     console.log('updated heloooooooooooooooooooooo >>>>>>>>>>>>>');
     e.preventDefault();
     let updatedUser = {
-      "email" : e.target.email.value,
-      "dob" : e.target.dob.value,
-      "expencsies" : Number(e.target.expencsies.value),
-      "familyCount" : Number(e.target.familyCount.value),
-      "healthDesc" : e.target.healthDesc.value,
-      "healthStatus" : e.target.healthStatus.value,
-      "income" : Number(e.target.income.value),
-      "nationalNo" : Number(e.target.nationalNo.value),
-      "payPal" : e.target.payPal.value,
-      "name" : e.target.name.value
+      "email": e.target.email.value,
+      "dob": e.target.dob.value,
+      "expencsies": Number(e.target.expencsies.value),
+      "familyCount": Number(e.target.familyCount.value),
+      "healthDesc": e.target.healthDesc.value,
+      "healthStatus": e.target.healthStatus.value,
+      "income": Number(e.target.income.value),
+      "nationalNo": Number(e.target.nationalNo.value),
+      "payPal": e.target.payPal.value,
+      "name": e.target.name.value
     }
-    let updateResult = await updateUser(updatedUser,userInfo._id);
+    let updateResult = await updateUser(updatedUser, userInfo._id);
     console.log('updated result>>>>>>>>>>>>>', updateResult);
   }
 
@@ -60,119 +60,114 @@ function PersonalProfile(props) {
           <div className="view-account">
             <section className="module">
               <div className="module-inner">
-                <div className="side-bar">
-                  <div className="user-info">
-                    <img className="img-profile img-circle img-responsive center-block" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
-                    <ul className="meta list list-unstyled">
-                      <li className="name">{props.user.name}</li>
-                      <li className="email">{userInfo.email}</li>
-                    </ul>
+                <div className="elements">
+                  <div className="side-bar">
+                    <div className="user-info">
+                      <img className="img-profile" src="https://www.flaticon.com/svg/static/icons/svg/599/599305.svg" alt="" />
+                      <ul className="meta list list-unstyled">
+                        <li className="name">{props.user.name}</li>
+                        <li className="email">{userInfo.email}</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="content-panel">
+                    <form method="get" id="login-form" class="login-form" autocomplete="off" onSubmit={(e) => handleUpdateUser(e)}>
+                      <h1 class="a11y-hidden">Personal Info</h1>
+                      <div>
+                        <label class="label-email">
+                          <input type="email" class="text" name="userName" tabindex="1" defaultValue={props.user.name} />
+                          <span class="required">User Name</span>
+                        </label>
+                      </div>
+                      <input type="checkbox" name="show-password" class="show-password a11y-hidden" id="show-password" tabindex="3" />
+                      <div>
+                        <label class="label-password">
+                          <input type="text" class="text" name="name" tabindex="2" defaultValue={props.user.name} />
+                          <span class="required">Name</span>
+                        </label>
+                      </div>
+                      <div>
+                        <label class="label-password">
+                          <input type="text" class="text" name="email" tabindex="2" defaultValue={userInfo.email} />
+                          <span class="required">Email</span>
+                        </label>
+                      </div>
+                      <div>
+                        <label class="label-password">
+                          <input type="text" class="text" name="dob" tabindex="2" defaultValue={userInfo.dob} />
+                          <span class="required">Date of Birth</span>
+                        </label>
+                      </div>
+                      <div>
+                        <label class="label-password">
+                          <input type="text" class="text" name="expencsies" tabindex="2" defaultValue={userInfo.expencsies} />
+                          <span class="required">Expencsies</span>
+                        </label>
+                      </div>
+                      <div>
+                        <label class="label-password">
+                          <input type="text" class="text" name="familyCount" tabindex="2" defaultValue={userInfo.familyCount} />
+                          <span class="required">Family Count</span>
+                        </label>
+                      </div>
+                      <div>
+                        <label class="label-password">
+                          <input type="text" class="text" name="healthDesc" tabindex="2" defaultValue={userInfo.healthDesc} />
+                          <span class="required">Health Describtion</span>
+                        </label>
+                      </div>
+                      <div>
+                        <label class="label-password">
+                          <input type="text" class="text" name="healthStatus" tabindex="2" defaultValue={userInfo.healthStatus} />
+                          <span class="required">Health Status</span>
+                        </label>
+                      </div>
+                      <div>
+                        <label class="label-password">
+                          <input type="text" class="text" name="income" tabindex="2" defaultValue={userInfo.income} />
+                          <span class="required">Income</span>
+                        </label>
+                      </div>
+                      <div>
+                        <label class="label-password">
+                          <input type="text" class="text" name="nationalNo" tabindex="2" defaultValue={userInfo.nationalNo} />
+                          <span class="required">National Number</span>
+                        </label>
+                      </div>
+                      <div>
+                        <label class="label-password">
+                          <input type="text" class="text" name="payPal" tabindex="2" defaultValue={userInfo.payPal} />
+                          <span class="required">Paypal</span>
+                        </label>
+                      </div>
+                      <div>
+                        <label class="label-password">
+                          <input type="text" class="text" name="socialStatus" tabindex="2" defaultValue={userInfo.socialStatus} />
+                          <span class="required">Social status</span>
+                        </label>
+                      </div>
+                      <input type="submit" value="Update Profile" />
+
+                    </form>
+                  </div>
+
+                </div>
+                <div className="post">
+                  <div>{
+                    posts.map((post, idex) => {
+                      return (
+                        <PostCard key={idex}
+                          post={post} />
+                      );
+                    })
+                  }
                   </div>
                 </div>
-                <div className="content-panel">
-                  <form onSubmit={(e)=>handleUpdateUser(e)} className="form-horizontal">
-                    <fieldset className="fieldset">
-                      <h3 className="fieldset-title">Personal Info</h3>
-                      
-                      <div className="form-group">
-                        <label className="col-md-2 col-sm-3 col-xs-12 control-label">User Name</label>
-                        <div className="col-md-10 col-sm-9 col-xs-12">
-                          <input name="userName" type="text" className="form-control" defaultValue={props.user.name} />
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <label className="col-md-2 col-sm-3 col-xs-12 control-label">Name</label>
-                        <div className="col-md-10 col-sm-9 col-xs-12">
-                          <input name="name" type="text" className="form-control" defaultValue={props.user.name} />
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <label className="col-md-2 col-sm-3 col-xs-12 control-label">Email</label>
-                        <div className="col-md-10 col-sm-9 col-xs-12">
-                          <input name="email" type="text" className="form-control" defaultValue={userInfo.email} />
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <label className="col-md-2 col-sm-3 col-xs-12 control-label">Date of Birth</label>
-                        <div className="col-md-10 col-sm-9 col-xs-12">
-                          <input name="dob" type="text" className="form-control" defaultValue={userInfo.dob} />
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <label className="col-md-2 col-sm-3 col-xs-12 control-label">Expencsies</label>
-                        <div className="col-md-10 col-sm-9 col-xs-12">
-                          <input name="expencsies" type="text" className="form-control" defaultValue={userInfo.expencsies} />
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <label className="col-md-2 col-sm-3 col-xs-12 control-label">Family Count</label>
-                        <div className="col-md-10 col-sm-9 col-xs-12">
-                          <input name="familyCount" type="text" className="form-control" defaultValue={userInfo.familyCount} />
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <label className="col-md-2 col-sm-3 col-xs-12 control-label">Health Describtion</label>
-                        <div className="col-md-10 col-sm-9 col-xs-12">
-                          <input name="healthDesc" type="text" className="form-control" defaultValue={userInfo.healthDesc} />
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <label className="col-md-2 col-sm-3 col-xs-12 control-label">Health Status</label>
-                        <div className="col-md-10 col-sm-9 col-xs-12">
-                          <input name="healthStatus" type="text" className="form-control" defaultValue={userInfo.healthStatus} />
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <label className="col-md-2 col-sm-3 col-xs-12 control-label">Income</label>
-                        <div className="col-md-10 col-sm-9 col-xs-12">
-                          <input name="income" type="text" className="form-control" defaultValue={userInfo.income} />
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <label className="col-md-2 col-sm-3 col-xs-12 control-label">National Number</label>
-                        <div className="col-md-10 col-sm-9 col-xs-12">
-                          <input name="nationalNo" type="text" className="form-control" defaultValue={userInfo.nationalNo} />
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <label className="col-md-2 col-sm-3 col-xs-12 control-label">Paypal</label>
-                        <div className="col-md-10 col-sm-9 col-xs-12">
-                          <input name="payPal" type="text" className="form-control" defaultValue={userInfo.payPal} />
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <label className="col-md-2 col-sm-3 col-xs-12 control-label">Social status</label>
-                        <div className="col-md-10 col-sm-9 col-xs-12">
-                          <input name="socialStatus" type="text" className="form-control" defaultValue={userInfo.socialStatus} />
-                        </div>
-                      </div>
-                    </fieldset>
-                  
-                    <div className="form-group">
-                      <div className="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                        <button className="btn btn-primary" type="submit">Update Profile</button>
-                      </div>
-                    </div>
-                  </form>
-                  
-                </div>
-                <div>
-                <NewPostPanel />
-                <div>{
-                  posts.map((post, idex) => {
-                    return (
-                      <PostCard key={idex}
-                        post={post} />
-                    );
-                  })
-                }
-                </div>
-              </div>
               </div>
             </section>
           </div>
         </div>
-        
+
       </main>
     </>
   );

@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
 
 $blue: #0B3142;
 $white: #F0EDEE;
 $red: #49111C;
 $green:  #20b2aa;
 $pink:#F9DBBD;
+
+
+body {
+    font-family: 'Quicksand', sans-serif;
+}
 
 .nav {
   display: flex;
@@ -159,7 +165,6 @@ $pink:#F9DBBD;
 
 // @import url(https://fonts.googleapis.com/css?family=Raleway);
 
-// @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
 
 // body {
 //     background-color: #F0EDEE;
