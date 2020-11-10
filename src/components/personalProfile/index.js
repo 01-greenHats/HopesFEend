@@ -56,101 +56,101 @@ function PersonalProfile(props) {
   return (
     <>
       <main>
-        <div class="container">
-          <div class="view-account">
-            <section class="module">
-              <div class="module-inner">
-                <div class="side-bar">
-                  <div class="user-info">
-                    <img class="img-profile img-circle img-responsive center-block" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
-                    <ul class="meta list list-unstyled">
-                      <li class="name">{props.user.name}</li>
-                      <li class="email">{userInfo.email}</li>
+        <div className="container">
+          <div className="view-account">
+            <section className="module">
+              <div className="module-inner">
+                <div className="side-bar">
+                  <div className="user-info">
+                    <img className="img-profile img-circle img-responsive center-block" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
+                    <ul className="meta list list-unstyled">
+                      <li className="name">{props.user.name}</li>
+                      <li className="email">{userInfo.email}</li>
                     </ul>
                   </div>
                 </div>
-                <div class="content-panel">
-                  <form class="form-horizontal">
-                    <fieldset class="fieldset">
-                      <h3 class="fieldset-title">Personal Info</h3>
+                <div className="content-panel">
+                  <form className="form-horizontal">
+                    <fieldset className="fieldset">
+                      <h3 className="fieldset-title">Personal Info</h3>
                       
-                      <div class="form-group">
-                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">User Name</label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input name="name" type="text" class="form-control" placeholder={props.user.name} />
+                      <div className="form-group">
+                        <label className="col-md-2 col-sm-3 col-xs-12 control-label">User Name</label>
+                        <div className="col-md-10 col-sm-9 col-xs-12">
+                          <input name="name" type="text" className="form-control" placeholder={props.user.name} />
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Name</label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input name="name" type="text" class="form-control" placeholder={props.user.name} />
+                      <div className="form-group">
+                        <label className="col-md-2 col-sm-3 col-xs-12 control-label">Name</label>
+                        <div className="col-md-10 col-sm-9 col-xs-12">
+                          <input name="name" type="text" className="form-control" placeholder={props.user.name} />
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Email</label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input name="email" type="text" class="form-control" placeholder={userInfo.email} />
+                      <div className="form-group">
+                        <label className="col-md-2 col-sm-3 col-xs-12 control-label">Email</label>
+                        <div className="col-md-10 col-sm-9 col-xs-12">
+                          <input name="email" type="text" className="form-control" placeholder={userInfo.email} />
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Date of Birth</label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input name="dob" type="text" class="form-control" placeholder={userInfo.dob} />
+                      <div className="form-group">
+                        <label className="col-md-2 col-sm-3 col-xs-12 control-label">Date of Birth</label>
+                        <div className="col-md-10 col-sm-9 col-xs-12">
+                          <input name="dob" type="text" className="form-control" placeholder={userInfo.dob} />
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Expencsies</label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input name="expencsies" type="text" class="form-control" placeholder={userInfo.expencsies} />
+                      <div className="form-group">
+                        <label className="col-md-2 col-sm-3 col-xs-12 control-label">Expencsies</label>
+                        <div className="col-md-10 col-sm-9 col-xs-12">
+                          <input name="expencsies" type="text" className="form-control" placeholder={userInfo.expencsies} />
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Family Count</label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input name="familyCount" type="text" class="form-control" placeholder={userInfo.familyCount} />
+                      <div className="form-group">
+                        <label className="col-md-2 col-sm-3 col-xs-12 control-label">Family Count</label>
+                        <div className="col-md-10 col-sm-9 col-xs-12">
+                          <input name="familyCount" type="text" className="form-control" placeholder={userInfo.familyCount} />
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Health Describtion</label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input name="healthDesc" type="text" class="form-control" placeholder={userInfo.healthDesc} />
+                      <div className="form-group">
+                        <label className="col-md-2 col-sm-3 col-xs-12 control-label">Health Describtion</label>
+                        <div className="col-md-10 col-sm-9 col-xs-12">
+                          <input name="healthDesc" type="text" className="form-control" placeholder={userInfo.healthDesc} />
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Health Status</label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input name="healthStatus" type="text" class="form-control" placeholder={userInfo.healthStatus} />
+                      <div className="form-group">
+                        <label className="col-md-2 col-sm-3 col-xs-12 control-label">Health Status</label>
+                        <div className="col-md-10 col-sm-9 col-xs-12">
+                          <input name="healthStatus" type="text" className="form-control" placeholder={userInfo.healthStatus} />
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Income</label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input name="income" type="text" class="form-control" placeholder={userInfo.income} />
+                      <div className="form-group">
+                        <label className="col-md-2 col-sm-3 col-xs-12 control-label">Income</label>
+                        <div className="col-md-10 col-sm-9 col-xs-12">
+                          <input name="income" type="text" className="form-control" placeholder={userInfo.income} />
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">National Number</label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input name="nationalNo" type="text" class="form-control" placeholder={userInfo.nationalNo} />
+                      <div className="form-group">
+                        <label className="col-md-2 col-sm-3 col-xs-12 control-label">National Number</label>
+                        <div className="col-md-10 col-sm-9 col-xs-12">
+                          <input name="nationalNo" type="text" className="form-control" placeholder={userInfo.nationalNo} />
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Paypal</label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input name="payPal" type="text" class="form-control" placeholder={userInfo.payPal} />
+                      <div className="form-group">
+                        <label className="col-md-2 col-sm-3 col-xs-12 control-label">Paypal</label>
+                        <div className="col-md-10 col-sm-9 col-xs-12">
+                          <input name="payPal" type="text" className="form-control" placeholder={userInfo.payPal} />
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Social status</label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input name="socialStatus" type="text" class="form-control" placeholder={userInfo.socialStatus} />
+                      <div className="form-group">
+                        <label className="col-md-2 col-sm-3 col-xs-12 control-label">Social status</label>
+                        <div className="col-md-10 col-sm-9 col-xs-12">
+                          <input name="socialStatus" type="text" className="form-control" placeholder={userInfo.socialStatus} />
                         </div>
                       </div>
                     </fieldset>
                   
-                    <div class="form-group">
-                      <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                        <button class="btn btn-primary" type="submit" onClick={(e)=>handleUpdateUser}>Update Profile</button>
+                    <div className="form-group">
+                      <div className="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
+                        <button className="btn btn-primary" type="submit" onClick={(e)=>handleUpdateUser}>Update Profile</button>
                       </div>
                     </div>
                   </form>

@@ -10,10 +10,10 @@ function Test() {
     return (
         <>
 
-<header class="header">
-	<div class="wrapper">
-		<div class="heading-wrapper">
-			<h1 class="main-heading"> <Typical
+<header className="header">
+	<div className="wrapper">
+		<div className="heading-wrapper">
+			<h1 className="main-heading"> <Typical
                  className="home-cover-para"
                  steps={['We', 1000, 'We make a living by what we get, but we make a life by what we give..', 700]}
 
@@ -21,8 +21,8 @@ function Test() {
               wrapper="p"
            /></h1>
 		</div>
- 		<div class="more-info">
-			<i class="fa fa-arrow-down" aria-hidden="true"></i>
+ 		<div className="more-info">
+			<i className="fa fa-arrow-down" aria-hidden="true"></i>
 		</div> 
         <Button className="donateBtn" variant="secondary">  <Link to='/in_need_users' id ="a-homeBtn">Donate</Link> </Button>
 	</div>
