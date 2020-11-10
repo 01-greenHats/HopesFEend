@@ -95,17 +95,17 @@ function UserCard(props) {
                     <label>
                         <input id="standard-secondary" className="searchInput" placeholder="Name" onChange={(e) => { setNameFilter(e.target.value) }} label="Name" />
                     </label> */}
-                    <div class="field" tabindex="1">
-                        <label class="label" for="username">
-                            <i class="far fa-user"></i>Name
+                    <div className="field" tabindex="1">
+                        <label className="label" for="username">
+                            <i className="far fa-user"></i>Name
 			</label>
-                        <input class="input" name="username" type="text" placeholder="e.g. Hisham Alnaji" onChange={(e) => { setNameFilter(e.target.value) }} />
+                        <input className="input" name="username" type="text" placeholder="e.g. Hisham Alnaji" onChange={(e) => { setNameFilter(e.target.value) }} />
                     </div>
-                    <div class="field" tabindex="2">
+                    <div className="field" tabindex="2">
                         <label for="email">
-                            <i class="far fa-envelope"></i>Natioanl Number
+                            <i className="far fa-envelope"></i>Natioanl Number
 			</label>
-                        <input class="input" name="email" type="text" placeholder="e.g. 9968918472" onChange={(e) => { setNationalIdFilter(e.target.value) }} />
+                        <input className="input" name="email" type="text" placeholder="e.g. 9968918472" onChange={(e) => { setNationalIdFilter(e.target.value) }} />
                     </div>
 
                 </form>
