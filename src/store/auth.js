@@ -36,7 +36,7 @@ const auth = createSlice({
                 let user = jwt.verify(token, 'secret');
                 if(user){
                     state.loggedIn = true
-                    // state.user = user 
+                    state.user = user 
                     state.token = token
                     cookie.save('auth', token,{ maxAge: 86400 });
                     console.log('all good',state.loggedIn);
@@ -47,23 +47,6 @@ const auth = createSlice({
                 console.log('all good',state.loggedIn);
             }
         },
-        // checkValidToken(state, action) {
-        //     /**
-        //      * action.payload.token
-        //      */
-        //     try {
-        //         console.log('Token',action.payload.token);
-        //         let user = jwt.verify(action.payload.token, 'secret');
-        //         state.loggedIn = true
-        //         state.user = user
-        //         cookie.save('auth', action.payload.token,{ maxAge: 86400 });
-        //         console.log('all good',state.loggedIn);
-        //       }
-        //       catch (e) {
-        //         setLoginState({token:null,user:{},loggedIn:false});
-        //         console.log('Token Validation Error', e);
-        //       }
-        // },
         logout(state, action) {
             state.loggedIn = false
             state.user = {}

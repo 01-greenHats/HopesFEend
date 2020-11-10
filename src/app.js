@@ -25,6 +25,7 @@ export default propsimport => {
       <Switch>
         <Route exact path="/in_need_users">
           <InNeedUsers />
+          <Loader />
         </Route>
         <Route exact path="/user_payments/:id" component={UserPayments}>
         </Route>
@@ -35,12 +36,12 @@ export default propsimport => {
         <Route exact path="/userForm">
           <UserForm/>
         </Route>
-        
         <Route exact path="/login-signup-donor">
           <DonorRegisteration />
         </Route>
         <Route exact path="/personal_profile">
           <PersonalProfile />
+          <Loader />
         </Route>
         <Route exact path="/about-us">
           <About />

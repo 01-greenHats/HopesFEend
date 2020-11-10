@@ -1,6 +1,10 @@
-@import url(http://fonts.googleapis.com/css?family=Raleway);
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
 body {
     background-color: #F0EDEE;
+    font-family: 'Quicksand', sans-serif;
 }
 #cssmenu,
 #cssmenu ul,
@@ -70,8 +74,8 @@ body {
   margin-right: -4px;
 }
 #cssmenu > ul > li.active > a,
-#cssmenu > ul > li:hover > a,
-#cssmenu > ul > li > a:hover {
+#cssmenu > ul > li:active > a,
+#cssmenu > ul > li > a:active {
   color: #ffffff;
 }
 #cssmenu > ul > li > a:after {
@@ -105,3 +109,6 @@ body {
     height: 40px;
     margin-left: 20px;
 }
+
+
+

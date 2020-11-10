@@ -111,9 +111,10 @@ $red: #49111C;
     box-shadow: 0;
     transform: scale(0.95);
     transition: box-shadow 0.5s, transform 0.5s;
+    box-shadow: 5px 20px 30px rgba(0,0,0,0.2);
     &:hover{
       transform: scale(1);
-      box-shadow: 5px 20px 30px rgba(0,0,0,0.2);
+      box-shadow: 5px 20px 30px rgba(0,0,0,0.4);
     }
     
     .container{
@@ -592,15 +593,12 @@ $red: #49111C;
         transform: scale(0.5);
         transform: translateY(-200%);
         transition: opacity 0.2s, transform 0.8s;
-        table{
-          text-align:left;
-          width:100%;
-        }
-        h1, p, table{
+        p{
           color: white;
+          text-align: center;
         }
         p{
-          font-size:13px;
+          font-size:25pt;
         }
       }
     }
