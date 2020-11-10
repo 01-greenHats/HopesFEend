@@ -1,3 +1,4 @@
+//--------------this is the posts page------------------
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from "react-router-dom";
@@ -66,7 +67,7 @@ const MainPage = props => {
 const mapStateToProps = state => (
     {
         posts: state.posts.posts,
-        token: state.token.token,
+        token: state.auth.token,
         loggedIn: state.auth.loggedIn
     });
 const mapDispatchToProps = {

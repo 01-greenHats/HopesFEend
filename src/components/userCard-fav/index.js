@@ -7,14 +7,7 @@ import { Card } from 'react-bootstrap'
 import './userCard.scss';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
-import { createNewPayment } from '../../apiActions/payments';
-import { addToDonorFavList,deleteFromDonorFavList } from '../../apiActions/donors';
-
-
-
-
-
+import { deleteFromDonorFavList } from '../../apiActions/donors';
 
 function UserCardFav(props) {
 
@@ -38,21 +31,6 @@ function UserCardFav(props) {
     }
 
 
-    function handleDonate(user) {
-        console.log('handleDonate called');
-        // console.log('currentUser>> ',currentUser);
-        // createNewPayment();
-        console.log('123>>>', user.name);
-        let paymentData = {};
-        paymentData.email = user.email;
-        paymentData._id = user._id;
-        paymentData.amoount = 50;
-        console.log('payment data>>', paymentData);
-        let paymentProcessResult = createNewPayment(paymentData);
-        console.log('paymentProcessResult>>', paymentProcessResult);
-
-
-    }
 
     useEffect(() => {
         // Update the document title using the browser API
