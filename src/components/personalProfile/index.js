@@ -47,7 +47,6 @@ function PersonalProfile(props) {
                     <ul class="meta list list-unstyled">
                       <li class="name">{props.user.name}</li>
                       <li class="email">{userInfo.email}</li>
-                      <li class="activity">Last logged in: Today at 2:18pm</li>
                     </ul>
                   </div>
                 </div>
@@ -59,73 +58,73 @@ function PersonalProfile(props) {
                       <div class="form-group">
                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">User Name</label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" value={props.user.name} />
+                          <input type="text" class="form-control" placeholder={props.user.name} />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">Name</label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" value={props.user.name} />
+                          <input type="text" class="form-control" placeholder={props.user.name} />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">Email</label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" value={userInfo.email} />
+                          <input type="text" class="form-control" placeholder={userInfo.email} />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">Date of Birth</label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" value={userInfo.dob} />
+                          <input type="text" class="form-control" placeholder={userInfo.dob} />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">Expencsies</label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" value={userInfo.expencsies} />
+                          <input type="text" class="form-control" placeholder={userInfo.expencsies} />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">Family Count</label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" value={userInfo.familyCount} />
+                          <input type="text" class="form-control" placeholder={userInfo.familyCount} />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">Health Describtion</label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" value={userInfo.healthDesc} />
+                          <input type="text" class="form-control" placeholder={userInfo.healthDesc} />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">Health Status</label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" value={userInfo.healthStatus} />
+                          <input type="text" class="form-control" placeholder={userInfo.healthStatus} />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">Income</label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" value={userInfo.income} />
+                          <input type="text" class="form-control" placeholder={userInfo.income} />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">National Number</label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" value={userInfo.nationalNo} />
+                          <input type="text" class="form-control" placeholder={userInfo.nationalNo} />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">Paypal</label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" value={userInfo.payPal} />
+                          <input type="text" class="form-control" placeholder={userInfo.payPal} />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">Social status</label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" value={userInfo.socialStatus} />
+                          <input type="text" class="form-control" placeholder={userInfo.socialStatus} />
                         </div>
                       </div>
                     </fieldset>

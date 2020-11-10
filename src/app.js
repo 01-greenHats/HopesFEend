@@ -47,10 +47,6 @@ export default propsimport => {
           <About />
         </Route>
 
-        <Route exact path="/about-us">
-          <About />
-        </Route>
-
         
        
         <Route>404 Page Not Found!</Route>
