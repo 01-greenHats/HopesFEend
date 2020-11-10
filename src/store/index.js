@@ -3,7 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import inNeedUsersSlice from './inNeedUser';
 import postsSlice from './posts';
-import tokenSlice from './token';
+// import tokenSlice from './token';
 import userPaymentsSlice from './payments';
 import auth from './auth';
 
@@ -12,7 +12,7 @@ import auth from './auth';
 let reducers = combineReducers({ 
     inNeedUsers: inNeedUsersSlice, 
     posts: postsSlice,
-    token: tokenSlice,
+    // token: tokenSlice,
     payments: userPaymentsSlice,
     auth : auth
  
