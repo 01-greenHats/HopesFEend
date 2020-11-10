@@ -13,23 +13,87 @@ import NewPostPanel from '../newPostPanel'
 
 function PersonalProfile(props) {
 
-  const [ posts , setPosts ] = useState([]);
+  const [posts, setPosts] = useState([]);
 
   useEffect(async () => {
-    
+
     // console.log(await getPostsByAuthorId(token));
     let myPosts = await getPostsByAuthorId(props.token);
-    myPosts=myPosts.data.results;
+    myPosts = myPosts.data.results;
     console.log('fetch result>>', myPosts);
     setPosts(myPosts)
-    console.log("hello posts >>>>>>>> " , posts);
+    console.log("hello posts >>>>>>>> ", posts);
     console.log('props in personal profile : >>>>>>>>>>', props);
   }, []);
 
   return (
     <>
       <main>
-        <div class="page-header header-filter" data-parallax="true" ></div>
+        <div class="container">
+          <div class="view-account">
+            <section class="module">
+              <div class="module-inner">
+                <div class="side-bar">
+                  <div class="user-info">
+                    <img class="img-profile img-circle img-responsive center-block" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
+                    <ul class="meta list list-unstyled">
+                      <li class="name">{props.user.name}</li>
+                      <li class="email">Rebecca.S@website.com</li>
+                      <li class="activity">Last logged in: Today at 2:18pm</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="content-panel">
+                  <form class="form-horizontal">
+                    <fieldset class="fieldset">
+                      <h3 class="fieldset-title">Personal Info</h3>
+                      
+                      <div class="form-group">
+                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">User Name</label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value="Rebecca" />
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">First Name</label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value="Rebecca" />
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Last Name</label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value="Sanders" />
+                        </div>
+                      </div>
+                    </fieldset>
+                  
+                    <div class="form-group">
+                      <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
+                        <input class="btn btn-primary" type="submit" value="Update Profile" />
+                      </div>
+                    </div>
+                  </form>
+                  
+                </div>
+                <div>
+                <NewPostPanel />
+                <div>{
+                  posts.map((post, idex) => {
+                    return (
+                      <PostCard key={idex}
+                        post={post} />
+                    );
+                  })
+                }
+                </div>
+              </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        {/* <div class="page-header header-filter" data-parallax="true" ></div>
         <div class="main main-raised">
           <div class="profile-content">
             <div class="container">
@@ -65,7 +129,7 @@ function PersonalProfile(props) {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </main>
     </>
   );
@@ -73,14 +137,13 @@ function PersonalProfile(props) {
 
 const mapStateToProps = state => (
   {
-      token: state.auth.token,
-      loggedIn: state.auth.loggedIn,
-
-      user: state.auth.user,
+    token: state.auth.token,
+    loggedIn: state.auth.loggedIn,
+    user: state.auth.user,
   }
 );
 
-const mapDispatchToProps = {checkIsLogedIn};
+const mapDispatchToProps = { checkIsLogedIn };
 export default connect(mapStateToProps, mapDispatchToProps)(PersonalProfile);
 // export default connect(mapStateToProps)(PostCard);
 
