@@ -28,7 +28,7 @@ function UserCard(props) {
         str.split(' ').forEach(word => {
             result = result + word[0];
         });
-        return result;
+        return result.toUpperCase();
     }
 
     async function handleAddToFavList(token,favUserId){
@@ -70,10 +70,10 @@ function UserCard(props) {
         data.forEach(item => {
             // double filteration
             if (nameFilter !== 'All' && nationalIdFilter !== 'All') {
-                if (item.name == nameFilter && item.nationalNo.toString() == nationalIdFilter) {
+                if (item.name.toUpperCase() == nameFilter.toUpperCase() && item.nationalNo.toString() == nationalIdFilter) {
                     result.push(item)
                 }
-            } else if (nameFilter !== 'All' && item.name == nameFilter) {
+            } else if (nameFilter !== 'All' && item.name.toUpperCase() == nameFilter.toUpperCase()) {
                 result.push(item)
             } else if (nationalIdFilter !== 'All' && item.nationalNo.toString() == nationalIdFilter) {
                 result.push(item)
