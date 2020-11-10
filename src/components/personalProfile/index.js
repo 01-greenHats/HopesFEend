@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { checkIsLogedIn } from '../../store/auth'
 import { getPostsByAuthorId } from '../../apiActions/posts';
 import { getOneUser } from '../../apiActions/users';
-import { updateUser } from '../../apiActions/users';
+
 import { useState, useEffect } from 'react';
 import NewPostPanel from '../newPostPanel'
 
@@ -34,25 +34,6 @@ function PersonalProfile(props) {
     console.log('props in personal profile : >>>>>>>>>>', props);
   }, []);
 
-  async function handleUpdateUser(event){
-    console.log('updated heloooooooooooooooooooooo >>>>>>>>>>>>>');
-    event.preventDefault();
-    let updatedUser = {
-      "email" : e.target.email,
-      "dob" : e.target.dob,
-      "expencsies" : e.target.expencsies,
-      "familyCount" : e.target.familyCount,
-      "healthDesc" : e.target.healthDesc,
-      "healthStatus" : e.target.healthStatus,
-      "income" : e.target.income,
-      "nationalNo" : e.target.nationalNo,
-      "payPal" : e.target.payPal,
-      "name" : e.target.name
-    }
-    let updateResult = await updateUser(userInfo._id,updatedUser);
-    console.log('updated result>>>>>>>>>>>>>', updateResult);
-  }
-
   return (
     <>
       <main>
@@ -66,6 +47,7 @@ function PersonalProfile(props) {
                     <ul class="meta list list-unstyled">
                       <li class="name">{props.user.name}</li>
                       <li class="email">{userInfo.email}</li>
+                      <li class="activity">Last logged in: Today at 2:18pm</li>
                     </ul>
                   </div>
                 </div>
@@ -77,80 +59,80 @@ function PersonalProfile(props) {
                       <div class="form-group">
                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">User Name</label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input name="name" type="text" class="form-control" placeholder={props.user.name} />
+                          <input type="text" class="form-control" value={props.user.name} />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">Name</label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input name="name" type="text" class="form-control" placeholder={props.user.name} />
+                          <input type="text" class="form-control" value={props.user.name} />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">Email</label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input name="email" type="text" class="form-control" placeholder={userInfo.email} />
+                          <input type="text" class="form-control" value={userInfo.email} />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">Date of Birth</label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input name="dob" type="text" class="form-control" placeholder={userInfo.dob} />
+                          <input type="text" class="form-control" value={userInfo.dob} />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">Expencsies</label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input name="expencsies" type="text" class="form-control" placeholder={userInfo.expencsies} />
+                          <input type="text" class="form-control" value={userInfo.expencsies} />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">Family Count</label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input name="familyCount" type="text" class="form-control" placeholder={userInfo.familyCount} />
+                          <input type="text" class="form-control" value={userInfo.familyCount} />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">Health Describtion</label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input name="healthDesc" type="text" class="form-control" placeholder={userInfo.healthDesc} />
+                          <input type="text" class="form-control" value={userInfo.healthDesc} />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">Health Status</label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input name="healthStatus" type="text" class="form-control" placeholder={userInfo.healthStatus} />
+                          <input type="text" class="form-control" value={userInfo.healthStatus} />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">Income</label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input name="income" type="text" class="form-control" placeholder={userInfo.income} />
+                          <input type="text" class="form-control" value={userInfo.income} />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">National Number</label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input name="nationalNo" type="text" class="form-control" placeholder={userInfo.nationalNo} />
+                          <input type="text" class="form-control" value={userInfo.nationalNo} />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">Paypal</label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input name="payPal" type="text" class="form-control" placeholder={userInfo.payPal} />
+                          <input type="text" class="form-control" value={userInfo.payPal} />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">Social status</label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                          <input name="socialStatus" type="text" class="form-control" placeholder={userInfo.socialStatus} />
+                          <input type="text" class="form-control" value={userInfo.socialStatus} />
                         </div>
                       </div>
                     </fieldset>
                   
                     <div class="form-group">
                       <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                        <button class="btn btn-primary" type="submit" onClick={(e)=>handleUpdateUser}>Update Profile</button>
+                        <input class="btn btn-primary" type="submit" value="Update Profile" />
                       </div>
                     </div>
                   </form>
@@ -172,7 +154,43 @@ function PersonalProfile(props) {
             </section>
           </div>
         </div>
-        
+        {/* <div class="page-header header-filter" data-parallax="true" ></div>
+        <div class="main main-raised">
+          <div class="profile-content">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6 ml-auto mr-auto">
+                  <div class="profile">
+                    <div class="avatar">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTe9yWmtBD3aj_7mqHn9SVadOiSVM2Ge2TXyQ&usqp=CAU" alt="Circle Image" class="img-raised rounded-circle img-fluid" />
+                    </div>
+                    <div class="name">
+                      <h3 class="title">{props.user.name}</h3>
+                      <a href="#pablo" class="btn btn-just-icon btn-link btn-dribbble"><i class="fa fa-dribbble"></i></a>
+                      <a href="#pablo" class="btn btn-just-icon btn-link btn-twitter"><i class="fa fa-twitter"></i></a>
+                      <a href="#pablo" class="btn btn-just-icon btn-link btn-pinterest"><i class="fa fa-pinterest"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="description text-center">
+                <p></p>
+              </div>
+              <div>
+                <NewPostPanel />
+                <div>{
+                  posts.map((post, idex) => {
+                    return (
+                      <PostCard key={idex}
+                        post={post} />
+                    );
+                  })
+                }
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> */}
       </main>
     </>
   );
