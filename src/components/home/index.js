@@ -3,14 +3,14 @@ import Button from 'react-bootstrap/Button';
 import './home.scss';
 import Typical from 'react-typical';
 import { Link } from "react-router-dom";
-
+import Slider from '../slider'
 
 function Test() {
 
     return (
         <>
-
-<header class="header">
+ <Slider />
+{/* <header class="header">
 	<div class="wrapper">
 		<div class="heading-wrapper">
 			<h1 class="main-heading"> <Typical
@@ -28,7 +28,7 @@ function Test() {
 	</div>
 </header>
 <main></main>
-<footer></footer>
+<footer></footer> */}
 
           
         </>

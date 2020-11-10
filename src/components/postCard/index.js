@@ -82,6 +82,7 @@ function PostCard(props) {
 
                 </div>
                 <div class="card-body">
+            
                     <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>{props.post.createdTime}</div>
                     <a class="card-link" href="#">
                         <h5 class="card-title"> {props.post.title}</h5>
@@ -112,17 +113,19 @@ function PostCard(props) {
 
                 <div class="row-com">
 
-                    <div class="avatar_comment col-md-1">
+                    {/* <div class="avatar_comment col-md-1"> */}
 
-                        <img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar" />
+                        {/* <img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar" /> */}
 
-                    </div>
+                    {/* </div> */}
 
                     <div class="box_comment col-md-11">
 
                         <form onSubmit={(e) => { handleAddComment(e, props.post._id) }}>
-
+                         <img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar" />
+                      
                             <textarea name="commentContent" class="commentar" placeholder="Add a comment..."></textarea>
+                            
 
                             <div class="box_post">
 
@@ -156,9 +159,9 @@ function PostCard(props) {
 
             <div class="row">
 
-                <ul id="list_comment" class="col-md-12">
+                {/* <ul id="list_comment" class="col-md-12"> */}
 
-                    <li class="box_result row">
+                    {/* <li class="box_result row"> */}
 
                         <div id={props.post._id} class="result_comment col-md-11">
 
@@ -170,8 +173,8 @@ function PostCard(props) {
                                 }
                             </div> */}
                         </div>
-                    </li>
-                </ul>
+                    {/* </li> */}
+                {/* </ul> */}
             </div >
         </>
     )
