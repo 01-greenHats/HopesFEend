@@ -16,12 +16,14 @@ import Loader from './components/loader';
 
 import About from './components/aboutUsPage';
 
+import Home from './components/home/index';
 
 
 export default propsimport => {
   return (
     <div id='main'>
       <Header />
+     {/* <New /> */}
       <Switch>
         <Route exact path="/in_need_users">
           <InNeedUsers />
@@ -29,7 +31,7 @@ export default propsimport => {
         </Route>
         <Route exact path="/user_payments/:id" component={UserPayments}>
         </Route>
-        <Route exact path="/">
+        <Route exact path="/posts">
           <MainPage />
           <Loader />
         </Route>
@@ -47,8 +49,8 @@ export default propsimport => {
           <About />
         </Route>
 
-        <Route exact path="/about-us">
-          <About />
+        <Route exact path="/">
+          <Home />
         </Route>
 
         
