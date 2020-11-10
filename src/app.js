@@ -23,32 +23,38 @@ export default propsimport => {
     <div id='main'>
       <Header />
       <Switch>
+
+      <Route exact path="/">
+          <MainPage />
+          <Loader />
+        </Route>
+
+
         <Route exact path="/in_need_users">
           <InNeedUsers />
           <Loader />
         </Route>
-        <Route exact path="/user_payments/:id" component={UserPayments}>
-        </Route>
-        <Route exact path="/">
-          <MainPage />
-          <Loader />
-        </Route>
+
+        <Route exact path="/user_payments/:id" component={UserPayments}/>
+       
+       
         <Route exact path="/userForm">
           <UserForm/>
         </Route>
+
         <Route exact path="/login-signup-donor">
           <DonorRegisteration />
         </Route>
+
         <Route exact path="/personal_profile">
           <PersonalProfile />
           <Loader />
         </Route>
+
         <Route exact path="/about-us">
           <About />
-        </Route>
-
-        
-       
+        </Route>  
+              
         <Route>404 Page Not Found!</Route>
       </Switch>
       <Footer />
