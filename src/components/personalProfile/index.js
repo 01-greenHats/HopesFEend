@@ -14,8 +14,7 @@ import NewPostPanel from '../newPostPanel'
 function PersonalProfile(props) {
 
   const [ posts , setPosts ] = useState([]);
-  console.log('props>>>>>>>>>>', props);
-  console.log('user>>>>>>>>>>', props.user);
+
   useEffect(async () => {
     
     // console.log(await getPostsByAuthorId(token));
@@ -24,6 +23,7 @@ function PersonalProfile(props) {
     console.log('fetch result>>', myPosts);
     setPosts(myPosts)
     console.log("hello posts >>>>>>>> " , posts);
+    console.log('props in personal profile : >>>>>>>>>>', props);
   }, []);
 
   return (
@@ -75,7 +75,8 @@ const mapStateToProps = state => (
   {
       token: state.auth.token,
       loggedIn: state.auth.loggedIn,
-      user: state.auth.user
+
+      user: state.auth.user,
   }
 );
 
