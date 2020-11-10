@@ -81,10 +81,11 @@ function PostCard(props) {
                     </div>
 
                 </div>
-                <div className="card-body">
-                    <div className="text-muted h7 mb-2"> <i className="fa fa-clock-o"></i>{props.post.createdTime}</div>
-                    <a className="card-link" href="#">
-                        <h5 className="card-title"> {props.post.title}</h5>
+                <div class="card-body">
+            
+                    <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>{props.post.createdTime}</div>
+                    <a class="card-link" href="#">
+                        <h5 class="card-title"> {props.post.title}</h5>
                     </a>
 
                     <p className="card-text">
@@ -112,17 +113,19 @@ function PostCard(props) {
 
                 <div className="row-com">
 
-                    <div className="avatar_comment col-md-1">
+                    {/* <div class="avatar_comment col-md-1"> */}
 
-                        <img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar" />
+                        {/* <img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar" /> */}
 
-                    </div>
+                    {/* </div> */}
 
                     <div className="box_comment col-md-11">
 
                         <form onSubmit={(e) => { handleAddComment(e, props.post._id) }}>
-
-                            <textarea name="commentContent" className="commentar" placeholder="Add a comment..."></textarea>
+                         <img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar" />
+                      
+                            <textarea name="commentContent" class="commentar" placeholder="Add a comment..."></textarea>
+                            
 
                             <div className="box_post">
 
@@ -156,9 +159,9 @@ function PostCard(props) {
 
             <div className="row">
 
-                <ul id="list_comment" className="col-md-12">
+                {/* <ul id="list_comment" class="col-md-12"> */}
 
-                    <li className="box_result row">
+                    {/* <li class="box_result row"> */}
 
                         <div id={props.post._id} className="result_comment col-md-11">
 
@@ -170,8 +173,8 @@ function PostCard(props) {
                                 }
                             </div> */}
                         </div>
-                    </li>
-                </ul>
+                    {/* </li> */}
+                {/* </ul> */}
             </div >
         </>
     )
