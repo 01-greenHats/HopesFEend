@@ -63,7 +63,7 @@ function PersonalProfile(props) {
                 <div className="elements">
                   <div className="side-bar">
                     <div className="user-info">
-                      <img className="img-profile" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
+                      <img className="img-profile" src="https://www.flaticon.com/svg/static/icons/svg/599/599305.svg" alt="" />
                       <ul className="meta list list-unstyled">
                         <li className="name">{props.user.name}</li>
                         <li className="email">{userInfo.email}</li>

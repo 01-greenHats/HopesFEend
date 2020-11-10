@@ -173,15 +173,11 @@ body{
     margin-left: 10px;
     display: inline-block
     }
-    
-    .view-account .side-bar {
-    padding-bottom: 30px
-    }
+
     
     .view-account .side-bar .user-info {
     text-align: center;
-    margin-bottom: 15px;
-    padding: 30px;
+    padding: 15px;
     color: #616670;
     // border-bottom: 1px solid #f3f3f3
     }
@@ -189,6 +185,7 @@ body{
     .view-account .side-bar .user-info .img-profile {
     width: 200px;
     height: 200px;
+    border-radius: 50%;
     }
     
     .view-account .side-bar .user-info .meta li {
