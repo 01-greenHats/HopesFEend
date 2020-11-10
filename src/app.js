@@ -23,18 +23,16 @@ export default propsimport => {
   return (
     <div id='main'>
       <Header />
-     {/* <New /> */}
       <Switch>
+      <Route exact path="/">
+          <Home />
+          
+        </Route>
         <Route exact path="/in_need_users">
           <InNeedUsers />
           <Loader />
         </Route>
-        <Route exact path="/user_payments/:id" component={UserPayments}>
-        </Route>
-        <Route exact path="/posts">
-          <MainPage />
-          <Loader />
-        </Route>
+        <Route exact path="/user_payments/:id" component={UserPayments}/>
         <Route exact path="/userForm">
           <UserForm/>
         </Route>
@@ -47,18 +45,15 @@ export default propsimport => {
         </Route>
         <Route exact path="/about-us">
           <About />
-        </Route>
-
-        <Route exact path="/">
-          <Home />
-        </Route>
-
+        </Route>  
+        <Route exact path="/posts">
+          <MainPage />
+          <Loader />
+        </Route>  
         
-       
         <Route>404 Page Not Found!</Route>
       </Switch>
       <Footer />
     </div>
-
   )
 };

@@ -4,6 +4,7 @@ import PostCard from '../postCard/index'
 import { connect } from 'react-redux';
 import { checkIsLogedIn } from '../../store/auth'
 import { getPostsByAuthorId } from '../../apiActions/posts';
+import { getOneUser } from '../../apiActions/users';
 
 import { useState, useEffect } from 'react';
 import NewPostPanel from '../newPostPanel'
@@ -13,23 +14,147 @@ import NewPostPanel from '../newPostPanel'
 
 function PersonalProfile(props) {
 
-  const [ posts , setPosts ] = useState([]);
+  const [posts, setPosts] = useState([]);
+  const [userInfo, setUser] = useState({});
 
   useEffect(async () => {
-    
+
     // console.log(await getPostsByAuthorId(token));
     let myPosts = await getPostsByAuthorId(props.token);
-    myPosts=myPosts.data.results;
-    console.log('fetch result>>', myPosts);
-    setPosts(myPosts)
-    console.log("hello posts >>>>>>>> " , posts);
+    let user = await getOneUser(props.token);
+    // console.log('user in personal profile : >>>>>>>>>>', user.data);
+    myPosts = myPosts.data.results;
+    user = user.data;
+    console.log('user in personal profile : >>>>>>>>>>', user);
+    // console.log('fetch result>>', myPosts);
+    setPosts(myPosts);
+    setUser(user);
+    console.log("hello posts >>>>>>>> ", posts);
+    console.log("hello user >>>>>>>> ", userInfo);
     console.log('props in personal profile : >>>>>>>>>>', props);
   }, []);
 
   return (
     <>
       <main>
-        <div class="page-header header-filter" data-parallax="true" ></div>
+        <div class="container">
+          <div class="view-account">
+            <section class="module">
+              <div class="module-inner">
+                <div class="side-bar">
+                  <div class="user-info">
+                    <img class="img-profile img-circle img-responsive center-block" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
+                    <ul class="meta list list-unstyled">
+                      <li class="name">{props.user.name}</li>
+                      <li class="email">{userInfo.email}</li>
+                      <li class="activity">Last logged in: Today at 2:18pm</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="content-panel">
+                  <form class="form-horizontal">
+                    <fieldset class="fieldset">
+                      <h3 class="fieldset-title">Personal Info</h3>
+                      
+                      <div class="form-group">
+                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">User Name</label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value={props.user.name} />
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Name</label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value={props.user.name} />
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Email</label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value={userInfo.email} />
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Date of Birth</label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value={userInfo.dob} />
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Expencsies</label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value={userInfo.expencsies} />
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Family Count</label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value={userInfo.familyCount} />
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Health Describtion</label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value={userInfo.healthDesc} />
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Health Status</label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value={userInfo.healthStatus} />
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Income</label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value={userInfo.income} />
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">National Number</label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value={userInfo.nationalNo} />
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Paypal</label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value={userInfo.payPal} />
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Social status</label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value={userInfo.socialStatus} />
+                        </div>
+                      </div>
+                    </fieldset>
+                  
+                    <div class="form-group">
+                      <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
+                        <input class="btn btn-primary" type="submit" value="Update Profile" />
+                      </div>
+                    </div>
+                  </form>
+                  
+                </div>
+                <div>
+                <NewPostPanel />
+                <div>{
+                  posts.map((post, idex) => {
+                    return (
+                      <PostCard key={idex}
+                        post={post} />
+                    );
+                  })
+                }
+                </div>
+              </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        {/* <div class="page-header header-filter" data-parallax="true" ></div>
         <div class="main main-raised">
           <div class="profile-content">
             <div class="container">
@@ -65,7 +190,7 @@ function PersonalProfile(props) {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </main>
     </>
   );
@@ -73,14 +198,13 @@ function PersonalProfile(props) {
 
 const mapStateToProps = state => (
   {
-      token: state.auth.token,
-      loggedIn: state.auth.loggedIn,
-
-      user: state.auth.user,
+    token: state.auth.token,
+    loggedIn: state.auth.loggedIn,
+    user: state.auth.user,
   }
 );
 
-const mapDispatchToProps = {checkIsLogedIn};
+const mapDispatchToProps = { checkIsLogedIn };
 export default connect(mapStateToProps, mapDispatchToProps)(PersonalProfile);
 // export default connect(mapStateToProps)(PostCard);
 
