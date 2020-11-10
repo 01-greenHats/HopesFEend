@@ -34,7 +34,7 @@ export default function About() {
 
             <h1 class="about" style={{ textAlign: "center" }}>Our Team</h1>
             <div class="row-about">
-                <div class="wrapper">
+                <div class="wrapper-about">
                     <div class="container">
                         <div class="top-shela"></div>
                         <div class="bottom">
@@ -57,7 +57,7 @@ export default function About() {
                 </div>
 
 
-                <div class="wrapper">
+                <div class="wrapper-about">
                     <div class="container">
                         <div class="top-herthani"></div>
                         <div class="bottom">
@@ -80,7 +80,7 @@ export default function About() {
                 </div>
 
 
-                <div class="wrapper">
+                <div class="wrapper-about">
                     <div class="container">
                         <div class="top-roqaia"></div>
                         <div class="bottom">
@@ -104,7 +104,7 @@ export default function About() {
                 </div>
 
 
-                <div class="wrapper">
+                <div class="wrapper-about">
                     <div class="container">
                         <div class="top-hisham"></div>
                         <div class="bottom">
