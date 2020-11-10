@@ -21,7 +21,10 @@ const auth = createSlice({
             console.log('action : ',action)
             cookie.save('auth', action.payload.token,{ maxAge: 86400 });
             state.loggedIn = action.payload.loggedIn
-            state.user = action.payload.user;
+            let user = jwt.verify(action.payload.token, 'secret');
+            if(user){
+                state.user = user;
+            }
             state.token = action.payload.token;
 
         },
