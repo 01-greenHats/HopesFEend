@@ -6,7 +6,8 @@ let getUsersUrl = 'https://gazahopes.herokuapp.com/api/v1/users';
 let userSignupUrl='https://gazahopes.herokuapp.com/api/v1/users/signup';
 let userSigninUrl='https://gazahopes.herokuapp.com/api/v1/users/signin';
 let getOneUserUrl='https://gazahopes.herokuapp.com/api/v1/users/getOneUser'
-
+//router.put('/api/v1/:model/:id', handlePutItem);
+let updateUserlUrl='https://gazahopes.herokuapp.com/api/v1/users/';
 export const getInNeedUsersData = () => {
     return axiosApiInstance(getUsersUrl)
 }
@@ -31,6 +32,16 @@ export const getOneUser = (token) => {
     let myHeaders={};
     myHeaders['Authorization']=`Bearer ${token}`;
     return axiosApiInstance(getOneUserUrl,'get','',myHeaders)     
+}
+
+
+
+export const updateUser = (updatedUser,userId) => {
+    console.log('updateUser called');  
+    updateUserlUrl=updateUserlUrl+""+userId;
+    // let myHeaders={};
+    // myHeaders['Authorization']=`Bearer ${token}`;
+    return axiosApiInstance(updateUserlUrl,'put',updatedUser);      
 }
 
 
