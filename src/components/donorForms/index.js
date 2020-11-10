@@ -45,12 +45,12 @@ const DonorRegisteration = props => {
     const handleSubmitLogin = async e => {
         e.preventDefault();
         // console.log(this.state)
-        console.log("in handleSubmit login ")
         let loginResult = await donorSignin(e.target.username.value, e.target.password.value);
+        console.log("in handleSubmit login ",loginResult.data)
         if(loginResult.status == 200){
             props.setLoginState({
                 token:loginResult.data.token.token,
-                user:loginResult.data.addedUser,
+                user:loginResult.data.loggedUser,
                 loggedIn:true
             });
             history.push("/");

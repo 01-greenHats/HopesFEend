@@ -27,7 +27,7 @@ var active = false;
         if(loginResult.status == 200){
             props.setLoginState({
                 token:loginResult.data.token.token,
-                loggedUser:loginResult.data.token.loggedUser,
+                user:loginResult.data.token.user,
                 loggedIn:true
             });
             history.push("/");
