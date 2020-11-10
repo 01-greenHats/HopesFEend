@@ -71,7 +71,11 @@ const DonorFavList = props => {
     useEffect(async () => {
 
         let favUsers = await getDonorFavList(props.token)
+<<<<<<< HEAD
         console.log('fav list users>>',favUsers);
+=======
+        console.log('fav list users>>',favUsers.data.results[0].favUsers);
+>>>>>>> 7b4688ec98b9b8fdedf04c2f2eaaa31a458fe54f
         props.setDonorFavList(favUsers.data.results[0].favUsers);
 
      
