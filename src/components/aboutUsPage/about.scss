@@ -132,11 +132,11 @@ $red: #49111C;
         &.clicked{
           transform: translateX(-50%);
         }
-        h2{
+        .h2-about{
             margin:0;
             padding:0;
         }
-        p{
+        .p-about{
             margin:0;
             padding:0;
         }
@@ -239,11 +239,11 @@ $red: #49111C;
         &.clicked{
           transform: translateX(-50%);
         }
-        h2{
+        .h2-about{
             margin:0;
             padding:0;
         }
-        p{
+        .p-about{
             margin:0;
             padding:0;
         }
@@ -254,7 +254,7 @@ $red: #49111C;
           background: #f4f4f4;
           position:relative;
           float:left;
-          h2 , p{
+          .h2-about , .p-about{
             text-align: center;
             color: #0B3142;
           }
@@ -348,11 +348,11 @@ $red: #49111C;
         &.clicked{
           transform: translateX(-50%);
         }
-        h2{
+        .h2-about{
             margin:0;
             padding:0;
         }
-        p{
+        .p-about{
             margin:0;
             padding:0;
         }
@@ -458,11 +458,11 @@ $red: #49111C;
         &.clicked{
           transform: translateX(-50%);
         }
-        h2{
+        .h2-about{
             margin:0;
             padding:0;
         }
-        p{
+        .p-about{
             margin:0;
             padding:0;
         }
@@ -593,11 +593,11 @@ $red: #49111C;
         transform: scale(0.5);
         transform: translateY(-200%);
         transition: opacity 0.2s, transform 0.8s;
-        p{
+        .p-about{
           color: white;
           text-align: center;
         }
-        p{
+        .p-about{
           font-size:25pt;
         }
       }

@@ -40,8 +40,8 @@ export default function About() {
                         <div class="bottom">
                             <div class="left">
 
-                                <h2>Ahmad Shela</h2>
-                                <p>Software Developer</p>
+                                <h2 className ="h2-about">Ahmad Shela</h2>
+                                <p className="p-about">Software Developer</p>
 
                             </div>
                         </div>
@@ -49,7 +49,7 @@ export default function About() {
                     <div class="inside">
                         <div class="icon"><i class="material-icons">info</i></div>
                         <div class="contents">
-                            <p>
+                            <p className="p-about">
                                 Software Developer
                         </p>
                         </div>
@@ -63,8 +63,8 @@ export default function About() {
                         <div class="bottom">
                             <div class="left">
 
-                                <h2>Ahmad Herthani</h2>
-                                <p>Software Developer</p>
+                                <h2 className ="h2-about">Ahmad Herthani</h2>
+                                <p className="p-about">Software Developer</p>
 
                             </div>
                         </div>
@@ -72,7 +72,7 @@ export default function About() {
                     <div class="inside">
                         <div class="icon"><i class="material-icons">info</i></div>
                         <div class="contents">
-                            <p>
+                            <p className="p-about">
                                 Software Developer
                         </p>
                         </div>
@@ -86,8 +86,8 @@ export default function About() {
                         <div class="bottom">
                             <div class="left">
 
-                                <h2>Roqaia Salahi</h2>
-                                <p>Software Developer</p>
+                                <h2 className ="h2-about">Roqaia Salahi</h2>
+                                <p className="p-about">Software Developer</p>
 
                             </div>
 
@@ -96,7 +96,7 @@ export default function About() {
                     <div class="inside">
                         <div class="icon"><i class="material-icons">info</i></div>
                         <div class="contents">
-                            <p>
+                            <p className="p-about">
                                 Software Developer
                         </p>
                         </div>
@@ -109,15 +109,15 @@ export default function About() {
                         <div class="top-hisham"></div>
                         <div class="bottom">
                             <div class="left">
-                                <h2>Hisham AlNaji</h2>
-                                <p>Software Developer</p>
+                                <h2 className ="h2-about">Hisham AlNaji</h2>
+                                <p className="p-about">Software Developer</p>
                             </div>
                         </div>
                     </div>
                     <div class="inside">
                         <div class="icon"><i class="material-icons">info</i></div>
                         <div class="contents">
-                            <p>
+                            <p className="p-about">
                                 Software Developer
                         </p>
                         </div>

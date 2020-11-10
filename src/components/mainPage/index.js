@@ -1,3 +1,4 @@
+//--------------this is the posts page------------------
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from "react-router-dom";
