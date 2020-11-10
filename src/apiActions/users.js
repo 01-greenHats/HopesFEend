@@ -27,7 +27,7 @@ export const inNeedUserSignin = (userName,password) => {
 export const getOneUser = (token) => {
     console.log('getPostsByAuthorUrl called');  
     // getPostsByAuthorIdUrl=getPostsByAuthorIdUrl+""+postId+"/"+commentId;
-    console.log('editCommentUrl>>',getPostsByAuthorIdUrl);
+    console.log('editCommentUrl>>',getOneUserUrl);
     let myHeaders={};
     myHeaders['Authorization']=`Bearer ${token}`;
     return axiosApiInstance(getOneUserUrl,'get','',myHeaders)     
