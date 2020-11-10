@@ -72,7 +72,7 @@ const DonorFavList = props => {
 
         let favUsers = await getDonorFavList(props.token)
         console.log('fav list users>>',favUsers);
-        props.setDonorFavList(favUsers.data.results);
+        props.setDonorFavList(favUsers.data.results[0].favUsers);
 
      
     }, []);
