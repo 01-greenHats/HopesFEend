@@ -159,10 +159,10 @@
 
 
 body{
-    background:#f9f9fb;    
+    background:#f0edee;    
     }
     .view-account{
-    background:#FFFFFF; 
+    background:#f0edee; 
     margin-top:20px;
     }
     .view-account .pro-label {
@@ -173,23 +173,19 @@ body{
     margin-left: 10px;
     display: inline-block
     }
-    
-    .view-account .side-bar {
-    padding-bottom: 30px
-    }
+
     
     .view-account .side-bar .user-info {
     text-align: center;
-    margin-bottom: 15px;
-    padding: 30px;
+    padding: 15px;
     color: #616670;
-    border-bottom: 1px solid #f3f3f3
+    // border-bottom: 1px solid #f3f3f3
     }
     
     .view-account .side-bar .user-info .img-profile {
-    width: 120px;
-    height: 120px;
-    margin-bottom: 15px
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
     }
     
     .view-account .side-bar .user-info .meta li {
@@ -274,17 +270,17 @@ body{
     margin-bottom: 5px
     }
     
-    .view-account .content-panel {
+    .view-account  {
     padding: 30px
     }
     
-    .view-account .content-panel .title {
+    .view-account  .title {
     margin-bottom: 15px;
     margin-top: 0;
     font-size: 18px
     }
     
-    .view-account .content-panel .fieldset-title {
+    .view-account  .fieldset-title {
     padding-bottom: 15px;
     border-bottom: 1px solid #eaeaf1;
     margin-bottom: 30px;
@@ -292,54 +288,54 @@ body{
     font-size: 16px
     }
     
-    .view-account .content-panel .avatar .figure img {
+    .view-account  .avatar .figure img {
     float: right;
     width: 64px
     }
     
-    .view-account .content-panel .content-header-wrapper {
+    .view-account  .content-header-wrapper {
     position: relative;
     margin-bottom: 30px
     }
     
-    .view-account .content-panel .content-header-wrapper .actions {
+    .view-account  .content-header-wrapper .actions {
     position: absolute;
     right: 0;
     top: 0
     }
     
-    .view-account .content-panel .content-utilities {
+    .view-account  .content-utilities {
     position: relative;
     margin-bottom: 30px
     }
     
-    .view-account .content-panel .content-utilities .btn-group {
+    .view-account  .content-utilities .btn-group {
     margin-right: 5px;
     margin-bottom: 15px
     }
     
-    .view-account .content-panel .content-utilities .fa {
+    .view-account  .content-utilities .fa {
     font-size: 16px;
     margin-right: 0
     }
     
-    .view-account .content-panel .content-utilities .page-nav {
+    .view-account  .content-utilities .page-nav {
     position: absolute;
     right: 0;
     top: 0
     }
     
-    .view-account .content-panel .content-utilities .page-nav .btn-group {
+    .view-account  .content-utilities .page-nav .btn-group {
     margin-bottom: 0
     }
     
-    .view-account .content-panel .content-utilities .page-nav .indicator {
+    .view-account  .content-utilities .page-nav .indicator {
     color: #a2a6af;
     margin-right: 5px;
     display: inline-block
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item {
+    .view-account  .mails-wrapper .mail-item {
     position: relative;
     padding: 10px;
     border-bottom: 1px solid #f3f3f3;
@@ -347,100 +343,100 @@ body{
     overflow: hidden
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item>div {
+    .view-account  .mails-wrapper .mail-item>div {
     float: left
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item .icheck {
+    .view-account  .mails-wrapper .mail-item .icheck {
     background-color: #fff
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item:hover {
+    .view-account  .mails-wrapper .mail-item:hover {
     background: #f9f9fb
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item:nth-child(even) {
+    .view-account  .mails-wrapper .mail-item:nth-child(even) {
     background: #fcfcfd
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item:nth-child(even):hover {
+    .view-account  .mails-wrapper .mail-item:nth-child(even):hover {
     background: #f9f9fb
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item a {
+    .view-account  .mails-wrapper .mail-item a {
     color: #616670
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item a:hover {
+    .view-account  .mails-wrapper .mail-item a:hover {
     color: #494d55;
     text-decoration: none
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item .checkbox-container,
-    .view-account .content-panel .mails-wrapper .mail-item .star-container {
+    .view-account  .mails-wrapper .mail-item .checkbox-container,
+    .view-account  .mails-wrapper .mail-item .star-container {
     display: inline-block;
     margin-right: 5px
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item .star-container .fa {
+    .view-account  .mails-wrapper .mail-item .star-container .fa {
     color: #a2a6af;
     font-size: 16px;
     vertical-align: middle
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item .star-container .fa.fa-star {
+    .view-account  .mails-wrapper .mail-item .star-container .fa.fa-star {
     color: #f2b542
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item .star-container .fa:hover {
+    .view-account  .mails-wrapper .mail-item .star-container .fa:hover {
     color: #868c97
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item .mail-to {
+    .view-account  .mails-wrapper .mail-item .mail-to {
     display: inline-block;
     margin-right: 5px;
     min-width: 120px
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item .mail-subject {
+    .view-account  .mails-wrapper .mail-item .mail-subject {
     display: inline-block;
     margin-right: 5px
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item .mail-subject .label {
+    .view-account  .mails-wrapper .mail-item .mail-subject .label {
     margin-right: 5px
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item .mail-subject .label:last-child {
+    .view-account  .mails-wrapper .mail-item .mail-subject .label:last-child {
     margin-right: 10px
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item .mail-subject .label a,
-    .view-account .content-panel .mails-wrapper .mail-item .mail-subject .label a:hover {
+    .view-account  .mails-wrapper .mail-item .mail-subject .label a,
+    .view-account  .mails-wrapper .mail-item .mail-subject .label a:hover {
     color: #fff
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item .mail-subject .label-color-1 {
+    .view-account  .mails-wrapper .mail-item .mail-subject .label-color-1 {
     background: #f77b6b
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item .mail-subject .label-color-2 {
+    .view-account  .mails-wrapper .mail-item .mail-subject .label-color-2 {
     background: #58bbee
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item .mail-subject .label-color-3 {
+    .view-account  .mails-wrapper .mail-item .mail-subject .label-color-3 {
     background: #f8a13f
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item .mail-subject .label-color-4 {
+    .view-account  .mails-wrapper .mail-item .mail-subject .label-color-4 {
     background: #ea5395
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item .mail-subject .label-color-5 {
+    .view-account  .mails-wrapper .mail-item .mail-subject .label-color-5 {
     background: #8a40a7
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item .time-container {
+    .view-account  .mails-wrapper .mail-item .time-container {
     display: inline-block;
     position: absolute;
     right: 10px;
@@ -449,18 +445,18 @@ body{
     text-align: left
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item .time-container .attachment-container {
+    .view-account  .mails-wrapper .mail-item .time-container .attachment-container {
     display: inline-block;
     color: #a2a6af;
     margin-right: 5px
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item .time-container .time {
+    .view-account  .mails-wrapper .mail-item .time-container .time {
     display: inline-block;
     text-align: right
     }
     
-    .view-account .content-panel .mails-wrapper .mail-item .time-container .time.today {
+    .view-account  .mails-wrapper .mail-item .time-container .time.today {
     font-weight: 700;
     color: #494d55
     }
@@ -596,149 +592,234 @@ body{
     .drive-list-view td.size {
     color: #a2a6af
     }
-    
-    @media (max-width:767px) {
-    .view-account .content-panel .title {
-        text-align: center
-    }
-    .view-account .side-bar .user-info {
-        padding: 0
-    }
-    .view-account .side-bar .user-info .img-profile {
-        width: 60px;
-        height: 60px
-    }
-    .view-account .side-bar .user-info .meta li {
-        margin-bottom: 5px
-    }
-    .view-account .content-panel .content-header-wrapper .actions {
-        position: static;
-        margin-bottom: 30px
-    }
-    .view-account .content-panel {
-        padding: 0
-    }
-    .view-account .content-panel .content-utilities .page-nav {
-        position: static;
-        margin-bottom: 15px
-    }
-    .drive-wrapper .drive-item {
-        width: 100px;
-        margin-right: 5px;
-        float: none
-    }
-    .drive-wrapper .drive-item-thumb {
-        width: auto;
-        height: 54px
-    }
-    .drive-wrapper .drive-item-thumb .fa {
-        font-size: 24px;
-        padding-top: 0
-    }
-    .view-account .content-panel .avatar .figure img {
-        float: none;
-        margin-bottom: 15px
-    }
-    .view-account .file-uploader {
-        margin-bottom: 15px
-    }
-    .view-account .mail-subject {
-        max-width: 100px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis
-    }
-    .view-account .content-panel .mails-wrapper .mail-item .time-container {
-        position: static
-    }
-    .view-account .content-panel .mails-wrapper .mail-item .time-container .time {
-        width: auto;
-        text-align: left
-    }
-    }
-    
-    @media (min-width:768px) {
-    .view-account .side-bar .user-info {
-        padding: 0;
-        padding-bottom: 15px
-    }
-    .view-account .mail-subject .subject {
-        max-width: 200px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis
-    }
-    }
-    
-    @media (min-width:992px) {
-    .view-account .content-panel {
-        min-height: 400px;
-        border-left: 1px solid #f3f3f7;
-        margin-left: 200px
-    }
-    .view-account .mail-subject .subject {
-        max-width: 280px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis
-    }
-    .view-account .side-bar {
-        position: absolute;
-        width: 200px;
-        min-height: 600px
-    }
-    .view-account .side-bar .user-info {
-        margin-bottom: 0;
-        border-bottom: none;
-        padding: 30px
-    }
-    .view-account .side-bar .user-info .img-profile {
-        width: 120px;
-        height: 120px
-    }
-    .view-account .side-bar .side-menu {
-        text-align: left
-    }
-    .view-account .side-bar .side-menu .nav {
-        display: block
-    }
-    .view-account .side-bar .side-menu .nav>li {
-        display: block;
-        float: none;
-        font-size: 14px;
-        border-bottom: 1px solid #f3f3f7;
-        margin-right: 0;
-        margin-bottom: 0
-    }
-    .view-account .side-bar .side-menu .nav>li>a {
-        display: block;
-        color: #9499a3;
-        padding: 10px 15px;
-        padding-left: 30px
-    }
-    .view-account .side-bar .side-menu .nav>li>a:hover {
-        background: #f9f9fb
-    }
-    .view-account .side-bar .side-menu .nav>li.active a {
-        background: #f9f9fb;
-        border-right: 4px solid #40babd;
-        border-bottom: none
-    }
-    .theme-2 .view-account .side-bar .side-menu .nav>li.active a {
-        border-right-color: #6dbd63
-    }
-    .theme-3 .view-account .side-bar .side-menu .nav>li.active a {
-        border-right-color: #497cb1
-    }
-    .theme-4 .view-account .side-bar .side-menu .nav>li.active a {
-        border-right-color: #ec6952
-    }
-    .view-account .side-bar .side-menu .nav>li .icon {
-        font-size: 24px;
-        vertical-align: middle;
-        text-align: center;
-        width: 40px;
-        display: inline-block
-    }
-    }
 
+.elements {
+    width: 30%;
+    // margin-right: 25px;
+}
+
+.module-inner {
+    display: flex;
+}
+
+.post {
+    margin: 50px;
+}
+
+.form-control {
+    width: 100%;
+}
+
+// .side-bar{
+//     background-color: #0f5257;
+// }
+
+.button {
+display: flex;
+justify-content: center;
+}
+    
+form {
+    --background: #f0edee;
+    --border: rgba(0, 0, 0, 0.125);
+    --borderDark: rgba(0, 0, 0, 0.25);
+    --borderDarker: rgba(0, 0, 0, 0.5);
+    --bgColorH: 0;
+    --bgColorS: 0%;
+    --bgColorL: 98%;
+    --fgColorH: 210;
+    --fgColorS: 50%;
+    --fgColorL: 38%;
+    --shadeDark: 0.3;
+    --shadeLight: 0.7;
+    --shadeNormal: 0.5;
+    --borderRadius: 0.125rem;
+    --highlight: #0b3142;
+    background: f0edee;
+    border: 1px solid var(--border);
+    border-radius: var(--borderRadius);
+    box-shadow: 0 1rem 1rem -0.75rem var(--border);
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  form .email, form .email a {
+    color: #0b3142;
+    font-size: 0.825rem;
+    order: 4;
+    text-align: center;
+    margin-top: 0.25rem;
+    outline: 1px dashed transparent;
+    outline-offset: 2px;
+    display: inline;
+  }
+  
+  form a:hover {
+    color: #0b3142;
+    transition: color 0.25s;
+  }
+  
+  form a:focus {
+    color: #0b3142;
+    outline: 1px dashed hsl(var(--fgColorH), calc(var(--fgColorS) * 2), calc(var(--fgColorL) * 1.15));
+    outline-offset: 2px;
+  }
+  
+  form > div {
+    order: 2;
+  }
+  
+  label {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .label-show-password {
+    order: 3;
+  }
+  
+  label > span {
+    color: #0b3142;
+    display: block;
+    font-size: 0.825rem;
+    margin-top: 0.625rem;
+    order: 1;
+    transition: all 0.25s;
+  }
+  
+  label > span.required::after {
+    content: "*";
+    color: #dd6666;
+    margin-left: 0.125rem;
+  }
+  
+  label input {
+    order: 2;
+    outline: none;
+  }
+  
+  label input::placeholder {
+    color: #0b3142;
+  }
+  
+  /* trick from https://css-tricks.com/snippets/css/password-input-bullet-alternatives/ */
+  label input[name="password"] {
+    -webkit-text-security: disc;
+  }
+  
+  input[name="show-password"]:checked ~ div label input[name="password"] {
+    -webkit-text-security: none;
+  }
+  
+  label:hover span {
+    color: #0b3142;
+  }
+  
+  input[type="checkbox"] + div label:hover span::before,
+  label:hover input.text {
+    border-color: #49111c;
+  }
+  
+  label input.text:focus,
+  label input.text:active {
+    border-color:  #49111c;
+    box-shadow: 0 1px  #49111c;
+  }
+  
+  input.text:focus + span,
+  input.text:active + span {
+    color:  #49111c;
+  }
+  
+  input {
+    border: 1px solid var(--border);
+    border-radius: var(--borderRadius);
+    box-sizing: border-box;
+    font-size: 1rem;
+    height: 2.25rem;
+    line-height: 1.25rem;
+    margin-top: 0.25rem;
+    order: 2;
+    padding: 0.25rem 0.5rem;
+    width: 100%;
+    transition: all 0.25s;
+  }
+  
+  input[type="submit"] {
+    color: #f0edee;
+    background: hsl(var(--fgColorH), var(--fgColorS), var(--fgColorL));
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-top: 0.625rem;
+    order: 4;
+    outline: 1px dashed transparent;
+    outline-offset: 2px;
+    padding-left: 0;
+    text-transform: uppercase;
+  }
+  
+  input[type="checkbox"]:focus + label span::before,
+  input[type="submit"]:focus {
+    outline: 1px dashed hsl(var(--fgColorH), calc(var(--fgColorS) * 2), calc(var(--fgColorL) * 1.15));
+    outline-offset: 2px;
+  }
+  
+  input[type="submit"]:focus {
+    background: hsl(var(--fgColorH), var(--fgColorS), calc(var(--fgColorL) * 0.85));
+  }
+  
+  input[type="submit"]:hover {
+    background: hsl(var(--fgColorH), var(--fgColorS), calc(var(--fgColorL) * 0.85));
+  }
+  
+  input[type="submit"]:active {
+    background: hsl(var(--fgColorH), calc(var(--fgColorS) * 2), calc(var(--fgColorL) * 1.15));
+    transition: all 0.125s;
+  }
+  
+  /** Checkbox styling */
+  .a11y-hidden {
+    position: absolute;
+    top: -1000em;
+    left: -1000em;
+  }
+  
+  input[type="checkbox"] + label span {
+    padding-left: 1.25rem;
+    position: relative;
+  }
+  
+  input[type="checkbox"] + label span::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0.75rem;
+    height: 0.75rem;
+    border: 1px solid var(--borderDark);
+    border-radius: var(--borderRadius);
+    transition: all 0.25s;
+    outline:1px dashed transparent;
+    outline-offset: 2px;
+  }
+  
+  input[type="checkbox"]:checked + label span::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0.1875rem;
+    left: 0.1875rem;
+    width: 0.375rem;
+    height: 0.375rem;
+    border: 1px solid var(--borderDark);
+    border-radius: var(--borderRadius);
+    transition: all 0.25s;
+    outline:1px dashed transparent;
+    outline-offset: 2px;
+    background: hsl(var(--fgColorH), var(--fgColorS), var(--fgColorL));
+  }
+  
