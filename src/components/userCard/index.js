@@ -131,7 +131,6 @@ function UserCard(props) {
                                                 <p className="front__text-para"><LocationOnIcon className="front-icons" />Gaza</p>
 
 
-                                                <span className="front__text-hover">Total Payments 0 $</span>
                                             </div>
                                         </div>
                                         <div className="back">
