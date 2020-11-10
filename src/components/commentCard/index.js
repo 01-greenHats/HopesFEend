@@ -37,7 +37,7 @@ export default CommentCard;
     // return(
     //     <>
     //     {/* <div className="commentCard" style={{display:"flex",marginLeft:"15px",padding:"5px"}}> */}
-    //     <div class="result_comment col-md-11">
+    //     <div className="result_comment col-md-11">
     //     <img src={`${props.comment.imgURL}`} alt="Avatar" style={{width:"30px",borderRadius:"50%",padding:"7px 0px"}}/>
     //     <div>
     //     <h4 >{props.comment.name}</h4>
