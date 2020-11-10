@@ -1,6 +1,7 @@
 $blue: #0B3142;
 $white: #F0EDEE;
 $red: #49111C;
+$greem: #0F5257;
 $standard: 10px;
 $card-height: 450px;
 $card-width: 300px;
@@ -106,19 +107,34 @@ $card-width: 300px;
 
 .front__face-photo {
   position: relative;
-  top: -60px;
-  height: 120px;
-  width: 120px;
-  margin: 0 auto;
-  border-radius: 50%;
-  border: 5px solid $white;
-  background-color: #0f5257;
-  background-size: contain;
-  backface-visibility: hidden;
-  overflow: hidden;
-  transition: all 0.6s cubic-bezier(0.8, -0.4, 0.2, 1.7);
-  z-index: 3;
-  color: $white;
+    top: -60px;
+    height: 120px;
+    width: 125px;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 0.5px solid #f6f6f6;
+    background-color: #49111C;
+    background-size: contain;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.8, -0.4, 0.2, 1.7);
+    z-index: 3;
+    color: #F0EDEE;
+  // position: relative;
+  // top: -60px;
+  // height: 120px;
+  // width: 120px;
+  // margin: 0 auto;
+  // border-radius: 50%;
+  // border: 5px solid $white;
+  // background-color: #0f5257;
+  // background-size: contain;
+  // backface-visibility: hidden;
+  // overflow: hidden;
+  // transition: all 0.6s cubic-bezier(0.8, -0.4, 0.2, 1.7);
+  // z-index: 3;
+  // color: $white;
   
 }
 .front_face-text{
@@ -171,11 +187,11 @@ $card-width: 300px;
     text-transform: uppercase;
     letter-spacing: .4px;
 
-    border: 2px solid $red;
+    border: 2px solid $greem;
     padding: 8px 15px;
     border-radius: 30px;
 
-    background: $red;
+    background: $greem;
     color: $white;
   }
 }
@@ -187,7 +203,7 @@ $card-width: 300px;
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: $blue;
+  background-color: $greem;
   border-radius: 5px;
   display: flex;
   flex-direction: row;
