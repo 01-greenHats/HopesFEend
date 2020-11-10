@@ -32,7 +32,7 @@ function NewPostPanel(props) {
     async function submitPost() {
         console.log('user who added the post : ',props.user)
         if(!props.loggedIn){
-            history.push("/loginUser");
+            history.push("/userForm");
             return;
         }
         console.log('user in post props : ',props.user)
@@ -51,6 +51,7 @@ function NewPostPanel(props) {
             console.log('Added Post : ',add_post.data ); 
             props.addNewPostToStore(add_post.data)
         }
+        document.getElementById('inputPost').value = ""
     }
 
     useEffect(async () => {
