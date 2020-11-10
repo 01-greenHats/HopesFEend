@@ -35,7 +35,6 @@ export default propsimport => {
         <Route exact path="/userForm">
           <UserForm/>
         </Route>
-        
         <Route exact path="/login-signup-donor">
           <DonorRegisteration />
         </Route>
