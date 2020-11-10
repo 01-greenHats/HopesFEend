@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import cookie from 'react-cookies';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import './header.scss'
 import Logo from './logo.png';
 import { Link } from "react-router-dom";
@@ -8,6 +10,11 @@ import { If, Then, Else } from '../if';
 
 function Header(props) {
 
+
+function handleLogout() {
+  console.log('Removing Cookies');
+  cookie.remove('auth', { path: '/' })
+}
   return (
 
 
@@ -63,6 +70,13 @@ function Header(props) {
           </If>
 
           <a className="a-header"><Link to='/about-us'><li>About Us</li></Link></a>
+                    <If condition={props.loggedIn}>
+            <Then>
+
+
+              <a className="a-header Logout" href="/"><li className="Logout" onClick={()=>{handleLogout()}}><ExitToAppIcon style={{fill: "#49111C",fontSize:"2.5em"}}/></li></a>
+            </Then>
+          </If>
         </ul>
       </nav>
 

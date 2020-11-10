@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import { checkIsLogedIn } from '../../store/auth';
 import Button from 'react-bootstrap/Button';
 import './home.scss';
 import Typical from 'react-typical';
 import { Link } from "react-router-dom";
 
 
-function Test() {
-
+function Test(props) {
+    useEffect(async () => {
+        props.checkIsLogedIn()
+    }, []);
     return (
         <>
 
@@ -35,8 +39,17 @@ function Test() {
     )
 }
 
-
-export default Test;
+const mapStateToProps = state => (
+    {
+        posts: state.posts.posts,
+        token: state.auth.token,
+        loggedIn: state.auth.loggedIn
+    });
+const mapDispatchToProps = {
+    checkIsLogedIn
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Test);
+// export default Test;
 
 
 
