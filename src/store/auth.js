@@ -36,7 +36,7 @@ const auth = createSlice({
                 let user = jwt.verify(token, 'secret');
                 if(user){
                     state.loggedIn = true
-                    // state.user = user 
+                    state.user = user 
                     state.token = token
                     cookie.save('auth', token,{ maxAge: 86400 });
                     console.log('all good',state.loggedIn);

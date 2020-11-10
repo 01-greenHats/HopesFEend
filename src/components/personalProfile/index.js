@@ -15,6 +15,7 @@ function PersonalProfile(props) {
 
   const [ posts , setPosts ] = useState([]);
   console.log('props>>>>>>>>>>', props);
+  console.log('user>>>>>>>>>>', props.user);
   useEffect(async () => {
     
     // console.log(await getPostsByAuthorId(token));
@@ -39,7 +40,7 @@ function PersonalProfile(props) {
                       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTe9yWmtBD3aj_7mqHn9SVadOiSVM2Ge2TXyQ&usqp=CAU" alt="Circle Image" class="img-raised rounded-circle img-fluid" />
                     </div>
                     <div class="name">
-                      <h3 class="title">Hisham AlNaji</h3>
+                      <h3 class="title">{props.user.name}</h3>
                       <a href="#pablo" class="btn btn-just-icon btn-link btn-dribbble"><i class="fa fa-dribbble"></i></a>
                       <a href="#pablo" class="btn btn-just-icon btn-link btn-twitter"><i class="fa fa-twitter"></i></a>
                       <a href="#pablo" class="btn btn-just-icon btn-link btn-pinterest"><i class="fa fa-pinterest"></i></a>
@@ -73,7 +74,8 @@ function PersonalProfile(props) {
 const mapStateToProps = state => (
   {
       token: state.auth.token,
-      loggedIn: state.auth.loggedIn
+      loggedIn: state.auth.loggedIn,
+      user: state.auth.user
   }
 );
 
