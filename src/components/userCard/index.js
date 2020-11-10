@@ -31,9 +31,9 @@ function UserCard(props) {
         return result.toUpperCase();
     }
 
-    async function handleAddToFavList(token,favUserId){
-        let addToFavReult=await addToDonorFavList(token,favUserId);
-        console.log('addToFavReult>>>',addToFavReult);
+    async function handleAddToFavList(token, favUserId) {
+        let addToFavReult = await addToDonorFavList(token, favUserId);
+        console.log('addToFavReult>>>', addToFavReult);
 
     }
 
@@ -89,12 +89,24 @@ function UserCard(props) {
                 <TextField id="standard-secondary" className="searchInput" onChange={(e) => { setNameFilter(e.target.value) }} label="Name" /> */}
                 <form className="serchForm">
 
-                    <label className="searchLabel">
+                    {/* <label className="searchLabel">
                         <input id="standard-secondary" className="searchInput" placeholder="National Number" onChange={(e) => { setNationalIdFilter(e.target.value) }} label="National Number" />
                     </label>
                     <label>
                         <input id="standard-secondary" className="searchInput" placeholder="Name" onChange={(e) => { setNameFilter(e.target.value) }} label="Name" />
-                    </label>
+                    </label> */}
+                    <div class="field" tabindex="1">
+                        <label class="label" for="username">
+                            <i class="far fa-user"></i>Name
+			</label>
+                        <input class="input" name="username" type="text" placeholder="e.g. Hisham Alnaji" onChange={(e) => { setNameFilter(e.target.value) }} />
+                    </div>
+                    <div class="field" tabindex="2">
+                        <label for="email">
+                            <i class="far fa-envelope"></i>Natioanl Number
+			</label>
+                        <input class="input" name="email" type="text" placeholder="e.g. 9968918472" onChange={(e) => { setNationalIdFilter(e.target.value) }} />
+                    </div>
 
                 </form>
             </div>
@@ -137,7 +149,7 @@ function UserCard(props) {
                                                         <li>Expencsies: {item.expencsies}</li>
                                                         <li>Email: {item.email}</li>
                                                         <button className="viewMoreButton"><Link to={{ pathname: "/user_payments/" + item._id, state: item }}>Donate for this person</Link> </button>
-                                                        <button onClick={()=>{handleAddToFavList(props.token,item._id)}} className="viewMoreButton"> Add to Favourite </button>
+                                                        <button onClick={() => { handleAddToFavList(props.token, item._id) }} className="viewMoreButton"> Add to Favourite </button>
 
                                                         {/* <button className="viewMoreButton"><Link to={{ pathname: "/user_payments/" + item._id, state: item }}>View Payments history</Link> </button> */}
 
@@ -179,6 +191,6 @@ const mapStateToProps = state => (
         loggedIn: state.auth.loggedIn
     });
 const mapDispatchToProps = {
-  
+
 };
 export default connect(mapStateToProps, mapDispatchToProps)(UserCard);
