@@ -1,17 +1,20 @@
 {
   "files": {
     "main.css": "/static/css/main.233593d5.chunk.css",
+
     "main.js": "/static/js/main.7c1830c7.chunk.js",
     "main.js.map": "/static/js/main.7c1830c7.chunk.js.map",
+
     "runtime-main.js": "/static/js/runtime-main.5dcd3b82.js",
     "runtime-main.js.map": "/static/js/runtime-main.5dcd3b82.js.map",
     "static/css/2.2e412779.chunk.css": "/static/css/2.2e412779.chunk.css",
-    "static/js/2.0bb002aa.chunk.js": "/static/js/2.0bb002aa.chunk.js",
-    "static/js/2.0bb002aa.chunk.js.map": "/static/js/2.0bb002aa.chunk.js.map",
+    "static/js/2.5e90cd5b.chunk.js": "/static/js/2.5e90cd5b.chunk.js",
+    "static/js/2.5e90cd5b.chunk.js.map": "/static/js/2.5e90cd5b.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.2e412779.chunk.css.map": "/static/css/2.2e412779.chunk.css.map",
     "static/css/main.233593d5.chunk.css.map": "/static/css/main.233593d5.chunk.css.map",
     "static/js/2.0bb002aa.chunk.js.LICENSE.txt": "/static/js/2.0bb002aa.chunk.js.LICENSE.txt",
+
     "static/media/about.scss": "/static/media/roooqaia.f66816f3.jpg",
     "static/media/cover.456e4459.jpg": "/static/media/cover.456e4459.jpg",
     "static/media/logo.cb9d6178.png": "/static/media/logo.cb9d6178.png",
@@ -23,5 +26,6 @@
     "static/js/2.0bb002aa.chunk.js",
     "static/css/main.233593d5.chunk.css",
     "static/js/main.7c1830c7.chunk.js"
+
   ]
 }
