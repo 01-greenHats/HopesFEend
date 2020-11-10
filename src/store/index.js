@@ -5,7 +5,8 @@ import inNeedUsersSlice from './inNeedUser';
 import postsSlice from './posts';
 import tokenSlice from './token';
 import userPaymentsSlice from './payments';
-import auth from './auth';
+import authSlice from './auth';
+import donorFavListSlice from './donorFavList';
 
 
 
@@ -14,7 +15,8 @@ let reducers = combineReducers({
     posts: postsSlice,
     token: tokenSlice,
     payments: userPaymentsSlice,
-    auth : auth
+    auth : authSlice,
+    donorFavList:donorFavListSlice
  
 });
 const store = configureStore({ reducer: reducers });

@@ -15,6 +15,7 @@ import UserPayments from './components/userPaymsDtl';
 import Loader from './components/loader';
 
 import About from './components/aboutUsPage';
+import FavList from './components/donorFavList';
 
 
 
@@ -50,6 +51,10 @@ export default propsimport => {
           <PersonalProfile />
           <Loader />
         </Route>
+
+        <Route exact path="/fav-list">
+          <FavList />
+        </Route>  
 
         <Route exact path="/about-us">
           <About />

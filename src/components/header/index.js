@@ -32,7 +32,7 @@ function Header(props) {
           </If>
           <If condition={props.loggedIn &&  props.userType == 'donors'}>
             <Then>
-            <li class='active'><Link to='/about-us'>My List</Link></li>
+            <li class='active'><Link to='/fav-list'>My List</Link></li>
             </Then>
           </If>
           <li class='active'><Link to='/about-us'>About us</Link></li>
