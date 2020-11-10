@@ -10,9 +10,9 @@
     "build": "react-scripts build"
   },
   "keywords": [],
-  "author": "Rawan Nujoom <rawan.nujoom@gmail.com>",
+  "author": "Hopes Team <hopes.app.gaza@gmail.com>",
   "license": "ISC",
-  "homepage": "https://01-greenhats.github.io",
+  "homepage": "https://01-greenhats.github.io/HopesFEnd",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
