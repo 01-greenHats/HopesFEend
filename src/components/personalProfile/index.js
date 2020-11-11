@@ -101,7 +101,7 @@ function PersonalProfile(props) {
                       <div>
                         <label class="label-password">
                           <input type="text" class="text" name="expencsies" tabindex="2" defaultValue={userInfo.expencsies} />
-                          <span class="required">Expencsies</span>
+                          <span class="required">Expenses</span>
                         </label>
                       </div>
                       <div>
@@ -113,7 +113,7 @@ function PersonalProfile(props) {
                       <div>
                         <label class="label-password">
                           <input type="text" class="text" name="healthDesc" tabindex="2" defaultValue={userInfo.healthDesc} />
-                          <span class="required">Health Describtion</span>
+                          <span class="required">Health Description</span>
                         </label>
                       </div>
                       <div>
