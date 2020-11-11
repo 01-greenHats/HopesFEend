@@ -14,7 +14,7 @@ function Test(props) {
     return (
         <>
 
-<header className="header">
+<main className="header">
 	<div className="wrapper">
 		<div className="heading-wrapper">
 			<h1 className="main-heading"> <Typical
@@ -30,9 +30,7 @@ function Test(props) {
 		</div> 
         <Button className="donateBtn" variant="secondary">  <Link to='/in_need_users' id ="a-homeBtn">Donate</Link> </Button>
 	</div>
-</header>
-<main></main>
-<footer></footer> 
+</main>
 
           
         </>

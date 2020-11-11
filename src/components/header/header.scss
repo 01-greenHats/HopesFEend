@@ -21,21 +21,17 @@ body {
 
 
 .logo-img {
-    height: 40px;
-    margin-left: 20px;
-    margin: auto 20px;
+  height: 40px;
+  margin: 20px;
   // background-color: $white;
     font-family: "Red Rose", cursive;
 }
 .div-logo{
-  border-radius: 25px;
-  padding: 9px;
-  width: 190px;
-  height: 70px;
-  border: #F0EDEE solid 2px;
-  margin-top: 15px;
   background-color: #F0EDEE;
-  margin-left: 25px;
+  margin: 10px;
+  box-shadow: 0 0 10px #20b2aa;
+  /* border: 1px solid #0B3142; */
+  border-radius: 500%;
 }
 
 

@@ -1,0 +1,24 @@
+#donateform{
+    width: fit-content;
+    button{
+        margin-left: 8px;
+        background-color: #4267b2;
+        border: 1px solid #4267b2;
+        color: #fff;
+        text-decoration: none;
+        line-height: 22px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: bold;
+        position: relative;
+        text-align: center;
+    }
+    button:hover{
+        background-color: #49111C;
+    }
+}
+.donateformDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}

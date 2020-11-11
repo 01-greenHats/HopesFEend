@@ -15,11 +15,11 @@ import CloseIcon from '@material-ui/icons/Close';
 function toggleControlePanel(e) {
     if (document.getElementById('ControlPanel').style.display == 'none') {
         document.getElementById('ControlPanel').style.display = 'block';
-        document.getElementById('inputPost').style.height = '50px';
+        // document.getElementById('inputPost').style.height = '100px';
     } else {
         console.log('HHHHH');
         document.getElementById('ControlPanel').style.display = 'none';
-        document.getElementById('inputPost').style.height = '30px';
+        // document.getElementById('inputPost').style.height = '40px';
     }
 }
 
@@ -86,19 +86,19 @@ function NewPostPanel(props) {
 
             {/* <div className="newPostContainer" style={{ border: "1px solid gray" }}> */}
             <div class="row-post">
-                <div className="avatar_comment col-md-1">
+                <div className="avatar_comment col-md-1" style={{backgroundColor: "#FFF"}}>
                     <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="Avatar" style={{ width:  "52px;", borderRadius: "50%", padding: "10px" }} />
-                    <span><button value="1" className="cancel-btn-addPost" onClick={(e) => { toggleControlePanel(e) }}><CloseIcon /></button></span>
+                    <span><button value="1" className="cancel-btn-addPost" style={{border:"none"}} onClick={(e) => { toggleControlePanel(e) }}><CloseIcon id="closePostBtn"/></button></span>
                 </div>
                 <div class="box_comment col-md-11">
                     <div className="postInputContainer">
-                        <textarea className="commentar" id="inputPost" placeholder="Help others" onClick={(e) => { toggleControlePanel(e) }} name="Text1" cols="40" rows="5"></textarea>
+                        <textarea className="commentar" id="inputPost" placeholder="Help others" onClick={(e) => { toggleControlePanel(e) }} name="Text1" cols="40" rows="5" style={{fontSize:"120%" ,backgroundColor:"#e0e0e04f"}}></textarea>
                         {/* <input placeholder="Help others" className="postInput" onClick={()=>{toggleControlePanel()}}/> */}
                     </div>
 
                 </div>
-                <div id="ControlPanel" className="newPostControlPanel" style={{ display: "none", position: "relative" }}>
-                    <hr />
+                <div id="ControlPanel" className="newPostControlPanel" style={{ display: "none", position: "relative",padding: "13px" }}>
+                    {/* <hr /> */}
 
                     <div class="box_post">
                         <div class="pull-right">

@@ -7,6 +7,7 @@ import Header from './components/header';
 import Footer from './components/footer';
 import { Route, Switch } from 'react-router-dom';
 import MainPage from './components/mainPage';
+import CustomPaginationActionsTable from './components/userPaymsDtl'
 // import SiginupUser from './components/signupUser';
 // import Login from './components/loginUser';
 import UserForm from './components/userForms';
@@ -35,9 +36,10 @@ export default propsimport => {
           <Loader />
         </Route>
 
-        <Route exact path="/user_payments/:id" component={UserPayments}>
-          <Loader />
-        </Route>
+        <Route exact path="/user_payments/:id" component={UserPayments}/>
+          {/* <Loader />
+          <CustomPaginationActionsTable/> */}
+        {/* </Route> */}
         <Route exact path="/userForm">
           <UserForm />
         </Route>
