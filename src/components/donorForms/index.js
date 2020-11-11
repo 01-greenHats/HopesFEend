@@ -25,6 +25,7 @@ const DonorRegisteration = props => {
             'name': e.target.signupName.value,
             'email': e.target.signupEmail.value,
             'password': e.target.signupPassword.value,
+            'imgURL': "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
 
         }
         console.log("donor object from form ", donor)

@@ -35,10 +35,14 @@ function NewPostPanel(props) {
         console.log('user who added the post : ', props.user)
 
         let post = {
+            author:{
+                name:props.user.name,
+                imgURL:props.user.imgURL,
+            },
             content: document.getElementById('inputPost').value,
             imageUrl: [],
         }
-
+        console.log('the post body : ',post)
         if (!props.loggedIn) {
             console.log('no user loggedin, redirescting to sign in page');
             history.push("/userForm");
