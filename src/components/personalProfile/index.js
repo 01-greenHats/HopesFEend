@@ -118,7 +118,12 @@ function PersonalProfile(props) {
                       </div>
                       <div>
                         <label class="label-password">
-                          <input type="text" class="text" name="healthStatus" tabindex="2" defaultValue={userInfo.healthStatus} />
+                          <select type="text" class="text" name="healthStatus" tabindex="2" defaultValue={userInfo.healthStatus}>
+                          <option value="good">Good</option>
+                            <option value="disabled">Disabled</option>
+                            <option value="disease">Disease</option>
+                            <option value="chronic">Chronic</option>
+                            </select>
                           <span class="required">Health Status</span>
                         </label>
                       </div>
@@ -142,7 +147,12 @@ function PersonalProfile(props) {
                       </div>
                       <div>
                         <label class="label-password">
-                          <input type="text" class="text" name="socialStatus" tabindex="2" defaultValue={userInfo.socialStatus} />
+                          <select type="text" class="text" name="socialStatus" tabindex="2" defaultValue={userInfo.socialStatus} >
+                            <option value="single">Single</option>
+                            <option value="married">Married</option>
+                            <option value="widowed">Widowed</option>
+                            <option value="divorced">Divorced</option>
+                          </select>
                           <span class="required">Social status</span>
                         </label>
                       </div>

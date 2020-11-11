@@ -34,7 +34,16 @@
     text-align: justify;
 }
 
-
+#box_commentContent{
+    padding: 10px 25px;
+    width: fit-content;
+    border: none;
+    resize: none;
+    background-color: #e0e0e0;
+    border-radius: 100px;
+    margin: 0 20px;
+    font-size: 85%;
+}
 
 
 // .commentCard {

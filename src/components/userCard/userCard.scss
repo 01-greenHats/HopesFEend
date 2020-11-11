@@ -70,7 +70,7 @@ button{
 }
 
 .front,
-.backFace {
+.backCardFace {
   position: relative;
   top: 0;
   left: 0;
@@ -148,7 +148,7 @@ button{
     margin: 0 auto;
     border-radius: 50%;
     border: 0.5px solid #f6f6f6;
-    background-color: #49111C;
+    background-color: $green;
     background-size: contain;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -231,19 +231,32 @@ button{
   }
 }
 
-.backFace {
+.backCardFace {
   transform: rotateY(180deg);
   position: absolute;
-  top: 0;
-  left: 0;
+  // /* top: 0; */
+  // /* left: 0; */
   height: 100%;
   width: 100%;
   background-color: #0F5257;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  // /* border-radius: 5px; */
+  // /* display: flex; */
+  // /* flex-direction: row; */
+  // /* justify-content: center; */
+  // /* align-items: center;
+
+  // transform: rotateY(180deg);
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  // height: 100%;
+  // width: 100%;
+  // background-color: #0F5257;
+  // border-radius: 5px;
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: center;
+  // align-items: center;
 }
 
 .social-media-wrapper {
@@ -299,23 +312,7 @@ button{
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.viewMoreButton{
-    
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .4px;
-    border: 1px solid $red;
-    padding: 8px 15px;
-    border-radius: 30px;
-    background:$white;
-    color: #000;
-}
-.viewMoreButton:hover{
-  background-color:$red;
-  color: #FFF;
-  cursor: pointer;
-}
+
 
 .fab {
   position: relative;
@@ -434,4 +431,53 @@ button{
   .tbl-btn.rotate {
       transform: rotate(180deg);
   }
+}
+.btnsCardDiv{
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+  margin-right: 28px;
+}
+.cardDonateBtn{
+  background-color: $red;
+  border: 1px solid $red;
+  color: #fff;
+  text-decoration: none;
+  // line-height: 22px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  position: relative;
+  text-align: center;
+}
+.cardDonateBtn:hover{
+  background-color: #000;
+}
+.filterSearchPanel{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  
+  input{
+    margin: 15px;
+    outline: none;
+    border-radius: 15px;
+    box-shadow: 0 0 2px grey;
+    color: $red;
+    border: 1px solid var(--border);
+    border-radius: 0;
+    box-sizing: border-box;
+    font-size: 1rem;
+    height: 2.25rem;
+    line-height: 1.25rem;
+    margin-top: 0.25rem;
+    order: 2;
+    padding: 0.25rem 0.5rem;
+    width: 20%;
+    transition: all 0.25s;
+    text-align: center;
+}
+input:focus{
+  border: 1px solid $red;
+}
 }
