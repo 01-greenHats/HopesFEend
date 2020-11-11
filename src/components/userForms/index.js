@@ -89,7 +89,22 @@ var active = false;
 
                             <input id="familyCount" className="user-input-form" name="familyCount" type="text" placeholder="Family Count" />
                             <input id="socialStatus" className="user-input-form" name="socialStatus" type="text" placeholder="Social Status" />
+                            <select  id="socialStatus" className="user-input-form" name="socialStatus" type="text" placeholder="Social Status">
+  <option value="0">Social Status</option>
+  <option value="1" className="option-user" value="single">single</option>
+  <option value="2" className="option-user" value="married">married</option>
+  <option value="3" className="option-user" value="widowed">widowed</option>
+  <option value="4" className="option-user" value="divorced">divorced</option>
+</select>
+
                             <input id="healthStatus" className="user-input-form" name="healthStatus" type="text" placeholder="Health Status" />
+                             <select id="healthStatus" className="user-input-form" name="healthStatus" type="text" placeholder="Health Status">
+  <option value="0">Health Status</option>
+  <option  value="1" className="option-user" value="single">good</option>
+  <option value="2" className="option-user" value="married">disabled</option>
+  <option value="3" className="option-user" value="widowed">widowed</option>
+  <option value="4" className="option-user" value="divorced">chronic disease</option>
+</select>
                             <input id="healthDesc" className="user-input-form" name="healthDesc" type="text" placeholder="Health Description" />
                             <input id="income" className="user-input-form" name="income" type="number" placeholder="Income" />
                             <input id="expencsies" className="user-input-form" name="expencsies" type="number" placeholder="Expencsies" />

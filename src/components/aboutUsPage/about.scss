@@ -15,7 +15,9 @@ $red: #49111C;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 53px;
+    margin-top: 60px;
+   margin-bottom :60px;
+  
 }
  
   
@@ -76,8 +78,8 @@ $red: #49111C;
   }
   .about-para{
    
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 25px;
+   
+    font-size: 22px;
   }
   .team-names{
     color: $blue;
@@ -94,7 +96,7 @@ $red: #49111C;
 
   }
   .about{
-    font-family: 'Ubuntu', sans-serif;
+    color:$red;
   }
 
 
@@ -603,7 +605,59 @@ $red: #49111C;
       }
     }
   }
+// linear-gradient(to left, rgba(238, 168, 73, 0.8), rgb(198 147 133 / 10%)), url(
+// 176 62 62
+////// new updates/////
 
+#bigImage {
+ 
+  height: 325px;
+  background-image: linear-gradient(
+      to left,
+      rgba(176, 62, 62, 0.8),
+      rgba(198, 147, 133, 0.9)
+    ),
+    url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+  background-size: cover;
+  background-position: 50% 30%;
+  position: relative;
+}
+
+#bigImage h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-size: 30pt;
+  font-weight: bold;
+}
+
+/*vision section */
+
+#vision {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+#vision  #ourTeam ,.our-mission {
+  text-align: center;
+  font-size: 20pt;
+  // font-family: "Roboto Slab", serif;
+  color: #646363;
+}
+
+
+#vision p {
+  line-height: 25px;
+  text-align: center;
+  width: 70%;
+  margin: 15px auto;
+  color: #646363;
+  margin-bottom: 50px;
+}
  
   
 
