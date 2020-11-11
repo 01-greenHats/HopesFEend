@@ -146,7 +146,7 @@ function PersonalProfile(props) {
                           <span class="required">Social status</span>
                         </label>
                       </div>
-                      <input type="submit" value="Update Profile" />
+                      <input class="text" type="submit" value="Update Profile" />
 
                     </form>
                   </div>
