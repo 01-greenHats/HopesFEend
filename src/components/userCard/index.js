@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react';
-import {TextField, Button, CardActionArea} from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
+import { TextField, Button, CardActionArea } from '@material-ui/core';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import {Card} from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import './userCard.scss';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
