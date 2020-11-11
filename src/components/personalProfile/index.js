@@ -94,7 +94,7 @@ function PersonalProfile(props) {
                       </div>
                       <div>
                         <label class="label-password">
-                          <input type="text" class="text" name="dob" tabindex="2" defaultValue={userInfo.dob} />
+                          <input type="text" class="text" name="dob" tabindex="2" defaultValue={new Date(userInfo.dob).toLocaleDateString()} />
                           <span class="required">Date of Birth</span>
                         </label>
                       </div>

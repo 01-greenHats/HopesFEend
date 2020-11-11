@@ -167,8 +167,11 @@ class CustomPaginationActionsTable extends React.Component {
         const { classes } = this.props;
         const { totalPayments,rows, rowsPerPage, page } = this.state;
         const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+        console.log('Payments props : ',this.props.location.state)
+        let user = this.props.location.state
         return (
-            
+        <>
+        <h1>Payments history for : {user.name}</h1>
             <If condition={this.state.payments.length > 0}>
                 <Then>
                 <Paper className={classes.root}>
@@ -226,7 +229,6 @@ class CustomPaginationActionsTable extends React.Component {
                 </Then>
                 <Else>
                     <h1>No payments yet</h1>
-                    <h2>Donate for him now !!</h2>
                     <form id="donateform" action="https://gazahopes.herokuapp.com/pay" method="POST">
                     <fieldset>
                     <legend>Make the world a better place</legend>
@@ -240,6 +242,7 @@ class CustomPaginationActionsTable extends React.Component {
                 </Else>
 
             </If>
+        </>
             
 
         );

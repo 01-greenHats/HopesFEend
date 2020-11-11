@@ -74,12 +74,12 @@ function UserCardFav(props) {
 
                                                 <div className="card__details">
                                                     <ul>
-                                                        <li>Date of Bith: {item.dob}</li>
+                                                        <li>Date of Birth: {new Date(item.dob).toLocaleDateString()}</li>
                                                         <li>Social Status: {item.socialStatus}</li>
                                                         <li>Health Status: {item.healthStatus}</li>
                                                         <li>Family Count: {item.familyCount}</li>
                                                         <li>Income: {item.income} </li>
-                                                        <li>Expencsies: {item.expencsies}</li>
+                                                        <li>Expenses: {item.expencsies}</li>
                                                         <li>Email: {item.email}</li>
                                                         <button className="viewMoreButton"><Link to={{ pathname: "/user_payments/" + item._id, state: item }}>Donate for this person</Link> </button>
                                                         <button onClick={()=>{handleDeleteFromFavList(props.token,item._id)}} className="viewMoreButton"> Delete From Favourite </button>
