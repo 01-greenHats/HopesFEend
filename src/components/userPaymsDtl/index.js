@@ -13,6 +13,7 @@ import FirstPageIcon from '@material-ui/icons/FirstPage';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
+import './userPayment.scss'
 import { connect } from 'react-redux';
 import { getUserPayments } from '../../apiActions/payments'
 import { setUserPayments } from '../../store/payments'
@@ -109,6 +110,7 @@ const styles = theme => ({
     root: {
         width: '100%',
         marginTop: theme.spacing.unit * 3,
+        padding: '30px',
     },
     table: {
         minWidth: 500,
@@ -137,11 +139,13 @@ class CustomPaginationActionsTable extends React.Component {
 
             // let userId = '5MNSBA6FP2QF4';
             let userData = await getUserPayments(userId);
+            console.log('Payments Details Respons : ',userData)
             userData = userData.data.results;
+            this.setState({ payments:userData })
             let totalPayms=0;
             let paymentsRows = userData.map(element => {
                 totalPayms+= Number(element.amount);
-                return createData(element.amount, element.currency, element.date)
+                return createData(element.amount, element.currency, new Date(element.date).toLocaleDateString())
             });
             this.setState({totalPayments:totalPayms});
             this.setState({ rows: paymentsRows })
@@ -205,17 +209,32 @@ class CustomPaginationActionsTable extends React.Component {
                     </Table>
                 </div>
                 <form id="donateform" action="https://gazahopes.herokuapp.com/pay" method="POST">
+                <fieldset>
+                    <legend>Make the world a better place</legend>
+                    <div className="donateformDiv">
                     <input type="hidden" name="userId" value={this.props.history.location.state._id} />
                     <input type="hidden" name="email" value={this.props.history.location.state.email} />
                     <input type="hidden" name="userName" value={this.props.history.location.state.name} />
                     <input name="amount" />
                     <button type="submit">Donate</button>
+                    </div>
+                </fieldset>
                 </form>
             </Paper>
                 </Then>
                 <Else>
                     <h1>No payments yet</h1>
                     <h2>Donate for him now !!</h2>
+                    <form id="donateform" action="https://gazahopes.herokuapp.com/pay" method="POST">
+                    <fieldset>
+                    <legend>Make the world a better place</legend>
+                    <input type="hidden" name="userId" value={this.props.history.location.state._id} />
+                    <input type="hidden" name="email" value={this.props.history.location.state.email} />
+                    <input type="hidden" name="userName" value={this.props.history.location.state.name} />
+                    <input style={{fonSize: "120%"}} name="amount" />
+                    <button type="submit">Donate</button>
+                    </fieldset>
+                </form>
                 </Else>
 
             </If>
