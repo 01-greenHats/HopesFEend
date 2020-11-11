@@ -128,7 +128,7 @@ function UserCard(props) {
 
                                         <div className="card__details">
                                             <ul>
-                                                <li>Date of Bith: {
+                                                <li>Date of Birth: {
                                                     new Date(item.dob).toLocaleDateString()
                                                 }</li>
                                                 <li>Social Status: {
