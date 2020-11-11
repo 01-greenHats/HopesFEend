@@ -67,10 +67,10 @@ function PostCard(props) {
                             <div className="ml-2">
                                 <div className="h5 m-0">
                                     {
-                                    props.post.author.name
+                                    props.post.author
                                 }</div>
                                 <div className="h7 text-muted" style={{fontSize: "70%", marginTop:"5px"}}>@{
-                                    props.post.author.name
+                                    props.post.author
                                 }</div>
                             </div>
                         </div>
