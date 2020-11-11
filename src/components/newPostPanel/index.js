@@ -4,7 +4,7 @@ import './newPostPanel.scss'
 import CameraAltIcon from '@material-ui/icons/CameraAlt';
 import PostAddIcon from '@material-ui/icons/PostAdd';
 import CancelIcon from '@material-ui/icons/Cancel';
-import { addPost } from '../../apiActions/posts';
+import { addPost,donorAddPost } from '../../apiActions/posts';
 import { connect } from 'react-redux';
 import { addNewPostToStore } from '../../store/posts';
 import CloseIcon from '@material-ui/icons/Close';
@@ -26,32 +26,59 @@ function toggleControlePanel(e) {
 
 
 function NewPostPanel(props) {
+    console.log('props in NewPostPanel',props);
     const history = useHistory()
     // console.log('props in new post pannel>>',props);
 
 
     async function submitPost() {
         console.log('user who added the post : ', props.user)
-        if (!props.loggedIn) {
-            history.push("/userForm");
-            return;
-        }
-        console.log('user in post props : ', props.user)
 
         let post = {
+            author:{
+                name:props.user.name,
+                imgURL:props.user.imgURL,
+            },
             content: document.getElementById('inputPost').value,
             imageUrl: [],
         }
+        console.log('the post body : ',post)
+        if (!props.loggedIn) {
+            console.log('no user loggedin, redirescting to sign in page');
+            history.push("/userForm");
+            return;
+        } else if(props.user.userType=='donors'){
+            console.log('donor is id loggedin');
+
+            
+
+            let add_post = await donorAddPost(post, props.token);
+            if (add_post.status == 200) {
+                let id = add_post.data.author;
+                add_post.data.author = props.user
+                console.log('Added Post : ', add_post.data);
+                props.addNewPostToStore(add_post.data)
+            }
+
+        }else{
+            console.log('user is id loggedin');
+
+            let add_post = await addPost(post, props.token);
+            if (add_post.status == 200) {
+                let id = add_post.data.author;
+                add_post.data.author = props.user
+                console.log('Added Post : ', add_post.data);
+                props.addNewPostToStore(add_post.data)
+            }
+
+        }
+        // console.log('user in post props : ', props.user)
+
+      
         // console.log('NyPost : ', post)
         // console.log('token : ', props.token)
-        console.log('Token in new post panel : ', props.token)
-        let add_post = await addPost(post, props.token);
-        if (add_post.status == 200) {
-            let id = add_post.data.author;
-            add_post.data.author = props.user
-            console.log('Added Post : ', add_post.data);
-            props.addNewPostToStore(add_post.data)
-        }
+        // console.log('Token in new post panel : ', props.token)
+      
         document.getElementById('inputPost').value = ""
     }
 
