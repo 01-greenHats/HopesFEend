@@ -11,6 +11,7 @@ import {connect} from 'react-redux';
 import {checkIsLogedIn} from '../../store/auth';
 import {createNewPayment} from '../../apiActions/payments';
 import {addToDonorFavList} from '../../apiActions/donors';
+import { If,Then,Else} from '../if'
 
 
 function UserCard(props) {
@@ -160,6 +161,8 @@ function UserCard(props) {
                                                                 }
                                                         }>Donate</Link>
                                                     </button>
+                                                    <If condition={props.user.userType == 'donors'}>
+                                                        <Then>
                                                     <button onClick={
                                                             () => {
                                                                 handleAddToFavList(props.token, item._id)
@@ -174,6 +177,8 @@ function UserCard(props) {
                                                             style={
                                                                 {color: "#49111C"}
                                                             }/></button>
+                                                        </Then>
+                                                    </If>
                                                 </div>
 
                                                 {/* <button className="viewMoreButton"><Link to={{ pathname: "/user_payments/" + item._id, state: item }}>View Payments history</Link> </button> */}
@@ -200,7 +205,12 @@ function UserCard(props) {
 
 //        token: state.token.token,
 
-const mapStateToProps = state => ({posts: state.posts.posts, token: state.auth.token, loggedIn: state.auth.loggedIn});
+const mapStateToProps = state => ({
+    posts: state.posts.posts, 
+    token: state.auth.token, 
+    loggedIn: state.auth.loggedIn,
+    user: state.auth.user
+});
 const mapDispatchToProps = {
     checkIsLogedIn
 };
