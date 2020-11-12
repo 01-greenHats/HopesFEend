@@ -13,6 +13,7 @@ import FirstPageIcon from '@material-ui/icons/FirstPage';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
+import Loader from '../loader';
 import './userPayment.scss'
 import { connect } from 'react-redux';
 import { getUserPayments } from '../../apiActions/payments'
@@ -171,13 +172,20 @@ class CustomPaginationActionsTable extends React.Component {
         let user = this.props.location.state
         return (
         <>
-        <h1>Payments history for : {user.name}</h1>
+        <h1 style={{textAlign:"center"}}>Payments history for : {user.name}</h1>
             <If condition={this.state.payments.length > 0}>
                 <Then>
                 <Paper className={classes.root}>
                 <h3>Total Payments: {totalPayments}</h3>
                 <div className={classes.tableWrapper}>
                     <Table className={classes.table}>
+                    <TableRow>
+                                    <TableCell component="th" scope="row">
+                                        Amount
+                                    </TableCell>
+                                    <TableCell align="right">Currency</TableCell>
+                                    <TableCell align="right">Date</TableCell>
+                                </TableRow>
                         <TableBody>
                             {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => (
                                 <TableRow key={row.id}>
@@ -228,7 +236,8 @@ class CustomPaginationActionsTable extends React.Component {
             </Paper>
                 </Then>
                 <Else>
-                    <h1>No payments yet</h1>
+                    <Loader></Loader>
+                    <h1 style={{textAlign:"center"}}>No payments yet</h1>
                     <form id="donateform" action="https://gazahopes.herokuapp.com/pay" method="POST">
                     <fieldset>
                     <legend>Make the world a better place</legend>
