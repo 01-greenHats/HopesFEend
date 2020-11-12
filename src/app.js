@@ -36,7 +36,7 @@ export default propsimport => {
           <Loader />
         </Route>
 
-        <Route exact path="/user_payments/:id" component={UserPayments}/>
+        <Route exact path="/user_payments/:id" component={Loader,UserPayments}/>
           {/* <Loader />
           <CustomPaginationActionsTable/> */}
         {/* </Route> */}
